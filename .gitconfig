@@ -1,0 +1,16 @@
+[user]
+	name = Dmitriy Shilin
+	email = sdadeveloper@gmail.com
+[core]
+	autocrlf = input
+    safecrlf = true
+
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+
+[url "gituser@xgit.tradingview.com:"]
+    insteadOf = https://xgit.tradingview.com
