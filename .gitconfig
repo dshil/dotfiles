@@ -1,8 +1,9 @@
 [user]
-	name = Dmitriy Shilin
-	email = sdadeveloper@gmail.com
+    name = Dmitriy Shilin
+    email = sdadeveloper@gmail.com
+
 [core]
-	autocrlf = input
+    autocrlf = input
     safecrlf = true
 
 [alias]
