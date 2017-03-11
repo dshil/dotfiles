@@ -71,6 +71,8 @@ fun! SetupMisspellings()
 endfun
 
 " ############################# SETTINGS ####################################
+execute pathogen#infect()
+filetype plugin indent on
 
 " Set different indentation for different types of files.
 if has("autocmd")
@@ -87,6 +89,8 @@ if has("autocmd")
 
     autocmd BufWritePre *.py,*.rb,*.c call StripTrailingWhiteSpaces()
     autocmd BufWritePre *.rb,*.c call SquashBlankLines()
+
+    autocmd bufwritepost *.vimrc source $MYVIMRC
 endif
 
 " Symbols for invisible characters (tab, eol).
@@ -101,15 +105,11 @@ set ts=4 sts=4 sw=4 expandtab
 
 " Default column ruler.
 set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-
 set clipboard=unnamed
 
 syntax enable
-
 " Set custom color scheme.
-let g:rehash256 = 1
-colorscheme molokai
+colorscheme jellybeans
 
 " Show line number.
 set number
@@ -118,6 +118,9 @@ set number
 set hidden
 
 let mapleader = "," " Set the mapleader.
+
+" Open .vimrc in the separate tab.
+nmap<leader>v :tabedit $MYVIMRC<CR>
 
 call SetupMisspellings()
 call SetupNetrw()
