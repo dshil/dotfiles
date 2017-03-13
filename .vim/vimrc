@@ -54,6 +54,41 @@ fun! SetCLocalSettings()
     autocmd FileType c setlocal colorcolumn=80
 endfun
 
+" Sets local settings for Go files.
+fun! SetGoLocalSettings()
+    autocmd FileType go setlocal colorcolumn=90
+    
+    let g:go_disable_autoinstall = 0
+
+    " Highlight
+    let g:go_highlight_functions = 1  
+    let g:go_highlight_methods = 1  
+    let g:go_highlight_structs = 1  
+    let g:go_highlight_fields = 1
+    let g:go_highlight_types = 1
+    let g:go_highlight_operators = 1  
+    let g:go_highlight_build_constraints = 1 
+    let g:go_fmt_command = "goimports"
+
+    autocmd FileType go map <leader>r <Plug>(go-run)
+    autocmd FileType go map <leader>b <Plug>(go-build)
+    autocmd FileType go map <leader>t <Plug>(go-test)
+    autocmd FileType go map <leader>c <Plug>(go-coverage)
+    autocmd FileType go map <leader>v <Plug>(go-vet)
+    autocmd FileType go map <Leader>ds <Plug>(go-def-split)
+    autocmd FileType go map <Leader>dv <Plug>(go-def-vertical)
+    autocmd FileType go map <Leader>dt <Plug>(go-def-tab)
+    autocmd FileType go map <Leader>gd <Plug>(go-doc)
+    autocmd FileType go map <Leader>gv <Plug>(go-doc-vertical)
+    autocmd FileType go map <Leader>gb <Plug>(go-doc-browser)
+    autocmd FileType go map <Leader>s <Plug>(go-implements)
+    autocmd FileType go map <Leader>e <Plug>(go-rename)
+endfun
+
+fun! SetRubyLocalSettings()
+    autocmd filetype ruby setlocal colorcolumn=80
+endfun
+
 fun! SetupNetrw()
     let g:netrw_liststyle=3 " Use a tree-mode as a default view
     let g:netrw_browse_split=4 " Open a file in a previous buffer
@@ -86,6 +121,8 @@ if has("autocmd")
  
     call SetPythonLocalSettings()
     call SetCLocalSettings()
+    call SetGoLocalSettings()
+    call SetRubyLocalSettings()
 
     autocmd BufWritePre *.py,*.rb,*.c call StripTrailingWhiteSpaces()
     autocmd BufWritePre *.rb,*.c call SquashBlankLines()
@@ -121,6 +158,9 @@ let mapleader = "," " Set the mapleader.
 
 " Open .vimrc in the separate tab.
 nmap<leader>v :tabedit $MYVIMRC<CR>
+
+" Mapping for nerd tree.
+map <C-n> :NERDTreeToggle<CR>  
 
 call SetupMisspellings()
 call SetupNetrw()
