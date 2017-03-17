@@ -9,3 +9,6 @@ gem install interactive_editor
 
 git submodule init
 git submodule update
+
+# Don't forget to exec :Helptags
+vim -u NONE -c "helptags vim-fugitive/doc" -c q
