@@ -99,7 +99,7 @@ fun! SetupNetrw()
 endfun
 
 fun! SetupMisspellings()
-    nmap <silent> <leader>s :set spell!<CR>
+    nmap <silent> <leader>q :set spell!<CR>
 
     " Set a default region to American English
     set spelllang=en_us

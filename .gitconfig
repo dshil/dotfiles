@@ -15,3 +15,5 @@
     tool = kdiff3
 [color]
     ui = true
+[rerere]
+	enabled = true
