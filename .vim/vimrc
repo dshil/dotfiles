@@ -143,6 +143,7 @@ set ts=4 sts=4 sw=4 expandtab
 " Default column ruler.
 set colorcolumn=80
 set clipboard=unnamed
+vnoremap <C-c> "+y
 
 syntax enable
 " Set custom color scheme.
@@ -153,6 +154,8 @@ set number
 
 " Don't show an error during the work with buffers.
 set hidden
+
+set backspace=2
 
 let mapleader = "," " Set the mapleader.
 
