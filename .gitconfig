@@ -17,4 +17,4 @@
 [color]
     ui = true
 [rerere]
-	enabled = true
+    enabled = true
