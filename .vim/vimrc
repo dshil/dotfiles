@@ -86,7 +86,7 @@ fun! SetGoLocalSettings()
 endfun
 
 fun! SetRubyLocalSettings()
-    autocmd filetype ruby setlocal colorcolumn=80
+    autocmd FileType ruby setlocal colorcolumn=80
 endfun
 
 fun! SetupNetrw()
