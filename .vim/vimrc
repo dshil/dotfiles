@@ -143,6 +143,9 @@ set ts=4 sts=4 sw=4 expandtab
 " Default column ruler.
 set colorcolumn=80
 set clipboard=unnamed
+
+
+" Mapping for coping to a clipboard.
 vnoremap <C-c> "+y
 
 syntax enable
@@ -163,7 +166,13 @@ let mapleader = "," " Set the mapleader.
 nmap<leader>v :tabedit $MYVIMRC<CR>
 
 " Mapping for nerd tree.
-map <C-n> :NERDTreeToggle<CR>  
+map <C-n> :NERDTreeToggle<CR>
+
+" Mapping for a turn off terminal mode.
+tnoremap <C-d> <C-\><C-n>
+
+" Mapping for a tagbar
+map <C-b> :TagbarToggle<CR>
 
 call SetupMisspellings()
 call SetupNetrw()
