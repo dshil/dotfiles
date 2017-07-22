@@ -1,7 +1,7 @@
-ln -s -f $(pwd)/.vim/vimrc ~/.vimrc
+ln -s -f $(pwd)/.vim ~/.config/nvim
+ln -s -f $(pwd)/.vim/vimrc ~/.config/nvim/init.vim
 ln -s -f $(pwd)/.irbrc ~/.irbrc
 ln -s -f $(pwd)/.gitconfig ~/.gitconfig
-ln -s -f $(pwd)/.vim ~/.vim
 
 rm $(pwd)/.vim/.vim 2>/dev/null
 
