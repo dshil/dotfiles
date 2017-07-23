@@ -57,18 +57,19 @@ endfun
 " Sets local settings for Go files.
 fun! SetGoLocalSettings()
     autocmd FileType go setlocal colorcolumn=90
-    
-    let g:go_disable_autoinstall = 0
 
-    " Highlight
-    let g:go_highlight_functions = 1  
-    let g:go_highlight_methods = 1  
-    let g:go_highlight_structs = 1  
-    let g:go_highlight_fields = 1
+    let g:go_disable_autoinstall = 0
     let g:go_highlight_types = 1
-    let g:go_highlight_operators = 1  
-    let g:go_highlight_build_constraints = 1 
+    let g:go_highlight_extra_types = 1
+    let g:go_highlight_functions = 1
+    let g:go_highlight_methods = 1
+    let g:go_highlight_structs = 1
+    let g:go_highlight_fields = 1
+    let g:go_highlight_operators = 1
+    let g:go_highlight_build_constraints = 1
     let g:go_fmt_command = "goimports"
+    let g:go_auto_sameids = 1 " To highlight vars with a same name.
+    " let g:go_auto_type_info = 1
 
     autocmd FileType go map <leader>r <Plug>(go-run)
     autocmd FileType go map <leader>b <Plug>(go-build)
@@ -103,6 +104,15 @@ fun! SetupMisspellings()
 
     " Set a default region to American English
     set spelllang=en_us
+endfun
+
+fun! SetAle()
+    " Beautify ale a little.
+    let g:ale_sign_error = 'x'
+    let g:ale_sign_warning = '⚠'
+
+    " Enable integration with airline.
+    let g:airline#extensions#ale#enabled = 1
 endfun
 
 " ############################# SETTINGS ####################################
@@ -144,16 +154,18 @@ set ts=4 sts=4 sw=4 expandtab
 set colorcolumn=80
 set clipboard=unnamed
 
-
 " Mapping for coping to a clipboard.
 vnoremap <C-c> "+y
 
 syntax enable
-" Set custom color scheme.
+" set t_Co=256   " This is may or may not needed.
+" set background=dark
+" colorscheme PaperColor
 colorscheme jellybeans
 
 " Show line number.
 set number
+set laststatus=2
 
 " Don't show an error during the work with buffers.
 set hidden
@@ -178,4 +190,5 @@ call SetupMisspellings()
 call SetupNetrw()
 call DisableKeys()
 call SetBufferSwitchKeys()
+call SetAle()
 
