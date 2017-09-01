@@ -5,8 +5,5 @@ ln -s -f $(pwd)/.gitconfig ~/.gitconfig
 
 rm $(pwd)/.vim/.vim 2>/dev/null
 
-git submodule init
-git submodule update
-
 # Don't forget to exec :Helptags
 vim -u NONE -c "helptags vim-fugitive/doc" -c q

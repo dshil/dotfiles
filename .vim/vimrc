@@ -1,19 +1,99 @@
-" ############################ HELPER FUNCTIONS #############################
+call plug#begin('~/.vim/plugged') " Directory for plugins
 
-" Disable the following keys.
-fun! DisableKeys()
+" Dependencies:
+Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
+
+" Languages:
+Plug 'fatih/vim-go'
+
+" General:
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'bling/vim-airline'
+Plug 'itchyny/calendar.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/goyo.vim'
+
+call plug#end()
+
+" Varios plugins settings
+
+"----------------------------------------------
+" Plugin: 'itchyny/calendar.vim'
+"----------------------------------------------
+" Enable Google Calendar integration.
+let g:calendar_google_calendar = 1
+
+" Enable Google Tasks integration.
+let g:calendar_google_task = 1
+"----------------------------------------------
+
+"----------------------------------------------
+" Plugin: 'junegunn/fzf.vim'
+"----------------------------------------------
+nnoremap <c-p> :FZF<cr>
+"----------------------------------------------
+
+fun! InstallGeneralSettings()
+    let mapleader = "," " Set the mapleader.
+
+    " Disable the CtrlP mapping, since we want to use FZF instead for <c-p>.
+    let g:ctrlp_map = ''
+
+    " Symbols for invisible characters (tab, eol).
+    set list
+    set listchars=tab:▸\ ,eol:¬
+
+    " Default indentation.
+    " ts stands for tabstop
+    " sts - for softtabstop (insert mode)
+    " sw - for shiftwidth (normal mode)
+    set ts=4 sts=4 sw=4 expandtab
+
+    " Default column ruler.
+    set colorcolumn=80
+    set clipboard=unnamed
+
+    " Mapping for coping to a clipboard.
+    vnoremap <C-c> "+y
+
+    let g:seoul256_background = 235
+    colo seoul256
+
+    " Show line number.
+    set number
+    set laststatus=2
+
+    " Don't show an error during the work with buffers.
+    set hidden
+    set backspace=2
+endfun
+
+fun! SetMappings()
+    nmap<leader>v :tabedit $MYVIMRC<CR>
+    map <C-n> :NERDTreeToggle<CR>
+
+    " Mapping for a turn off terminal mode.
+    tnoremap <C-d> <C-\><C-n>
+    map <C-b> :TagbarToggle<CR>
+
+    " Disable the following keys.
     noremap <Up> <Nop>
     noremap <Down> <Nop>
     noremap <Left> <Nop>
     noremap <Right> <Nop>
-endfun
 
-" Makes the switching between buffers easy.
-fun! SetBufferSwitchKeys()
+    " Makes the switching between buffers easy.
     map <C-h> <C-w>h
     map <C-j> <C-w>j
     map <C-k> <C-w>k
     map <C-l> <C-w>l
+
+    nmap <C-s> :Goyo<CR>
 endfun
 
 " Executes an input command and saves the current state.
@@ -95,7 +175,6 @@ fun! SetupNetrw()
     let g:netrw_browse_split=4 " Open a file in a previous buffer
     let g:netrw_preview=1 " A preview window will be shown in a vertically split
     let g:netrw_winsize=20 " A preview file takes 80% and the file explorer - 20%
-
     nmap <leader>n :e.<CR>
 endfun
 
@@ -106,17 +185,6 @@ fun! SetupMisspellings()
     set spelllang=en_us
 endfun
 
-fun! SetAle()
-    " Beautify ale a little.
-    let g:ale_sign_error = 'x'
-    let g:ale_sign_warning = '⚠'
-
-    " Enable integration with airline.
-    let g:airline#extensions#ale#enabled = 1
-endfun
-
-" ############################# SETTINGS ####################################
-execute pathogen#infect()
 filetype plugin indent on
 
 " Set different indentation for different types of files.
@@ -134,61 +202,13 @@ if has("autocmd")
     call SetGoLocalSettings()
     call SetRubyLocalSettings()
 
-    autocmd BufWritePre *.py,*.rb,*.c call StripTrailingWhiteSpaces()
-    autocmd BufWritePre *.rb,*.c call SquashBlankLines()
+    autocmd BufWritePre *.py,*.rb,*.c,*.cpp call StripTrailingWhiteSpaces()
+    autocmd BufWritePre *.rb,*.c,*.cpp call SquashBlankLines()
 
     autocmd bufwritepost *.vimrc source $MYVIMRC
 endif
 
-" Symbols for invisible characters (tab, eol).
-set list
-set listchars=tab:▸\ ,eol:¬
-
-" Default indentation.
-" ts stands for tabstop
-" sts - for softtabstop (insert mode)
-" sw - for shiftwidth (normal mode)
-set ts=4 sts=4 sw=4 expandtab
-
-" Default column ruler.
-set colorcolumn=80
-set clipboard=unnamed
-
-" Mapping for coping to a clipboard.
-vnoremap <C-c> "+y
-
-syntax enable
-" set t_Co=256   " This is may or may not needed.
-" set background=dark
-" colorscheme PaperColor
-colorscheme jellybeans
-
-" Show line number.
-set number
-set laststatus=2
-
-" Don't show an error during the work with buffers.
-set hidden
-
-set backspace=2
-
-let mapleader = "," " Set the mapleader.
-
-" Open .vimrc in the separate tab.
-nmap<leader>v :tabedit $MYVIMRC<CR>
-
-" Mapping for nerd tree.
-map <C-n> :NERDTreeToggle<CR>
-
-" Mapping for a turn off terminal mode.
-tnoremap <C-d> <C-\><C-n>
-
-" Mapping for a tagbar
-map <C-b> :TagbarToggle<CR>
-
+call InstallGeneralSettings()
+call SetMappings()
 call SetupMisspellings()
 call SetupNetrw()
-call DisableKeys()
-call SetBufferSwitchKeys()
-call SetAle()
-
