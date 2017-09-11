@@ -17,6 +17,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -38,8 +39,59 @@ let g:calendar_google_task = 1
 nnoremap <c-p> :FZF<cr>
 "----------------------------------------------
 
+"----------------------------------------------
+" Plugin: bling/vim-airline
+"----------------------------------------------
+" Show status bar by default.
+set laststatus=2
+
+" Enable top tabline.
+let g:airline#extensions#tabline#enabled = 1
+
+" Disable showing tabs in the tabline. This will ensure that the buffers are
+" what is shown in the tabline at all times.
+let g:airline#extensions#tabline#show_tabs = 0
+
+" Enable powerline fonts.
+let g:airline_powerline_fonts = 0
+"----------------------------------------------
+"
+"----------------------------------------------
+" Plugin: 'majutsushi/tagbar'
+"----------------------------------------------
+" Language: Go
+" Tagbar configuration for Golang
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+"----------------------------------------------
+
 fun! InstallGeneralSettings()
-    let mapleader = "," " Set the mapleader.
+    let g:mapleader = "," " Set the mapleader.
 
     " Disable the CtrlP mapping, since we want to use FZF instead for <c-p>.
     let g:ctrlp_map = ''
@@ -71,6 +123,53 @@ fun! InstallGeneralSettings()
     " Don't show an error during the work with buffers.
     set hidden
     set backspace=2
+    set smartindent
+    set autoread
+    set cursorline
+    set noerrorbells                  " No bells!
+    set novisualbell                  " I said, no bells!
+    set ruler
+    set title                         " let vim set the terminal title
+    set updatetime=100                " redraw the status bar often
+
+    " Search
+    set incsearch                     " move to match as you type the search query
+    set hlsearch                      " enable search result highlighting
+
+    filetype plugin indent on
+
+    " Set different indentation for different types of files.
+    if has("autocmd")
+        " Enable file type detection.
+        filetype on
+
+        " Apply only for current buffer.
+        autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+        autocmd FileType ruby,yml setlocal ts=2 sts=2 sw=2 expandtab
+        autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
+
+        call SetPythonLocalSettings()
+        call SetCLocalSettings()
+        call SetGoLocalSettings()
+        call SetRubyLocalSettings()
+
+        autocmd BufWritePre * call StripTrailingWhiteSpaces()
+        autocmd BufWritePre *.rb,*.c,*.cpp call SquashBlankLines()
+
+        autocmd bufwritepost *.vimrc source $MYVIMRC
+    endif
+
+    " Enable mouse if possible
+    if has('mouse')
+        set mouse=a
+    endif
+
+    if has('nvim')
+        set inccommand=split          " enables interactive search and replace
+    endif
+
+    set splitbelow
+    set splitright
 endfun
 
 fun! SetMappings()
@@ -94,6 +193,22 @@ fun! SetMappings()
     map <C-l> <C-w>l
 
     nmap <C-s> :Goyo<CR>
+
+    " Center the screen quickly
+    nnoremap <space> zz
+
+    " Clear search highlights
+    map <leader>c :nohlsearch<cr>
+
+    " These mappings will make it so that going to the next one in a search will
+    " center on the line it's found in.
+    nnoremap n nzzzv
+    nnoremap N Nzzzv
+
+    " Creating splits
+    nnoremap <leader>v :vsplit<cr>
+    nnoremap <leader>h :split<cr>
+    nnoremap <leader>q :close<cr>
 endfun
 
 " Executes an input command and saves the current state.
@@ -151,6 +266,21 @@ fun! SetGoLocalSettings()
     let g:go_auto_sameids = 1 " To highlight vars with a same name.
     " let g:go_auto_type_info = 1
 
+    " gometalinter configuration
+    let g:go_metalinter_command = ""
+    let g:go_metalinter_deadline = "5s"
+    let g:go_metalinter_enabled = [
+        \ 'deadcode',
+        \ 'errcheck',
+        \ 'goconst',
+        \ 'gocyclo',
+        \ 'golint',
+        \ 'gosimple',
+        \ 'ineffassign',
+        \ 'vet',
+        \ 'vetshadow'
+    \]
+
     autocmd FileType go map <leader>r <Plug>(go-run)
     autocmd FileType go map <leader>b <Plug>(go-build)
     autocmd FileType go map <leader>t <Plug>(go-test)
@@ -179,34 +309,11 @@ fun! SetupNetrw()
 endfun
 
 fun! SetupMisspellings()
-    nmap <silent> <leader>q :set spell!<CR>
+    nmap <silent> <leader>f :set spell!<CR>
 
     " Set a default region to American English
     set spelllang=en_us
 endfun
-
-filetype plugin indent on
-
-" Set different indentation for different types of files.
-if has("autocmd")
-    " Enable file type detection.
-    filetype on
-
-    " Apply only for current buffer.
-    autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-    autocmd FileType ruby,yml setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
- 
-    call SetPythonLocalSettings()
-    call SetCLocalSettings()
-    call SetGoLocalSettings()
-    call SetRubyLocalSettings()
-
-    autocmd BufWritePre *.py,*.rb,*.c,*.cpp call StripTrailingWhiteSpaces()
-    autocmd BufWritePre *.rb,*.c,*.cpp call SquashBlankLines()
-
-    autocmd bufwritepost *.vimrc source $MYVIMRC
-endif
 
 call InstallGeneralSettings()
 call SetMappings()
