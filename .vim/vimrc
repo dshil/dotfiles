@@ -1,4 +1,17 @@
-call plug#begin('~/.vim/plugged')
+" Only for rtags support
+"-------------------------------------------------------
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'lyuts/vim-rtags'
+
+call vundle#end()
+filetype plugin indent on    " required
+"-------------------------------------------------------
+
+call plug#begin('~/.vim/plugged') " Directory for plugins
 
 " Dependencies:
 Plug 'tpope/vim-rhubarb'
