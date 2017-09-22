@@ -40,23 +40,6 @@ nnoremap <c-p> :FZF<cr>
 "----------------------------------------------
 
 "----------------------------------------------
-" Plugin: bling/vim-airline
-"----------------------------------------------
-" Show status bar by default.
-set laststatus=2
-
-" Enable top tabline.
-let g:airline#extensions#tabline#enabled = 1
-
-" Disable showing tabs in the tabline. This will ensure that the buffers are
-" what is shown in the tabline at all times.
-let g:airline#extensions#tabline#show_tabs = 0
-
-" Enable powerline fonts.
-let g:airline_powerline_fonts = 0
-"----------------------------------------------
-"
-"----------------------------------------------
 " Plugin: 'majutsushi/tagbar'
 "----------------------------------------------
 " Language: Go
@@ -123,18 +106,19 @@ fun! InstallGeneralSettings()
     " Don't show an error during the work with buffers.
     set hidden
     set backspace=2
-    set smartindent
-    set autoread
     set cursorline
     set noerrorbells                  " No bells!
     set novisualbell                  " I said, no bells!
     set ruler
-    set title                         " let vim set the terminal title
-    set updatetime=100                " redraw the status bar often
 
     " Search
     set incsearch                     " move to match as you type the search query
     set hlsearch                      " enable search result highlighting
+
+    " Speedup ruby highlighting by falling back to old regexp vim engine.
+    " https://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
+    set re=1
+    set lazyredraw
 
     filetype plugin indent on
 
@@ -145,7 +129,7 @@ fun! InstallGeneralSettings()
 
         " Apply only for current buffer.
         autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-        autocmd FileType ruby,yml setlocal ts=2 sts=2 sw=2 expandtab
+        autocmd FileType ruby,yml setlocal ts=2 sts=2 sw=2 expandtab nocursorline
         autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
 
         call SetPythonLocalSettings()
@@ -198,7 +182,7 @@ fun! SetMappings()
     nnoremap <space> zz
 
     " Clear search highlights
-    map <leader>c :nohlsearch<cr>
+    map <leader>m :nohlsearch<cr>
 
     " These mappings will make it so that going to the next one in a search will
     " center on the line it's found in.
@@ -206,7 +190,7 @@ fun! SetMappings()
     nnoremap N Nzzzv
 
     " Creating splits
-    nnoremap <leader>v :vsplit<cr>
+    nnoremap <leader>k :vsplit<cr>
     nnoremap <leader>h :split<cr>
     nnoremap <leader>q :close<cr>
 endfun
@@ -263,8 +247,6 @@ fun! SetGoLocalSettings()
     let g:go_highlight_operators = 1
     let g:go_highlight_build_constraints = 1
     let g:go_fmt_command = "goimports"
-    let g:go_auto_sameids = 1 " To highlight vars with a same name.
-    " let g:go_auto_type_info = 1
 
     " gometalinter configuration
     let g:go_metalinter_command = ""
