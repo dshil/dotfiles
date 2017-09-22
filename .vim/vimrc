@@ -148,10 +148,6 @@ fun! InstallGeneralSettings()
         set mouse=a
     endif
 
-    if has('nvim')
-        set inccommand=split          " enables interactive search and replace
-    endif
-
     set splitbelow
     set splitright
 endfun
