@@ -1,7 +1,7 @@
-call plug#begin('~/.vim/plugged') " Directory for plugins
+call plug#begin('~/.vim/plugged')
 
 " Dependencies:
-Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
+Plug 'tpope/vim-rhubarb'
 
 " Languages:
 Plug 'fatih/vim-go'
@@ -64,7 +64,7 @@ let g:tagbar_type_go = {
 "----------------------------------------------
 
 fun! InstallGeneralSettings()
-    let g:mapleader = "," " Set the mapleader.
+    let g:mapleader = ","
 
     " Disable the CtrlP mapping, since we want to use FZF instead for <c-p>.
     let g:ctrlp_map = ''
@@ -79,7 +79,6 @@ fun! InstallGeneralSettings()
     " sw - shiftwidth (normal mode)
     set ts=4 sts=4 sw=4 expandtab
 
-    " Default column ruler.
     set colorcolumn=80
     set clipboard=unnamed
 
@@ -89,20 +88,20 @@ fun! InstallGeneralSettings()
     let g:seoul256_background = 235
     colo seoul256
 
-    " Show line number.
     set number
     set laststatus=2
 
-    " Don't show an error during the work with buffers.
     set hidden
     set backspace=2
+    set ruler
+    " Don't show an error during the work with buffers.
     set noerrorbells                  " No bells!
     set novisualbell                  " I said, no bells!
-    set ruler
 
     " Search
     set incsearch                     " move to match as you type the search query
     set hlsearch                      " enable search result highlighting
+    set ignorecase smartcase
 
     " Speedup ruby highlighting by falling back to old regexp vim engine.
     " https://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
@@ -111,9 +110,7 @@ fun! InstallGeneralSettings()
 
     filetype plugin indent on
 
-    " Set different indentation for different types of files.
     if has("autocmd")
-        " Enable file type detection.
         filetype on
 
         " Apply only for current buffer.
@@ -132,24 +129,25 @@ fun! InstallGeneralSettings()
         autocmd bufwritepost *.vimrc source $MYVIMRC
     endif
 
-    " Enable mouse if possible
     if has('mouse')
         set mouse=a
     endif
 
     set splitbelow
     set splitright
+
+    set mousehide
+    set updatetime=1000
 endfun
 
 fun! SetMappings()
     nmap<leader>v :tabedit $MYVIMRC<CR>
     map <C-n> :NERDTreeToggle<CR>
+    map <C-b> :TagbarToggle<CR>
 
     " Mapping for a turn off terminal mode.
     tnoremap <C-d> <C-\><C-n>
-    map <C-b> :TagbarToggle<CR>
 
-    " Disable the following keys.
     noremap <Up> <Nop>
     noremap <Down> <Nop>
     noremap <Left> <Nop>
@@ -166,7 +164,6 @@ fun! SetMappings()
     " Center the screen quickly
     nnoremap <space> zz
 
-    " Clear search highlights
     map <leader>m :nohlsearch<cr>
 
     " These mappings will make it so that going to the next one in a search will
@@ -174,7 +171,6 @@ fun! SetMappings()
     nnoremap n nzzzv
     nnoremap N Nzzzv
 
-    " Creating splits
     nnoremap <leader>k :vsplit<cr>
     nnoremap <leader>h :split<cr>
     nnoremap <leader>q :close<cr>
@@ -196,29 +192,24 @@ fun! ExecAndSave(cmd)
     call setpos(".", pos)
 endfun
 
-" Deletes extra white spaces.
 fun! StripTrailingWhiteSpaces()
     call ExecAndSave("%s/\\s\\+$//e")
 endfun
 
-" Deletes extra blank lines.
 fun! SquashBlankLines()
     call ExecAndSave(":g/^\\_$\\n\\_^$/d")
 endfun
 
-" Sets local settings for python files.
 fun! SetPythonLocalSettings()
     autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType python setlocal colorcolumn=80
 endfun
 
-" Sets local settings for C files.
 fun! SetCLocalSettings()
     autocmd FileType c setlocal ts=4 sts=4 sw=4 noexpandtab
     autocmd FileType c setlocal colorcolumn=80
 endfun
 
-" Sets local settings for Go files.
 fun! SetGoLocalSettings()
     autocmd FileType go setlocal colorcolumn=90
 
@@ -278,8 +269,6 @@ endfun
 
 fun! SetupMisspellings()
     nmap <silent> <leader>f :set spell!<CR>
-
-    " Set a default region to American English
     set spelllang=en_us
 endfun
 
