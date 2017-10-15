@@ -63,6 +63,16 @@ let g:tagbar_type_go = {
 \ }
 "----------------------------------------------
 
+"----------------------------------------------
+" Plugin: 'mscrooloose/nerdtree'
+"----------------------------------------------
+let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1
+let NERDTreeKeepTreeInNewTab=1
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+            \ '\.o$', '\.so$', '\.egg$', '^\.git$', '__pycache__', '\.DS_Store' ]
+"----------------------------------------------
+
 fun! InstallGeneralSettings()
     let g:mapleader = ","
 
@@ -101,7 +111,10 @@ fun! InstallGeneralSettings()
     " Search
     set incsearch                     " move to match as you type the search query
     set hlsearch                      " enable search result highlighting
-    set ignorecase smartcase
+    set ignorecase
+    set smartcase
+
+    set wildmode=list:longest,full
 
     " Speedup ruby highlighting by falling back to old regexp vim engine.
     " https://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
@@ -132,12 +145,16 @@ fun! InstallGeneralSettings()
     if has('mouse')
         set mouse=a
     endif
+    set mousehide
 
     set splitbelow
     set splitright
 
-    set mousehide
     set updatetime=1000
+    set history=1000
+    set undolevels=1000
+
+    set title
 endfun
 
 fun! SetMappings()
@@ -174,6 +191,27 @@ fun! SetMappings()
     nnoremap <leader>k :vsplit<cr>
     nnoremap <leader>h :split<cr>
     nnoremap <leader>q :close<cr>
+
+    noremap j gj
+    noremap k gk
+
+    " Find merge conflict markers
+    map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+
+    nnoremap <silent> <leader>gs :Gstatus<CR>
+    nnoremap <silent> <leader>gd :Gdiff<CR>
+    nnoremap <silent> <leader>gc :Gcommit<CR>
+    nnoremap <silent> <leader>gb :Gblame<CR>
+    nnoremap <silent> <leader>gl :Glog<CR>
+    nnoremap <silent> <leader>gp :Git push<CR>
+    nnoremap <silent> <leader>gr :Gread<CR>
+    nnoremap <silent> <leader>gw :Gwrite<CR>
+    nnoremap <silent> <leader>ge :Gedit<CR>
+
+    nnoremap <silent> <leader>d "_d
+    vnoremap <silent> <leader>d "_d
+
+    inoremap jj <Esc>
 endfun
 
 " Executes an input command and saves the current state.
