@@ -196,7 +196,7 @@ fun! SetMappings()
     noremap k gk
 
     " Find merge conflict markers
-    map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+    map <leader>lc /\v^[<\|=>]{7}( .*\|$)<CR>
 
     nnoremap <silent> <leader>gs :Gstatus<CR>
     nnoremap <silent> <leader>gd :Gdiff<CR>
