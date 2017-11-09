@@ -150,8 +150,6 @@ fun! InstallGeneralSettings()
 
         autocmd BufWritePre * call StripTrailingWhiteSpaces()
         autocmd BufWritePre *.rb,*.c,*.cpp call SquashBlankLines()
-
-        autocmd bufwritepost *.vimrc source $MYVIMRC
     endif
 
     if has('mouse')
@@ -172,7 +170,7 @@ endfun
 fun! SetMappings()
     nmap<leader>vm :tabedit $MYVIMRC<CR>
     nmap<leader>vr :vertical resize 127<CR>
-    nmap<leader>te :tabedit<CR>:NERDTreeToggle<CR>:vertical resize 50<CR>
+    nmap<leader>te :tabedit<CR>:NERDTreeToggle<CR>:vertical resize 50<CR><C-l><CR>
     map <C-n> :NERDTreeToggle<CR>
     map <C-b> :TagbarToggle<CR>
 
