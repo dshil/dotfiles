@@ -22,7 +22,6 @@ Plug 'fatih/vim-go'
 " General:
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
-Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -171,7 +170,9 @@ fun! InstallGeneralSettings()
 endfun
 
 fun! SetMappings()
-    nmap<leader>v :tabedit $MYVIMRC<CR>
+    nmap<leader>vm :tabedit $MYVIMRC<CR>
+    nmap<leader>vr :vertical resize 127<CR>
+    nmap<leader>te :tabedit<CR>:NERDTreeToggle<CR>:vertical resize 50<CR>
     map <C-n> :NERDTreeToggle<CR>
     map <C-b> :TagbarToggle<CR>
 
@@ -214,7 +215,6 @@ fun! SetMappings()
     nnoremap <silent> <leader>gs :Gstatus<CR>
     nnoremap <silent> <leader>gd :Gdiff<CR>
     nnoremap <silent> <leader>gc :Gcommit<CR>
-    nnoremap <silent> <leader>gb :Gblame<CR>
     nnoremap <silent> <leader>gl :Glog<CR>
     nnoremap <silent> <leader>gp :Git push<CR>
     nnoremap <silent> <leader>gr :Gread<CR>
@@ -225,6 +225,8 @@ fun! SetMappings()
     vnoremap <silent> <leader>d "_d
 
     inoremap jj <Esc>
+
+    au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 endfun
 
 " Executes an input command and saves the current state.
