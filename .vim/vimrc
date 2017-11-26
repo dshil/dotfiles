@@ -7,7 +7,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'fatih/vim-go'
 
 " General:
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
@@ -69,16 +69,8 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-"----------------------------------------------
 
-"----------------------------------------------
-" Plugin: 'mscrooloose/nerdtree'
-"----------------------------------------------
-let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=1
-let NERDTreeKeepTreeInNewTab=1
-let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-            \ '\.o$', '\.so$', '\.egg$', '^\.git$', '__pycache__', '\.DS_Store' ]
+let g:tagbar_left=1
 "----------------------------------------------
 
 fun! InstallGeneralSettings()
@@ -166,8 +158,7 @@ endfun
 fun! SetMappings()
     nmap<leader>vm :tabedit $MYVIMRC<CR>
     nmap<leader>vr :vertical resize 127<CR>
-    nmap<leader>te :tabedit<CR>:NERDTreeToggle<CR>:vertical resize 50<CR><C-l><CR>
-    map <C-n> :NERDTreeToggle<CR>
+    " nmap<leader>te :tabedit<CR>:TagbarToggle<CR>:vertical resize 50<CR><C-l><CR>
     map <C-b> :TagbarToggle<CR>
 
     " Mapping for a turn off terminal mode.
@@ -306,14 +297,6 @@ fun! SetRubyLocalSettings()
     autocmd FileType ruby setlocal colorcolumn=80
 endfun
 
-fun! SetupNetrw()
-    let g:netrw_liststyle=3 " Use a tree-mode as a default view
-    let g:netrw_browse_split=4 " Open a file in a previous buffer
-    let g:netrw_preview=1 " A preview window will be shown in a vertically split
-    let g:netrw_winsize=20 " A preview file takes 80% and the file explorer - 20%
-    nmap <leader>n :e.<CR>
-endfun
-
 fun! SetupMisspellings()
     nmap <silent> <leader>f :set spell!<CR>
     set spelllang=en_us
@@ -322,4 +305,3 @@ endfun
 call InstallGeneralSettings()
 call SetMappings()
 call SetupMisspellings()
-call SetupNetrw()
