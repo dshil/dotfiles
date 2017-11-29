@@ -20,6 +20,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'vimwiki/vimwiki'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'lyuts/vim-rtags'
+Plug 'junegunn/gv.vim'
 
 call plug#end()
 
