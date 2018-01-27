@@ -70,8 +70,6 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-
-let g:tagbar_left=1
 "----------------------------------------------
 
 fun! InstallGeneralSettings()
@@ -159,7 +157,7 @@ endfun
 fun! SetMappings()
     nmap<leader>vm :tabedit $MYVIMRC<CR>
     nmap<leader>vr :vertical resize 127<CR>
-    " nmap<leader>te :tabedit<CR>:TagbarToggle<CR>:vertical resize 50<CR><C-l><CR>
+    nmap<leader>te :tabedit<CR>:vertical split<CR>
     map <C-b> :TagbarToggle<CR>
 
     " Mapping for a turn off terminal mode.
