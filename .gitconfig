@@ -18,3 +18,5 @@
     ui = true
 [rerere]
     enabled = true
+[sendemail]
+	suppresscc = self
