@@ -3,6 +3,7 @@
 ln -s -f $(pwd)/.vim ~/.config/nvim
 ln -s -f $(pwd)/.vim/vimrc ~/.config/nvim/init.vim
 ln -s -f $(pwd)/.gitconfig ~/.gitconfig
+ln -s -f $(pwd)/.profile ~/.profile
 
 rm -rf $(pwd)/.vim/.vim
 
