@@ -19,4 +19,4 @@
 [rerere]
     enabled = true
 [sendemail]
-	suppresscc = self
+    suppresscc = self
