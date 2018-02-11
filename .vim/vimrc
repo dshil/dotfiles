@@ -33,12 +33,6 @@ let g:vimwiki_list = [{'path': '~/doc', 'index': 'main'}]
 "----------------------------------------------
 
 "----------------------------------------------
-" Plugin: 'junegunn/fzf.vim'
-"----------------------------------------------
-nnoremap <c-p> :FZF<cr>
-"----------------------------------------------
-
-"----------------------------------------------
 " Plugin: 'majutsushi/tagbar'
 "----------------------------------------------
 " Language: Go
@@ -125,7 +119,6 @@ fun! InstallGeneralSettings()
     if has("autocmd")
         filetype on
 
-        " Apply only for current buffer.
         autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
         autocmd FileType ruby,yml setlocal ts=2 sts=2 sw=2 expandtab nocursorline
         autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
@@ -137,6 +130,7 @@ fun! InstallGeneralSettings()
 
         autocmd BufWritePre * call StripTrailingWhiteSpaces()
         autocmd BufWritePre *.rb,*.c,*.cpp call SquashBlankLines()
+        autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
     endif
 
     if has('mouse')
@@ -155,12 +149,7 @@ fun! InstallGeneralSettings()
 endfun
 
 fun! SetMappings()
-    nmap<leader>vm :tabedit $MYVIMRC<CR>
-    nmap<leader>vr :vertical resize 127<CR>
-    nmap<leader>te :tabedit<CR>:vertical split<CR>
-    map <C-b> :TagbarToggle<CR>
-
-    " Mapping for a turn off terminal mode.
+    " Mapping for turning off the terminal mode.
     tnoremap <C-d> <C-\><C-n>
 
     noremap <Up> <Nop>
@@ -169,26 +158,24 @@ fun! SetMappings()
     noremap <Right> <Nop>
 
     " Makes the switching between buffers easy.
-    map <C-h> <C-w>h
-    map <C-j> <C-w>j
-    map <C-k> <C-w>k
-    map <C-l> <C-w>l
+    noremap <C-h> <C-w>h
+    noremap <C-j> <C-w>j
+    noremap <C-k> <C-w>k
+    noremap <C-l> <C-w>l
 
-    nmap <C-s> :Goyo<CR>
+    nnoremap <leader>k :vsplit<CR>
+    nnoremap <leader>h :split<CR>
+    nnoremap <leader>q :close<CR>
 
     " Center the screen quickly
     nnoremap <space> zz
 
-    map <leader>m :nohlsearch<cr>
+    nnoremap <leader>m :nohlsearch<CR>
 
     " These mappings will make it so that going to the next one in a search will
     " center on the line it's found in.
     nnoremap n nzzzv
     nnoremap N Nzzzv
-
-    nnoremap <leader>k :vsplit<cr>
-    nnoremap <leader>h :split<cr>
-    nnoremap <leader>q :close<cr>
 
     noremap j gj
     noremap k gk
@@ -201,7 +188,15 @@ fun! SetMappings()
 
     inoremap jj <Esc>
 
-    au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+    nnoremap <C-p> :FZF<CR>
+    nnoremap <C-b> :Buffers<CR>
+    nnoremap <leader>go :Goyo<CR>
+
+    nnoremap<leader>vm :tabedit $MYVIMRC<CR>
+    nnoremap<leader>vr :vertical resize 127<CR>
+    nnoremap<leader>te :tabedit<CR>:vertical split<CR>
+
+    nnoremap<leader>tb :TagbarToggle<CR>
 endfun
 
 " Executes an input command and saves the current state.
@@ -239,7 +234,7 @@ fun! SetCLocalSettings()
 endfun
 
 fun! SetGoLocalSettings()
-    autocmd FileType go setlocal colorcolumn=90
+    autocmd FileType go setlocal colorcolumn=80
 
     let g:go_disable_autoinstall = 0
     let g:go_highlight_types = 1
@@ -252,35 +247,18 @@ fun! SetGoLocalSettings()
     let g:go_highlight_build_constraints = 1
     let g:go_fmt_command = "goimports"
 
-    " gometalinter configuration
-    let g:go_metalinter_command = ""
-    let g:go_metalinter_deadline = "5s"
-    let g:go_metalinter_enabled = [
-        \ 'deadcode',
-        \ 'errcheck',
-        \ 'goconst',
-        \ 'gocyclo',
-        \ 'golint',
-        \ 'gosimple',
-        \ 'ineffassign',
-        \ 'vet',
-        \ 'vetshadow'
-    \]
-
-    autocmd FileType go map <leader>b <Plug>(go-build)
-    autocmd FileType go map <leader>t <Plug>(go-test)
-    autocmd FileType go map <leader>v <Plug>(go-vet)
-    autocmd FileType go map <Leader>ds <Plug>(go-def-split)
-    autocmd FileType go map <Leader>dv <Plug>(go-def-vertical)
-    autocmd FileType go map <Leader>dt <Plug>(go-def-tab)
-    autocmd FileType go map <Leader>gd <Plug>(go-doc)
-    autocmd FileType go map <Leader>gv <Plug>(go-doc-vertical)
-    autocmd FileType go map <Leader>gb <Plug>(go-doc-browser)
-    autocmd FileType go map <Leader>s <Plug>(go-implements)
-    autocmd FileType go map <Leader>e <Plug>(go-rename)
-    autocmd FileType go map <leader>c :GoCoverageBrowser<CR>
-    autocmd FileType go map <leader>r :GoReferrers<CR>
-    autocmd FileType go map <leader>l :GoLint<CR>
+    autocmd FileType go noremap <leader>b <Plug>(go-build)
+    autocmd FileType go noremap <leader>t <Plug>(go-test)
+    autocmd FileType go noremap <Leader>ds <Plug>(go-def-split)
+    autocmd FileType go noremap <Leader>dv <Plug>(go-def-vertical)
+    autocmd FileType go noremap <Leader>gd <Plug>(go-doc)
+    autocmd FileType go noremap <Leader>gv <Plug>(go-doc-vertical)
+    autocmd FileType go noremap <Leader>gb <Plug>(go-doc-browser)
+    autocmd FileType go noremap <Leader>s <Plug>(go-implements)
+    autocmd FileType go noremap <Leader>e <Plug>(go-rename)
+    autocmd FileType go noremap <leader>c :GoCoverageBrowser<CR>
+    autocmd FileType go noremap <leader>r :GoReferrers<CR>
+    autocmd FileType go noremap <leader>l :GoLint<CR>
 endfun
 
 fun! SetRubyLocalSettings()
@@ -288,7 +266,7 @@ fun! SetRubyLocalSettings()
 endfun
 
 fun! SetupMisspellings()
-    nmap <silent> <leader>f :set spell!<CR>
+    nnoremap <silent><leader>f :set spell!<CR>
     set spelllang=en_us
 endfun
 
