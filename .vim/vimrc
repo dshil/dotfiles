@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged') " Directory for plugins
 Plug 'tpope/vim-rhubarb'
 
 " Languages:
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', {'for': 'go'}
 
 " General:
 " Plug 'scrooloose/nerdtree'
@@ -21,6 +21,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'lyuts/vim-rtags'
 Plug 'junegunn/gv.vim'
+Plug 'mileszs/ack.vim'
 
 call plug#end()
 
@@ -119,18 +120,20 @@ fun! InstallGeneralSettings()
     if has("autocmd")
         filetype on
 
-        autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-        autocmd FileType ruby,yml setlocal ts=2 sts=2 sw=2 expandtab nocursorline
-        autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
+        augroup vimrc
+            autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+            autocmd FileType ruby,yml setlocal ts=2 sts=2 sw=2 expandtab nocursorline
+            autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
 
-        call SetPythonLocalSettings()
-        call SetCLocalSettings()
-        call SetGoLocalSettings()
-        call SetRubyLocalSettings()
+            call SetPythonLocalSettings()
+            call SetCLocalSettings()
+            call SetGoLocalSettings()
+            call SetRubyLocalSettings()
 
-        autocmd BufWritePre * call StripTrailingWhiteSpaces()
-        autocmd BufWritePre *.rb,*.c,*.cpp call SquashBlankLines()
-        autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+            autocmd BufWritePre * call StripTrailingWhiteSpaces()
+            autocmd BufWritePre *.rb,*.c,*.cpp call SquashBlankLines()
+            autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+        augroup END
     endif
 
     if has('mouse')
@@ -197,6 +200,11 @@ fun! SetMappings()
     nnoremap<leader>te :tabedit<CR>:vertical split<CR>
 
     nnoremap<leader>tb :TagbarToggle<CR>
+
+    " Open/close folding
+    nnoremap<leader><space> za<CR>
+
+    nnoremap<leader>a :Ack!<CR>
 endfun
 
 " Executes an input command and saves the current state.
@@ -224,45 +232,53 @@ fun! SquashBlankLines()
 endfun
 
 fun! SetPythonLocalSettings()
-    autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType python setlocal colorcolumn=80
+    augroup python
+        autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+        autocmd FileType python setlocal colorcolumn=80
+    augroup END
 endfun
 
 fun! SetCLocalSettings()
-    autocmd FileType c setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType c setlocal colorcolumn=80
+    augroup c
+        autocmd FileType c setlocal ts=4 sts=4 sw=4 noexpandtab
+        autocmd FileType c setlocal colorcolumn=80
+    augroup END
 endfun
 
 fun! SetGoLocalSettings()
-    autocmd FileType go setlocal colorcolumn=80
+    augroup go
+        autocmd FileType go setlocal colorcolumn=80
 
-    let g:go_disable_autoinstall = 0
-    let g:go_highlight_types = 1
-    let g:go_highlight_extra_types = 1
-    let g:go_highlight_functions = 1
-    let g:go_highlight_methods = 1
-    let g:go_highlight_structs = 1
-    let g:go_highlight_fields = 1
-    let g:go_highlight_operators = 1
-    let g:go_highlight_build_constraints = 1
-    let g:go_fmt_command = "goimports"
+        let g:go_disable_autoinstall = 0
+        let g:go_highlight_types = 1
+        let g:go_highlight_extra_types = 1
+        let g:go_highlight_functions = 1
+        let g:go_highlight_methods = 1
+        let g:go_highlight_structs = 1
+        let g:go_highlight_fields = 1
+        let g:go_highlight_operators = 1
+        let g:go_highlight_build_constraints = 1
+        let g:go_fmt_command = "goimports"
 
-    autocmd FileType go noremap <leader>b <Plug>(go-build)
-    autocmd FileType go noremap <leader>t <Plug>(go-test)
-    autocmd FileType go noremap <Leader>ds <Plug>(go-def-split)
-    autocmd FileType go noremap <Leader>dv <Plug>(go-def-vertical)
-    autocmd FileType go noremap <Leader>gd <Plug>(go-doc)
-    autocmd FileType go noremap <Leader>gv <Plug>(go-doc-vertical)
-    autocmd FileType go noremap <Leader>gb <Plug>(go-doc-browser)
-    autocmd FileType go noremap <Leader>s <Plug>(go-implements)
-    autocmd FileType go noremap <Leader>e <Plug>(go-rename)
-    autocmd FileType go noremap <leader>c :GoCoverageBrowser<CR>
-    autocmd FileType go noremap <leader>r :GoReferrers<CR>
-    autocmd FileType go noremap <leader>l :GoLint<CR>
+        autocmd FileType go noremap <leader>b <Plug>(go-build)
+        autocmd FileType go noremap <leader>t <Plug>(go-test)
+        autocmd FileType go noremap <Leader>ds <Plug>(go-def-split)
+        autocmd FileType go noremap <Leader>dv <Plug>(go-def-vertical)
+        autocmd FileType go noremap <Leader>gd <Plug>(go-doc)
+        autocmd FileType go noremap <Leader>gv <Plug>(go-doc-vertical)
+        autocmd FileType go noremap <Leader>gb <Plug>(go-doc-browser)
+        autocmd FileType go noremap <Leader>s <Plug>(go-implements)
+        autocmd FileType go noremap <Leader>e <Plug>(go-rename)
+        autocmd FileType go noremap <leader>c :GoCoverageBrowser<CR>
+        autocmd FileType go noremap <leader>r :GoReferrers<CR>
+        autocmd FileType go noremap <leader>l :GoLint<CR>
+    augroup END
 endfun
 
 fun! SetRubyLocalSettings()
-    autocmd FileType ruby setlocal colorcolumn=80
+    augroup ruby
+        autocmd FileType ruby setlocal colorcolumn=80
+    augroup END
 endfun
 
 fun! SetupMisspellings()
