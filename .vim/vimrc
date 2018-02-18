@@ -1,3 +1,5 @@
+" Plugins {{{
+
 call plug#begin('~/.vim/plugged') " Directory for plugins
 
 " Dependencies:
@@ -7,7 +9,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'fatih/vim-go', {'for': 'go'}
 
 " General:
-" Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
@@ -24,18 +25,13 @@ Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
 
 call plug#end()
+" }}}
 
-" Varios plugins settings
+" Plugins Settings {{{
 
-"----------------------------------------------
 " Plugin: 'vimwiki/vimwiki'
-"----------------------------------------------
 let g:vimwiki_list = [{'path': '~/doc', 'index': 'main'}]
-"----------------------------------------------
 
-"----------------------------------------------
-" Plugin: 'majutsushi/tagbar'
-"----------------------------------------------
 " Language: Go
 " Tagbar configuration for Golang
 let g:tagbar_type_go = {
@@ -65,9 +61,13 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-"----------------------------------------------
+" }}}
+
+" General settings {{{
 
 fun! InstallGeneralSettings()
+    set modelines=1
+
     let g:mapleader = ","
 
     " Disable the CtrlP mapping, since we want to use FZF instead for <c-p>.
@@ -150,6 +150,9 @@ fun! InstallGeneralSettings()
 
     set title
 endfun
+" }}}
+
+" Mappings {{{
 
 fun! SetMappings()
     " Mapping for turning off the terminal mode.
@@ -207,44 +210,27 @@ fun! SetMappings()
     nnoremap<leader>a :Ack!<CR>
 endfun
 
-" Executes an input command and saves the current state.
-fun! ExecAndSave(cmd)
-    " Save the last search.
-    let _s=@/
+" }}}
 
-    " Save the cursor position.
-    let pos=getpos(".")
-
-    " Exec a command.
-    execute a:cmd
-
-    " Restore the search and the cursor position.
-    let @/=_s
-    call setpos(".", pos)
-endfun
-
-fun! StripTrailingWhiteSpaces()
-    call ExecAndSave("%s/\\s\\+$//e")
-endfun
-
-fun! SquashBlankLines()
-    call ExecAndSave(":g/^\\_$\\n\\_^$/d")
-endfun
-
+" Python settings {{{
 fun! SetPythonLocalSettings()
     augroup python
         autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
         autocmd FileType python setlocal colorcolumn=80
     augroup END
 endfun
+" }}}
 
+" C settings {{{
 fun! SetCLocalSettings()
     augroup c
         autocmd FileType c setlocal ts=4 sts=4 sw=4 noexpandtab
         autocmd FileType c setlocal colorcolumn=80
     augroup END
 endfun
+" }}}
 
+" Go settings {{{
 fun! SetGoLocalSettings()
     augroup go
         autocmd FileType go setlocal colorcolumn=80
@@ -274,11 +260,42 @@ fun! SetGoLocalSettings()
         autocmd FileType go noremap <leader>l :GoLint<CR>
     augroup END
 endfun
+" }}}
+
+" Ruby settings {{{
 
 fun! SetRubyLocalSettings()
     augroup ruby
         autocmd FileType ruby setlocal colorcolumn=80
     augroup END
+endfun
+
+" }}}
+
+" Helpers {{{
+
+" Executes an input command and saves the current state.
+fun! ExecAndSave(cmd)
+    " Save the last search.
+    let _s=@/
+
+    " Save the cursor position.
+    let pos=getpos(".")
+
+    " Exec a command.
+    execute a:cmd
+
+    " Restore the search and the cursor position.
+    let @/=_s
+    call setpos(".", pos)
+endfun
+
+fun! StripTrailingWhiteSpaces()
+    call ExecAndSave("%s/\\s\\+$//e")
+endfun
+
+fun! SquashBlankLines()
+    call ExecAndSave(":g/^\\_$\\n\\_^$/d")
 endfun
 
 fun! SetupMisspellings()
@@ -294,7 +311,15 @@ fun! SetBackup()
     set writebackup
 endfun
 
+" }}}
+
+" Settings installation {{{
+
 call InstallGeneralSettings()
 call SetMappings()
 call SetupMisspellings()
 call SetBackup()
+
+" }}}
+
+" vim:foldmethod=marker:foldlevel=0
