@@ -1,0 +1,5 @@
+[SeatDefaults]
+user-session=i3
+greeter-session=lightdm-gtk-greeter
+autologin-user=dshilin
+autologin-timeout=0
