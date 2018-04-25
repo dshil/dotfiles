@@ -30,7 +30,9 @@ call plug#end()
 " Plugins Settings {{{
 
 " Plugin: 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/doc', 'index': 'main'}]
+let g:vimwiki_list = [{'path': '~/doc', 'index': 'main'},
+            \ {'path': '$HOME/dev', 'syntax': 'markdown', 'ext': '.md'}]
+
 
 " Language: Go
 " Tagbar configuration for Golang
@@ -89,7 +91,7 @@ fun! InstallGeneralSettings()
     " Mapping for coping to a clipboard.
     vnoremap <C-c> "+y
 
-    let g:seoul256_background = 235
+    let g:seoul256_background = 234
     colo seoul256
 
     set number
@@ -131,7 +133,7 @@ fun! InstallGeneralSettings()
             call SetRubyLocalSettings()
 
             autocmd BufWritePre * call StripTrailingWhiteSpaces()
-            autocmd BufWritePre *.rb,*.c,*.cpp call SquashBlankLines()
+            autocmd BufWritePre *.rb,*.c,*.cpp,*.h,*.wiki call SquashBlankLines()
             autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
         augroup END
     endif
