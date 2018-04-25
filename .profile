@@ -22,3 +22,6 @@ export GOROOT=/usr/local/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:/opt/local/bin
+
+export BXSHARE="$HOME/opt/bochs/share/bochs"
+export PATH="$PATH:$HOME/opt/bochs/bin"
