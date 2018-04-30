@@ -157,9 +157,6 @@ endfun
 " Mappings {{{
 
 fun! SetMappings()
-    " Mapping for turning off the terminal mode.
-    tnoremap <C-d> <C-\><C-n>
-
     noremap <Up> <Nop>
     noremap <Down> <Nop>
     noremap <Left> <Nop>
