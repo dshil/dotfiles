@@ -3,7 +3,7 @@
 ln -s -f $(pwd)/.vim ~/.config/nvim
 ln -s -f $(pwd)/.vim/vimrc ~/.config/nvim/init.vim
 ln -s -f $(pwd)/.gitconfig ~/.gitconfig
-ln -s -f $(pwd)/.profile ~/.profile
+ln -s -f $(pwd)/.aliases ~/.aliases
 ln -s -f $(pwd)/.xinitrc ~/.xinitrc
 ln -s -f $(pwd)/.i3 ~/.config/i3/config
 ln -s -f $(pwd)/.lightdm /etc/lightdm/lightdm.conf

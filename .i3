@@ -41,7 +41,7 @@ exec "setxkbmap -option 'grp:alt_shift_toggle'"
 bindsym Mod1+Control+l exec i3lock
 
 # start a terminal
-bindsym Mod1+Return exec i3-sensible-terminal
+bindsym Mod1+Return exec terminator
 
 # kill focused window
 bindsym Mod1+Shift+q kill

@@ -1,1 +1,1 @@
-/Users/dshil/dev/dotfiles/.vim/vimrc
+/home/dshil/dev/dotfiles/.vim/vimrc
