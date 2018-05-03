@@ -24,6 +24,9 @@ Plug 'lyuts/vim-rtags'
 Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
 
+Plug 'aklt/plantuml-syntax'
+Plug 'scrooloose/vim-slumlord'
+
 call plug#end()
 " }}}
 
@@ -86,13 +89,13 @@ fun! InstallGeneralSettings()
     set ts=4 sts=4 sw=4 expandtab
 
     set colorcolumn=80
-    set clipboard=unnamed
+    set clipboard=unnamedplus
 
     " Mapping for coping to a clipboard.
     vnoremap <C-c> "+y
 
     let g:seoul256_background = 234
-    colo seoul256
+    colorscheme seoul256
 
     set number
     set laststatus=2
@@ -186,7 +189,7 @@ fun! SetMappings()
     noremap k gk
 
     " Find merge conflict markers
-    map <leader>lc /\v^[<\|=>]{7}( .*\|$)<CR>
+    nnoremap <leader>lc /\v^[<\|=>]{7}( .*\|$)<CR>
 
     nnoremap <silent> <leader>d "_d
     vnoremap <silent> <leader>d "_d
@@ -199,14 +202,14 @@ fun! SetMappings()
 
     nnoremap<leader>vm :tabedit $MYVIMRC<CR>
     nnoremap<leader>vr :vertical resize 127<CR>
-    nnoremap<leader>te :tabedit<CR>:vertical split<CR>
 
     nnoremap<leader>tb :TagbarToggle<CR>
 
     " Open/close folding
     nnoremap<leader><space> za<CR>
 
-    nnoremap<leader>a :Ack!<CR>
+    nnoremap<leader>a :Ack <cword><CR>
+    nnoremap<leader>gr :Ggrep <cword><CR>
 endfun
 
 " }}}
@@ -246,14 +249,14 @@ fun! SetGoLocalSettings()
         let g:go_fmt_command = "goimports"
 
         autocmd FileType go noremap <leader>b <Plug>(go-build)
-        autocmd FileType go noremap <leader>t <Plug>(go-test)
         autocmd FileType go noremap <Leader>ds <Plug>(go-def-split)
         autocmd FileType go noremap <Leader>dv <Plug>(go-def-vertical)
-        autocmd FileType go noremap <Leader>gd <Plug>(go-doc)
         autocmd FileType go noremap <Leader>gv <Plug>(go-doc-vertical)
-        autocmd FileType go noremap <Leader>gb <Plug>(go-doc-browser)
         autocmd FileType go noremap <Leader>s <Plug>(go-implements)
-        autocmd FileType go noremap <Leader>e <Plug>(go-rename)
+        autocmd FileType go noremap <Leader>gb :GoDocBrowser<CR>
+        autocmd FileType go noremap <Leader>gd :GoDoc<CR>
+        autocmd FileType go noremap <leader>t :GoTest<CR>
+        autocmd FileType go noremap <Leader>e :GoRename<CR>
         autocmd FileType go noremap <leader>c :GoCoverageBrowser<CR>
         autocmd FileType go noremap <leader>r :GoReferrers<CR>
         autocmd FileType go noremap <leader>l :GoLint<CR>

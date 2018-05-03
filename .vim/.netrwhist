@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/etc/lightdm/lightdm.conf.d'
+let g:netrw_dirhist_2='/home/dshilin/dev/script'
+let g:netrw_dirhist_3='/etc/init.d'
+let g:netrw_dirhist_4='/home/dshilin/dev/go/src/xgit.tradingview.com/tv/udf'
