@@ -35,7 +35,7 @@ set $right semicolon
 floating_modifier Mod1
 
 exec "setxkbmap -layout us,ru"
-exec "setxkbmap -option 'grp:alt_shift_toggle'"
+exec "setxkbmap -option 'grp:alt_space_toggle'"
 
 # lock screen
 bindsym Mod1+Control+l exec i3lock
