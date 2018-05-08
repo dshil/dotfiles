@@ -1,5 +1,8 @@
 #! /bin/bash
 
+ln -s -f $(pwd)/.Xresources ~/.Xresources
+xrdb -merge ~/.Xresources
+
 ln -s -f $(pwd)/.vim ~/.config/nvim
 ln -s -f $(pwd)/.vim/vimrc ~/.config/nvim/init.vim
 ln -s -f $(pwd)/.gitconfig ~/.gitconfig

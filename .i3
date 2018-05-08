@@ -31,6 +31,10 @@ set $down k
 set $left j
 set $right semicolon
 
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
@@ -41,7 +45,7 @@ exec "setxkbmap -option 'grp:alt_space_toggle'"
 bindsym Mod1+Control+l exec i3lock
 
 # start a terminal
-bindsym Mod1+Return exec terminator
+bindsym Mod1+Return exec xterm
 
 # kill focused window
 bindsym Mod1+Shift+q kill
