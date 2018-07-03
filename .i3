@@ -31,15 +31,20 @@ set $down k
 set $left j
 set $right semicolon
 
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
 exec "setxkbmap -layout us,ru"
 exec "setxkbmap -option 'grp:alt_space_toggle'"
+
+# Alsa key bindings
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 10%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 10%- unmute
+bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
+
+# Brightness key bindings
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # lock screen
 bindsym Mod1+Control+l exec i3lock
