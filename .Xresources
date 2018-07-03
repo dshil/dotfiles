@@ -1,17 +1,14 @@
-! Use a nice truetype font and size by default...
+! +--------------------------------------------------------------------------+
+! +                             XTERM                                         +
+! +--------------------------------------------------------------------------+
 xterm*faceName: Terminus
 xterm*faceSize: 11
+xterm*loginshell: false
+xterm*savelines: 4096*4
 
-! Every shell is a login shell by default (for inclusion of all necessary environment variables)
-xterm*loginshell: true
-
-! I like a LOT of scrollback...
-xterm*savelines: 16384
-
-! double-click to select whole URLs :D
+! double-click to select whole URLs
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
-! DOS-box colours...
 xterm*foreground: rgb:a8/a8/a8
 xterm*background: rgb:00/00/00
 xterm*color0: rgb:00/00/00
@@ -38,4 +35,45 @@ xterm*ScrollBar: true
 ! stop output to terminal from jumping down to bottom of scroll again
 xterm*scrollTtyOutput: false
 
+! +--------------------------------------------------------------------------+
+! +                             RXVT                                         +
+! +--------------------------------------------------------------------------+
+Rxvt.font:           xft:Terminus:size=11
+Rxvt*boldFont:
+Rxvt*italicFont:
+Rxvt*boldItalicFont:
 
+Rxvt.geometry:         90x46
+Rxvt.scrollstyle:      plain
+Rxvt.saveLines:        4096*4
+! Scrolling of full-screen apps ends up in the rxvt scroll buffer:
+Rxvt.secondaryScroll:  true
+
+Rxvt.loginShell:       false
+Rxvt.utmpInhibit:      true
+
+Rxvt.meta:             ignore
+Rxvt.insecure:         true
+Rxvt.mapAlert:         false
+Rxvt.visualBell:       false
+Rxvt.urgentOnBell:     false
+Rxvt.pastableTabs:     false
+
+Rxvt*foreground: rgb:a8/a8/a8
+Rxvt*background: rgb:00/00/00
+Rxvt*color0: rgb:00/00/00
+Rxvt*color1: rgb:a8/00/00
+Rxvt*color2: rgb:00/a8/00
+Rxvt*color3: rgb:a8/54/00
+Rxvt*color4: rgb:00/00/a8
+Rxvt*color5: rgb:a8/00/a8
+Rxvt*color6: rgb:00/a8/a8
+Rxvt*color7: rgb:a8/a8/a8
+Rxvt*color8: rgb:54/54/54
+Rxvt*color9: rgb:fc/54/54
+Rxvt*color10: rgb:54/fc/54
+Rxvt*color11: rgb:fc/fc/54
+Rxvt*color12: rgb:54/54/fc
+Rxvt*color13: rgb:fc/54/fc
+Rxvt*color14: rgb:54/fc/fc
+Rxvt*color15: rgb:fc/fc/fc

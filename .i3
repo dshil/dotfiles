@@ -45,7 +45,7 @@ exec "setxkbmap -option 'grp:alt_space_toggle'"
 bindsym Mod1+Control+l exec i3lock
 
 # start a terminal
-bindsym Mod1+Return exec xterm
+bindsym Mod1+Return exec urxvt256c
 
 # kill focused window
 bindsym Mod1+Shift+q kill
