@@ -34,9 +34,6 @@ set $right semicolon
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
-exec "setxkbmap -layout us,ru"
-exec "setxkbmap -option 'grp:alt_space_toggle'"
-
 # Alsa key bindings
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 10%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 10%- unmute
