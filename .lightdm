@@ -1,5 +1,5 @@
 [SeatDefaults]
 user-session=i3
 greeter-session=lightdm-gtk-greeter
-autologin-user=dshilin
+autologin-user=dshil
 autologin-timeout=0
