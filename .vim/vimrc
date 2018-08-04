@@ -183,6 +183,9 @@ fun! SetMappings()
     noremap j gj
     noremap k gk
 
+    nnoremap L $
+    nnoremap H 0w
+
     " Find merge conflict markers
     nnoremap <leader>lc /\v^[<\|=>]{7}( .*\|$)<CR>
 
