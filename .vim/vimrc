@@ -354,17 +354,17 @@ endfun
 " Setup status line {{{
 
 fun! SetupStatusLine()
-    set statusline=%0.60f   " Path to the file
-    set statusline+=\   " Separator
-    set statusline+=%{fugitive#statusline()}
-    set statusline+=\   " Separator
-    set statusline+=[%c " Current column
-    set statusline+=/   " Separator
-    set statusline+=%l  " Current line
-    set statusline+=/   " Separator
-    set statusline+=%L] " Total lines
+    set statusline=%0.60f                    " Path to the file
+    set statusline+=\                        " Separator
+    set statusline+=%{fugitive#statusline()} " Git branch
+    set statusline+=\                        " Separator
+    set statusline+=[%c                      " Current column
+    set statusline+=/                        " Separator
+    set statusline+=%l                       " Current line
+    set statusline+=/                        " Separator
+    set statusline+=%L]                      " Total lines
 
-    hi statusline ctermfg=8 ctermbg=15
+    highlight statusline ctermfg=8 ctermbg=15
 endfun
 
 " }}}
