@@ -28,6 +28,7 @@ Plug 'scrooloose/vim-slumlord'
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
+Plug 'vim-ruby/vim-ruby'
 
 call plug#end()
 " }}}
