@@ -120,21 +120,7 @@ fun! InstallGeneralSettings()
     filetype plugin indent on
 
     if has("autocmd")
-        augroup vimrc
-            autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-            autocmd FileType ruby,yml setlocal ts=2 sts=2 sw=2 expandtab nocursorline
-            autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
-            autocmd FileType asm setlocal ft=nasm
-
-            call SetupPythonAutocmd()
-            call SetupCAutocmd()
-            call SetupGoAutocmd()
-            call SetupRubyAutocmd()
-
-            autocmd BufWritePre * call StripTrailingWhiteSpaces()
-            autocmd BufWritePre *.rb,*.c,*.cpp,*.h,*.wiki call SquashBlankLines()
-            autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-        augroup END
+        call SetupAutocmds()
     endif
 
     if has('mouse')
@@ -218,9 +204,34 @@ endfun
 
 " }}}
 
+" Autocmds settings {{{
+
+fun! SetupAutocmds()
+    augroup vimrc
+        autocmd!
+
+        autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+        autocmd FileType ruby,yml setlocal ts=2 sts=2 sw=2 expandtab nocursorline
+        autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
+        autocmd FileType asm setlocal ft=nasm
+
+        call SetupPythonAutocmd()
+        call SetupCAutocmd()
+        call SetupGoAutocmd()
+        call SetupRubyAutocmd()
+
+        autocmd BufWritePre * call StripTrailingWhiteSpaces()
+        autocmd BufWritePre *.rb,*.c,*.cpp,*.h,*.wiki call SquashBlankLines()
+        autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+    augroup END
+endfun
+
+" }}}
+
 " Python settings {{{
 fun! SetupPythonAutocmd()
     augroup python
+        autocmd!
         autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
         autocmd FileType python setlocal colorcolumn=80
     augroup END
@@ -230,6 +241,7 @@ endfun
 " C settings {{{
 fun! SetupCAutocmd()
     augroup c
+        autocmd!
         autocmd FileType c setlocal ts=4 sts=4 sw=4 noexpandtab
         autocmd FileType c setlocal colorcolumn=80
     augroup END
@@ -239,6 +251,8 @@ endfun
 " Go settings {{{
 fun! SetupGoAutocmd()
     augroup go
+        autocmd!
+
         autocmd FileType go setlocal colorcolumn=80
 
         let g:go_disable_autoinstall = 0
@@ -272,6 +286,7 @@ endfun
 
 fun! SetupRubyAutocmd()
     augroup ruby
+        autocmd!
         autocmd FileType ruby setlocal colorcolumn=80
     augroup END
 endfun
