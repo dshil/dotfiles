@@ -364,7 +364,7 @@ fun! SetupStatusLine()
     set statusline+=/                        " Separator
     set statusline+=%L]                      " Total lines
 
-    highlight statusline ctermfg=8 ctermbg=15
+    highlight statusline ctermfg=236 ctermbg=15
 endfun
 
 " }}}
