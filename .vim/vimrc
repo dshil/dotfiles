@@ -73,7 +73,7 @@ let g:tagbar_type_go = {
 
 " General settings {{{
 
-fun! InstallGeneralSettings()
+fun! SetupGenericSettings()
     set modelines=1
 
     let g:mapleader = ","
@@ -141,7 +141,7 @@ endfun
 
 " Mappings {{{
 
-fun! SetMappings()
+fun! SetupMappingss()
     noremap <Up> <Nop>
     noremap <Down> <Nop>
     noremap <Left> <Nop>
@@ -341,7 +341,7 @@ fun! SetupMisspellings()
     set spelllang=en_us
 endfun
 
-fun! SetBackup()
+fun! SetupBackup()
     set backup
     set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
     set backupskip=/tmp/*,/private/tmp/*
@@ -371,10 +371,10 @@ endfun
 
 " Settings installation {{{
 
-call InstallGeneralSettings()
-call SetMappings()
+call SetupGenericSettings()
+call SetupMappingss()
 call SetupMisspellings()
-call SetBackup()
+call SetupBackup()
 call SetupStatusLine()
 
 " }}}
