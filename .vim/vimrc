@@ -125,10 +125,10 @@ fun! InstallGeneralSettings()
             autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
             autocmd FileType asm setlocal ft=nasm
 
-            call SetPythonLocalSettings()
-            call SetCLocalSettings()
-            call SetGoLocalSettings()
-            call SetRubyLocalSettings()
+            call SetupPythonAutocmd()
+            call SetupCAutocmd()
+            call SetupGoAutocmd()
+            call SetupRubyAutocmd()
 
             autocmd BufWritePre * call StripTrailingWhiteSpaces()
             autocmd BufWritePre *.rb,*.c,*.cpp,*.h,*.wiki call SquashBlankLines()
@@ -218,7 +218,7 @@ endfun
 " }}}
 
 " Python settings {{{
-fun! SetPythonLocalSettings()
+fun! SetupPythonAutocmd()
     augroup python
         autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
         autocmd FileType python setlocal colorcolumn=80
@@ -227,7 +227,7 @@ endfun
 " }}}
 
 " C settings {{{
-fun! SetCLocalSettings()
+fun! SetupCAutocmd()
     augroup c
         autocmd FileType c setlocal ts=4 sts=4 sw=4 noexpandtab
         autocmd FileType c setlocal colorcolumn=80
@@ -236,7 +236,7 @@ endfun
 " }}}
 
 " Go settings {{{
-fun! SetGoLocalSettings()
+fun! SetupGoAutocmd()
     augroup go
         autocmd FileType go setlocal colorcolumn=80
 
@@ -269,7 +269,7 @@ endfun
 
 " Ruby settings {{{
 
-fun! SetRubyLocalSettings()
+fun! SetupRubyAutocmd()
     augroup ruby
         autocmd FileType ruby setlocal colorcolumn=80
     augroup END
