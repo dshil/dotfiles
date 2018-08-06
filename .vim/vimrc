@@ -200,6 +200,8 @@ fun! SetupMappingss()
     nnoremap<leader>wm :call SetWriteModeColor()<CR>
 
     nnoremap<leader>sv :source $MYVIMRC<CR>
+    nnoremap<leader>ev :edit $MYVIMRC<CR>
+    nnoremap<leader>cc :checktime<CR>
 endfun
 
 " }}}
