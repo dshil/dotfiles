@@ -201,6 +201,8 @@ fun! SetupMappingss()
 
     nnoremap<leader>sv :source $MYVIMRC<CR>
     nnoremap<leader>cc :checktime<CR>
+
+    nnoremap<leader>bc :%bd|e#<CR>
 endfun
 
 " }}}
