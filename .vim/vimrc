@@ -302,7 +302,6 @@ fun! SetCodeModeColor()
 endfun
 
 fun! SetWriteModeColor()
-    set nonumber
     let g:solarized_termcolors=256
     colorscheme solarized
     set background=light
