@@ -200,8 +200,8 @@ fun! SetupMappingss()
     nnoremap<leader>wm :call SetWriteModeColor()<CR>
 
     nnoremap<leader>sv :source $MYVIMRC<CR>
-    nnoremap<leader>ev :edit $MYVIMRC<CR>
     nnoremap<leader>cc :checktime<CR>
+    nnoremap<leader>bc :bufdo bd<CR>
 endfun
 
 " }}}
@@ -268,11 +268,9 @@ fun! SetupGoAutocmd()
         let g:go_highlight_build_constraints = 1
         let g:go_fmt_command = "goimports"
 
-        autocmd FileType go noremap <leader>b <Plug>(go-build)
         autocmd FileType go noremap <Leader>ds <Plug>(go-def-split)
         autocmd FileType go noremap <Leader>dv <Plug>(go-def-vertical)
         autocmd FileType go noremap <Leader>gv <Plug>(go-doc-vertical)
-        autocmd FileType go noremap <Leader>s <Plug>(go-implements)
         autocmd FileType go noremap <Leader>gb :GoDocBrowser<CR>
         autocmd FileType go noremap <Leader>gd :GoDoc<CR>
         autocmd FileType go noremap <leader>t :GoTest<CR>
@@ -280,6 +278,7 @@ fun! SetupGoAutocmd()
         autocmd FileType go noremap <leader>c :GoCoverageBrowser<CR>
         autocmd FileType go noremap <leader>r :GoReferrers<CR>
         autocmd FileType go noremap <leader>l :GoLint<CR>
+        autocmd FileType go noremap <leader>i :GoIfErr<CR>
     augroup END
 endfun
 " }}}
@@ -304,7 +303,6 @@ fun! SetCodeModeColor()
 endfun
 
 fun! SetWriteModeColor()
-    set nonumber
     let g:solarized_termcolors=256
     colorscheme solarized
     set background=light
