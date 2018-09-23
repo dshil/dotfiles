@@ -221,9 +221,10 @@ fun! SetupAutocmds()
         call SetupCAutocmd()
         call SetupGoAutocmd()
         call SetupRubyAutocmd()
+        call SetupCPPAutocmd()
 
         autocmd BufWritePre * call StripTrailingWhiteSpaces()
-        autocmd BufWritePre *.rb,*.c,*.cpp,*.h,*.wiki call SquashBlankLines()
+        autocmd BufWritePre *.sh,*.rb,*.c,*.cpp,*.h,*.wiki call SquashBlankLines()
         autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
     augroup END
 endfun
@@ -236,6 +237,15 @@ fun! SetupPythonAutocmd()
         autocmd!
         autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
         autocmd FileType python setlocal colorcolumn=80
+    augroup END
+endfun
+" }}}
+
+" CPP settings {{{
+fun! SetupCPPAutocmd()
+    augroup cpp
+        autocmd!
+        autocmd BufEnter *.cpp :setlocal cindent cino=j1,(0,ws,Ws
     augroup END
 endfun
 " }}}
