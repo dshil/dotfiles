@@ -179,8 +179,6 @@ fun! SetupMappingss()
     nnoremap <silent> <leader>d "_d
     vnoremap <silent> <leader>d "_d
 
-    inoremap jj <Esc>
-
     nnoremap <C-p> :FZF<CR>
     nnoremap <C-b> :Buffers<CR>
     nnoremap <leader>go :Goyo<CR>
