@@ -162,8 +162,8 @@ fun! SetupMappingss()
 
     nnoremap <leader>m :nohlsearch<CR>
 
-    " These mappings will make it so that going to the next one in a search will
-    " center on the line it's found in.
+    " These mappings will make it so that going to the next one in a search
+    " will center on the line it's found in.
     nnoremap n nzzzv
     nnoremap N Nzzzv
 
@@ -183,9 +183,6 @@ fun! SetupMappingss()
     nnoremap <C-b> :Buffers<CR>
     nnoremap <leader>go :Goyo<CR>
 
-    nnoremap<leader>vm :tabedit $MYVIMRC<CR>
-    nnoremap<leader>vr :vertical resize 127<CR>
-
     nnoremap<leader>tb :TagbarToggle<CR>
 
     " Open/close folding
@@ -197,7 +194,6 @@ fun! SetupMappingss()
     nnoremap<leader>cm :call SetCodeModeColor()<CR>
     nnoremap<leader>wm :call SetWriteModeColor()<CR>
 
-    nnoremap<leader>sv :source $MYVIMRC<CR>
     nnoremap<leader>cc :checktime<CR>
     nnoremap<leader>bc :bufdo bd<CR>
 endfun
