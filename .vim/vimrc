@@ -41,7 +41,6 @@ let g:vimwiki_list = [{'path': '~/doc', 'index': 'main'},
 
 
 " Language: Go
-" Tagbar configuration for Golang
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
@@ -75,46 +74,26 @@ let g:tagbar_type_go = {
 
 fun! SetupGenericSettings()
     set modelines=1
-
-    let g:mapleader = ","
-
-    " Disable the CtrlP mapping, since we want to use FZF instead for <c-p>.
-    let g:ctrlp_map = ''
-
-    " Default indentation.
-    " ts - tabstop
-    " sts - softtabstop (insert mode)
-    " sw - shiftwidth (normal mode)
-    set ts=4 sts=4 sw=4 expandtab
-
-    set colorcolumn=80
     set clipboard=unnamedplus
 
-
-    " Mapping for coping to a clipboard.
-    vnoremap <C-c> "+y
-
-    call SetCodeModeColor()
-
-    set number
+    set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+    set colorcolumn=80
     set laststatus=2
-
-    set hidden
     set backspace=2
+    set hidden
+    set number
     set ruler
+    set title
 
-    " Don't show an error during the work with buffers.
-    set noerrorbells
+    set noerrorbells  " Don't show an error during the work with buffers.
     set novisualbell
 
-    " Search
-    set incsearch               " move to match as you type the search query
-    set hlsearch                " enable search result highlighting
+    set incsearch     " move to match as you type the search query
+    set hlsearch      " enable search result highlighting
     set ignorecase
     set smartcase
 
     set wildmode=list:longest,full
-
     set lazyredraw
 
     filetype plugin indent on
@@ -134,14 +113,18 @@ fun! SetupGenericSettings()
     set updatetime=1000
     set history=1000
     set undolevels=1000
-
-    set title
 endfun
 " }}}
 
 " Mappings {{{
 
 fun! SetupMappingss()
+    let g:mapleader = ","
+    let g:ctrlp_map = '' " Disable CtrlP because of FZF usage
+
+    " Mapping for coping to a clipboard.
+    vnoremap <C-c> "+y
+
     noremap <Up> <Nop>
     noremap <Down> <Nop>
     noremap <Left> <Nop>
@@ -379,8 +362,8 @@ call SetupGenericSettings()
 call SetupMappingss()
 call SetupMisspellings()
 call SetupBackup()
+call SetCodeModeColor()
 call SetupStatusLine()
-
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
