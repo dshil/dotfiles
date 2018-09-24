@@ -26,7 +26,7 @@ Plug 'mileszs/ack.vim'
 Plug 'aklt/plantuml-syntax'
 Plug 'scrooloose/vim-slumlord'
 
-Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 Plug 'junegunn/seoul256.vim'
 Plug 'vim-ruby/vim-ruby'
 
@@ -286,13 +286,15 @@ endfun
 fun! SetCodeModeColor()
     let g:seoul256_background = 233
     colorscheme seoul256
+    set background=dark
     highlight colorcolumn ctermbg=236
+    highlight statusline ctermfg=236 ctermbg=15
 endfun
 
 fun! SetWriteModeColor()
-    let g:solarized_termcolors=256
-    colorscheme solarized
+    colorscheme gruvbox
     set background=light
+    highlight statusline ctermfg=236 ctermbg=15
 endfun
 
 " }}}
@@ -350,7 +352,6 @@ fun! SetupStatusLine()
     set statusline+=%l                       " Current line
     set statusline+=/                        " Separator
     set statusline+=%L]                      " Total lines
-
     highlight statusline ctermfg=236 ctermbg=15
 endfun
 
