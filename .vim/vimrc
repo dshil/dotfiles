@@ -140,6 +140,8 @@ fun! SetupMappingss()
     nnoremap <leader>h :split<CR>
     nnoremap <leader>q :close<CR>
 
+    inoremap jj <Esc>
+
     " Center the screen quickly
     nnoremap <space> zz
 
