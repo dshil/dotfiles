@@ -19,4 +19,3 @@ ln -s -f $dir/.i3 $HOME/.config/i3/config
 ln -s -f $dir/.mutt/muttrc $HOME/.muttrc
 
 xrdb -merge $HOME/.Xresources
-
