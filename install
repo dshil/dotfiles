@@ -1,15 +1,22 @@
 #! /bin/bash
 
-ln -s -f $(pwd)/.Xresources ~/.Xresources
-xrdb -merge ~/.Xresources
+set -xe
 
-ln -s -f $(pwd)/.vim ~/.config/nvim
-ln -s -f $(pwd)/.vim/vimrc ~/.config/nvim/init.vim
-ln -s -f $(pwd)/.gitconfig ~/.gitconfig
-ln -s -f $(pwd)/.aliases ~/.aliases
-ln -s -f $(pwd)/.xinitrc ~/.xinitrc
-ln -s -f $(pwd)/.i3 ~/.config/i3/config
-ln -s -f $(pwd)/.lightdm /etc/lightdm/lightdm.conf
+dir=$(pwd)
 
-rm -rf $(pwd)/.vim/.vim
+# Setup for vim
+ln -s -f $dir/.vim $HOME/.vim
+ln -s -f $dir/.vimrc $HOME/.vimrc
+
+ln -s -f $dir/.gitconfig $HOME/.gitconfig
+
+ln -s -f $dir/.aliases $HOME/.aliases
+
+ln -s -f $dir/.xinitrc $HOME/.xinitrc
+ln -s -f $dir/.Xresources $HOME/.Xresources
+
+ln -s -f $dir/.i3 $HOME/.config/i3/config
+ln -s -f $dir/.mutt/muttrc $HOME/.muttrc
+
+xrdb -merge $HOME/.Xresources
 
