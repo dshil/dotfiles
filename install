@@ -6,7 +6,7 @@ dir=$(pwd)
 
 # Setup for vim
 ln -s -f $dir/.vim $HOME/.vim
-ln -s -f $dir/.vimrc $HOME/.vimrc
+ln -s -f $dir/.vim/vimrc $HOME/.vimrc
 
 ln -s -f $dir/.gitconfig $HOME/.gitconfig
 
