@@ -38,7 +38,7 @@ xterm*scrollTtyOutput: false
 ! +--------------------------------------------------------------------------+
 ! +                             RXVT                                         +
 ! +--------------------------------------------------------------------------+
-Rxvt.font:           xft:Terminus:size=11
+Rxvt.font:           xft:Terminus:size=12
 Rxvt*boldFont:
 Rxvt*italicFont:
 Rxvt*boldItalicFont:
