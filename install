@@ -16,6 +16,5 @@ ln -s -f $dir/x/xinitrc $HOME/.xinitrc
 ln -s -f $dir/x/Xresources $HOME/.Xresources
 
 ln -s -f $dir/i3/i3 $HOME/.config/i3/config
-ln -s -f $dir/.mutt/muttrc $HOME/.muttrc
 
 xrdb -merge $HOME/.Xresources
