@@ -16,4 +16,4 @@ ln -s -f $dir/x/Xresources $HOME/.Xresources
 
 ln -s -f $dir/i3/i3 $HOME/.config/i3/config
 
-xrdb -merge $HOME/.Xresources
+ln -s -f $dir/bash_profile $HOME/.bash_profile
