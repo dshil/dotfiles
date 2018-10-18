@@ -4,7 +4,6 @@ set -xe
 
 dir=$(pwd)
 
-# Setup for vim
 ln -s -f $dir/vim $HOME/.vim
 ln -s -f $dir/vim/vimrc $HOME/.vimrc
 
