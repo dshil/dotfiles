@@ -11,7 +11,7 @@ if [ "$SRC" == "" ]; then
     echo "error: backup source path must be specified"; exit 1
 fi
 
-ls -tp ${SRC} \
+ls -tp $SRC \
     | grep -v '/$' \
-    | tail -n +$(expr ${MAXENTRYNUM} + 1) \
+    | tail -n +$(expr $MAXENTRYNUM + 1) \
     | xargs --no-run-if-empty rm
