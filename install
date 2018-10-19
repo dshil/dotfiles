@@ -17,3 +17,6 @@ ln -s -f $dir/x/Xresources $HOME/.Xresources
 ln -s -f $dir/i3/i3 $HOME/.config/i3/config
 
 ln -s -f $dir/bash_profile $HOME/.bash_profile
+
+localectl --no-convert  \
+    set-x11-keymap us,ru pc105 "" grp:switch,grp:caps_toggle,grp_led:caps
