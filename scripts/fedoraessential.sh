@@ -22,7 +22,12 @@ function setup_i3 () {
     dnf install i3lock
 }
 
+function setup_utils () {
+    dnf install sxiv mupdf ack ctags
+}
+
 setup_chrome
 setup_terminal
 setup_toolchain
 setup_i3
+setup_utils
