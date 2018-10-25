@@ -18,5 +18,10 @@ ln -s -f $dir/i3/i3 $HOME/.config/i3/config
 
 ln -s -f $dir/bash_profile $HOME/.bash_profile
 
+ln -s -f $dir/mail/muttrc $HOME/.muttrc
+ln -s -f $dir/mail/mailcap $HOME/.mailcap
+ln -s -f $dir/mail/colors.mutt $HOME/.colors.mutt
+ln -s -f $dir/mail/mbsyncrc $HOME/.mbsyncrc
+
 localectl --no-convert  \
     set-x11-keymap us,ru pc105 "" grp:switch,grp:caps_toggle,grp_led:caps

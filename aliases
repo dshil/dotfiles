@@ -1,3 +1,4 @@
+alias mutt='neomutt'
 alias nv='nvim'
 alias gl='git log'
 alias gal='git add -A .'

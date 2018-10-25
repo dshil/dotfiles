@@ -1,0 +1,115 @@
+# Mailboxes {{{
+mailboxes =dshil
+mailboxes =dshil/inbox
+mailboxes =dshil/sent
+mailboxes =dshil/drafts
+mailboxes =dshil/archive
+mailboxes =dshil/trash
+mailboxes =dshil/spam
+mailboxes =sdadev
+mailboxes =sdadev/inbox
+mailboxes =sdadev/sent
+mailboxes =sdadev/drafts
+mailboxes =sdadev/dev
+mailboxes =sdadev/job
+mailboxes =sdadev/starred
+mailboxes =sdadev/traveling
+mailboxes =sdadev/learning
+mailboxes =sdadev/trash
+mailboxes =sdadev/spam
+mailboxes =shilinda
+mailboxes =shilinda/inbox
+# }}}
+
+# Pathes {{{
+set folder           = $HOME/Mail
+set mailcap_path     = $HOME/.mailcap
+set header_cache     = $HOME/.mutt/cache/headers
+set message_cachedir = $HOME/.mutt/cache/bodies
+set tmpdir           = $HOME/.mutt/tmp
+# }}}
+
+# Options {{{
+set spoolfile = +sdadev/inbox
+set trash = +sdadev/trash
+
+set editor    = "vim"
+set mbox_type = Maildir
+set realname  = "Dmitriy Shilin"
+set sort      = threads
+set sort_aux  = reverse-last-date-received
+
+set delete
+set quit
+set wait_key = no
+set sleep_time = 0
+unset confirmappend
+
+set mime_forward
+set mime_forward_rest
+
+set smart_wrap
+set status_on_top
+
+auto_view text/html
+# }}}
+
+# Sidebar {{{
+set sidebar_visible
+set sidebar_width = 25
+set sidebar_short_path
+set sidebar_folder_indent
+set sidebar_indent_string = "  "
+set sidebar_divider_char = "  |  "
+set mail_check_stats
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+# }}}
+
+# Colors {{{
+#
+# Note: All color operations are of the form:
+#       color OBJECT FOREGROUND BACKGROUND
+#
+source $HOME/.colors.mutt
+# }}}
+
+# Macros {{{
+macro index M "<save-message>?<toggle-mailboxes>"
+macro index R ":source ~/.muttrc<enter>"
+macro index S "<shell-escape>mbsync all<enter>"
+macro index s "<shell-escape>mbsync inbox<enter>"
+macro pager \Cu "<pipe-message>urlscan --dedupe<enter>"
+macro index,pager X "<pipe-message>ripmime -i - -d "
+# }}}
+
+# Bindings {{{
+bind index g noop
+bind index gg noop
+bind index * noop
+bind index = noop
+bind index <Esc>v noop
+bind index <Home> noop
+bind index <End> noop
+bind index gg first-entry
+bind index G last-entry
+bind index D purge-message
+bind index <space> collapse-thread
+bind pager J next-line
+bind pager K previous-line
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+bind index,pager \Co sidebar-open
+bind index,pager Q sidebar-toggle-visible
+bind attach <return> view-mailcap
+# }}}
+
+# Pager {{{
+set tilde
+unset markers
+set menu_scroll
+set pager_stop
+alternative_order text/plain text/enriched text/html
+# }}}
+
+# vim: syntax=neomuttrc
+# vim:foldmethod=marker:foldlevel=0

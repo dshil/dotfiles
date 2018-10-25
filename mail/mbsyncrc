@@ -1,0 +1,185 @@
+IMAPAccount dshil
+    Host imap.fastmail.com
+    User dshil@fastmail.com
+    PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.cert/mail/dshil.gpg"
+    SSLType IMAPS
+    SSLVersions TLSv1.2
+
+IMAPStore dshil-remote
+    Account dshil
+
+MaildirStore dshil-local
+    Path ~/Mail/dshil/
+    Inbox ~/Mail/dshil/inbox
+
+Channel dshil-inbox
+    Master ":dshil-remote:INBOX"
+    Slave  ":dshil-local:inbox"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel dshil-sent
+    Master ":dshil-remote:Sent"
+    Slave  ":dshil-local:sent"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel dshil-drafts
+    Master ":dshil-remote:Drafts"
+    Slave  ":dshil-local:drafts"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel dshil-archive
+    Master ":dshil-remote:Archive"
+    Slave  ":dshil-local:archive"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel dshil-spam
+    Master ":dshil-remote:Spam"
+    Slave  ":dshil-local:spam"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel dshil-trash
+    Master ":dshil-remote:Trash"
+    Slave  ":dshil-local:trash"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+IMAPAccount sdadev
+    Host imap.gmail.com
+    User sdadeveloper@gmail.com
+    PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.cert/mail/sdadev.gpg"
+    SSLType IMAPS
+    SSLVersions TLSv1.2
+
+IMAPStore sdadev-remote
+    Account sdadev
+
+MaildirStore sdadev-local
+    Path ~/Mail/sdadev/
+    Inbox ~/Mail/sdadev/inbox
+
+Channel sdadev-inbox
+    Master ":sdadev-remote:INBOX"
+    Slave  ":sdadev-local:inbox"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel sdadev-sent
+    Master ":sdadev-remote:[Gmail]/Sent Mail"
+    Slave  ":sdadev-local:sent"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel sdadev-spam
+    Master ":sdadev-remote:[Gmail]/Spam"
+    Slave  ":sdadev-local:spam"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel sdadev-trash
+    Master ":sdadev-remote:[Gmail]/Bin"
+    Slave  ":sdadev-local:trash"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel sdadev-drafts
+    Master ":sdadev-remote:[Gmail]/Drafts"
+    Slave  ":sdadev-local:drafts"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel sdadev-starred
+    Master ":sdadev-remote:[Gmail]/Starred"
+    Slave  ":sdadev-local:starred"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel sdadev-job
+    Master ":sdadev-remote:job"
+    Slave  ":sdadev-local:job"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel sdadev-dev
+    Master ":sdadev-remote:dev"
+    Slave  ":sdadev-local:dev"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel sdadev-traveling
+    Master ":sdadev-remote:traveling"
+    Slave  ":sdadev-local:traveling"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Channel sdadev-learning
+    Master ":sdadev-remote:learning"
+    Slave  ":sdadev-local:learning"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+IMAPAccount shilinda
+    Host imap.yandex.com
+    User shilinda@yandex.ru
+    PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.cert/mail/shilinda.gpg"
+    SSLType IMAPS
+    SSLVersions TLSv1.2
+
+IMAPStore shilinda-remote
+    Account shilinda
+
+MaildirStore shilinda-local
+    Path ~/Mail/shilinda/
+    Inbox ~/Mail/shilinda/inbox
+
+Channel shilinda-inbox
+    Master ":shilinda-remote:INBOX"
+    Slave  ":shilinda-local:inbox"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
+Group all
+    Channels sdadev-inbox sdadev-sent sdadev-spam sdadev-trash sdadev-drafts sdadev-starred sdadev-job sdadev-dev sdadev-traveling sdadev-learning
+    Channels dshil-inbox dshil-trash dshil-sent dshil-drafts dshil-archive dshil-spam
+    Channels shilinda-inbox
+
+Group inbox
+    Channels sdadev-inbox dshil-inbox shilinda-inbox

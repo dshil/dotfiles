@@ -1,0 +1,66 @@
+### General {{{
+color message       color250      color233
+color normal        color253      color233
+color indicator     color255      color240
+color status        color180      color233
+color tree          color113      color233
+color signature     color102      color233
+color attachment    color117      color233
+color error         color30       color233
+color tilde         color142      color233
+color search        color100      color233
+color markers       color142      color233
+color error         white         color233
+color attachment    color111      color233
+color signature     color244      color233
+# }}}
+
+# Quotes {{{
+color quoted color34   color233
+color quoted1 color142 color233
+color quoted2 color34  color233
+color quoted3 color142 color233
+color quoted4 color34  color233
+color quoted5 color142 color233
+color quoted6 color34  color233
+color quoted7 color142 color233
+color quoted8 color34  color233
+color quoted9 color142 color233
+# }}}
+
+# Sidebar {{{
+color sidebar_highlight     white         color238
+color sidebar_new           color114      color233
+color sidebar_indicator     black         white
+color sidebar_spoolfile     yellow        color233
+color sidebar_ordinary      default       color233
+color sidebar_flagged       red           color233
+color sidebar_divider       color113      color233
+# }}}
+
+# Index {{{
+color index     color202    color233  ~F # Flagged
+color index     color117    color233  ~N # New
+color index     color179    color233  ~O
+color index     color229    color22   ~T # Tagged
+color index     color124    color233  ~D # Deleted
+# }}}
+
+# Header {{{
+color hdrdefault    color248 color233
+color header        color248 color233 "^from"
+color header        color226 color233 "^subject"
+# }}}
+
+# Body {{{
+color body color68      color233 "(finger|ftp|http|https|news|telnet)://[^ >]*"
+color body color111     color233 "<URL:[^ ]*>"
+color body color111     color233 "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
+color body color111     color233 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body brightred    color233 "^-.*"
+color body green        color233 "^[+].*"
+color body brightwhite  color233 "^diff .*"
+color body brightyellow color233 "^@@.*"
+# }}}
+
+# vim: syntax=neomuttrc
