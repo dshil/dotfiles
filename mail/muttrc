@@ -21,6 +21,16 @@ mailboxes =shilinda
 mailboxes =shilinda/inbox
 # }}}
 
+# Sendmail {{{
+set realname      = "Dmitriy Shilin"
+set from          = "dshil@fastmail.com"
+set use_from      = yes
+set envelope_from = yes
+set sendmail      = "msmtp -a dshil"
+set sendmail_wait = 0
+set record = "+dshil/sent"
+# }}}
+
 # Pathes {{{
 set folder           = $HOME/Mail
 set mailcap_path     = $HOME/.mailcap
@@ -35,7 +45,6 @@ set trash = +sdadev/trash
 
 set editor    = "vim"
 set mbox_type = Maildir
-set realname  = "Dmitriy Shilin"
 set sort      = threads
 set sort_aux  = reverse-last-date-received
 
