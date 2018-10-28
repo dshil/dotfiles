@@ -40,7 +40,7 @@ color sidebar_divider       color113      color233
 
 # Index {{{
 color index     color202    color233  ~F # Flagged
-color index     color117    color233  ~N # New
+color index     color179    color233  ~N # New
 color index     color179    color233  ~O
 color index     color229    color22   ~T # Tagged
 color index     color124    color233  ~D # Deleted
