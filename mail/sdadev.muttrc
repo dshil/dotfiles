@@ -1,4 +1,9 @@
+# Options {{{
 set from      = "sdadeveloper@gmail.com"
 set trash     = +sdadev/trash
 set spoolfile = +sdadev/inbox
 unset record
+# }}}
+
+# vim: syntax=neomuttrc
+# vim:foldmethod=marker:foldlevel=0

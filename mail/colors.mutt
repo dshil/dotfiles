@@ -1,3 +1,10 @@
+# Colors {{{
+#
+# Note: All color operations are of the form:
+#       color OBJECT FOREGROUND BACKGROUND
+#
+# }}}
+
 ### General {{{
 color message       color250      color233
 color normal        color253      color233
@@ -64,3 +71,4 @@ color body brightyellow color233 "^@@.*"
 # }}}
 
 # vim: syntax=neomuttrc
+# vim:foldmethod=marker:foldlevel=0
