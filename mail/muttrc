@@ -1,6 +1,5 @@
-source $HOME/.mail/colors.mutt
+source $HOME/.mail/color.muttrc
 source $HOME/.mail/dshil.muttrc
-source $HOME/.mail/sdadev.muttrc
 source $HOME/.mail/forall.muttrc
 
 # vim: syntax=neomuttrc
