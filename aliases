@@ -1,4 +1,6 @@
-alias mutt='neomutt'
+alias mutt='neomutt -F $HOME/.mail/muttrc'
+alias mbsync='mbsync --config $HOME/.mail/mbsyncrc'
+alias msmtp='msmtp --file $HOME/.mail/msmtprc'
 alias nv='nvim'
 alias gl='git log'
 alias gal='git add -A .'

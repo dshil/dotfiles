@@ -25,13 +25,13 @@ mailboxes =shilinda/inbox
 set realname      = "Dmitriy Shilin"
 set use_from      = yes
 set envelope_from = yes
-set sendmail      = "msmtp"
+set sendmail      = "msmtp --file=$HOME/.mail/msmtprc"
 set sendmail_wait = 0
 # }}}
 
 # Pathes {{{
 set folder           = $HOME/Mail
-set mailcap_path     = $HOME/.mailcap
+set mailcap_path     = $HOME/.mail/mailcap
 set header_cache     = $HOME/.mutt/cache/headers
 set message_cachedir = $HOME/.mutt/cache/bodies
 set tmpdir           = $HOME/.mutt/tmp
@@ -77,18 +77,18 @@ set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 # Note: All color operations are of the form:
 #       color OBJECT FOREGROUND BACKGROUND
 #
-source $HOME/.colors.mutt
+source $HOME/.mail/colors.mutt
 # }}}
 
 # Macros {{{
 macro index M "<save-message>?<toggle-mailboxes>"
-macro index R ":source ~/.muttrc<enter>"
-macro index S "<shell-escape>mbsync all<enter>"
-macro index s "<shell-escape>mbsync inbox<enter>"
+macro index R ":source $HOME/.mail/muttrc<enter>"
+macro index S "<shell-escape>mbsync --config=$HOME/.mail/mbsyncrc all<enter>"
+macro index s "<shell-escape>mbsync --config=$HOME/.mail/mbsyncrc inbox<enter>"
 macro pager \Cu "<pipe-message>urlscan --dedupe<enter>"
 macro index,pager X "<pipe-message>ripmime -i - -d "
-macro generic "<F2>" ":source $HOME/.dshil.muttrc<enter>"
-macro generic "<F3>" ":source $HOME/.sdadev.muttrc<enter>"
+macro generic "<F2>" ":source $HOME/.mail/dshil.muttrc<enter>"
+macro generic "<F3>" ":source $HOME/.mail/sdadev.muttrc<enter>"
 # }}}
 
 # Bindings {{{
