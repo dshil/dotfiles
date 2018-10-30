@@ -23,12 +23,10 @@ mailboxes =shilinda/inbox
 
 # Sendmail {{{
 set realname      = "Dmitriy Shilin"
-set from          = "dshil@fastmail.com"
 set use_from      = yes
 set envelope_from = yes
-set sendmail      = "msmtp -a dshil"
+set sendmail      = "msmtp"
 set sendmail_wait = 0
-set record = "+dshil/sent"
 # }}}
 
 # Pathes {{{
@@ -40,13 +38,13 @@ set tmpdir           = $HOME/.mutt/tmp
 # }}}
 
 # Options {{{
-set spoolfile = +sdadev/inbox
-set trash = +sdadev/trash
-
 set editor    = "vim"
 set mbox_type = Maildir
 set sort      = threads
 set sort_aux  = reverse-last-date-received
+
+set trash     = +dshil/trash
+set spoolfile = +dshil/inbox
 
 set delete
 set quit
@@ -89,6 +87,8 @@ macro index S "<shell-escape>mbsync all<enter>"
 macro index s "<shell-escape>mbsync inbox<enter>"
 macro pager \Cu "<pipe-message>urlscan --dedupe<enter>"
 macro index,pager X "<pipe-message>ripmime -i - -d "
+macro generic "<F2>" ":source $HOME/.dshil.muttrc<enter>"
+macro generic "<F3>" ":source $HOME/.sdadev.muttrc<enter>"
 # }}}
 
 # Bindings {{{

@@ -23,6 +23,8 @@ ln -s -f $dir/mail/mailcap $HOME/.mailcap
 ln -s -f $dir/mail/colors.mutt $HOME/.colors.mutt
 ln -s -f $dir/mail/mbsyncrc $HOME/.mbsyncrc
 ln -s -f $dir/mail/msmtprc $HOME/.msmtprc
+ln -s -f $dir/mail/dshil.muttrc $HOME/.dshil.muttrc
+ln -s -f $dir/mail/sdadev.muttrc $HOME/.sdadev.muttrc
 
 localectl --no-convert  \
     set-x11-keymap us,ru pc105 "" grp:switch,grp:caps_toggle,grp_led:caps
