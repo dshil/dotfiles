@@ -29,6 +29,7 @@ Plug 'scrooloose/vim-slumlord'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/seoul256.vim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 " }}}
@@ -151,6 +152,8 @@ fun! SetupMappingss()
 
     nnoremap<leader>cc :checktime<CR>
     nnoremap<leader>bc :bufdo bd<CR>
+
+    nnoremap <C-n> :NERDTreeToggle<CR>
 endfun
 
 " }}}
