@@ -1,3 +1,4 @@
+alias vim='vimx'
 alias mutt='neomutt -F $HOME/.mail/muttrc'
 alias mbsync='mbsync --config $HOME/.mail/mbsyncrc'
 alias msmtp='msmtp --file $HOME/.mail/msmtprc'
