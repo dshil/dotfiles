@@ -15,9 +15,11 @@ function setup_terminal () {
 
 function setup_toolchain () {
     dnf install git gitk make cmake autoconf gcc-c++
+    dnf install vim-x11
 }
 
 function setup_i3 () {
+    dnf install lightdm
     dnf install i3
     dnf install i3lock
 }
