@@ -31,4 +31,5 @@ dnf install -y dnf-plugins-core neomutt
 mkdir -p $HOME/Mail \
     $HOME/Mail/sdadev \
     $HOME/Mail/shilinda \
-    $HOME/Mail/dshil
+    $HOME/Mail/dshil \
+    $HOME/Mail/shilin

@@ -27,6 +27,13 @@ mailboxes =sdadev/trash
 mailboxes =sdadev/spam
 mailboxes =shilinda
 mailboxes =shilinda/inbox
+mailboxes =shilin
+mailboxes =shilin/inbox
+mailboxes =shilin/sent
+mailboxes =shilin/drafts
+mailboxes =shilin/starred
+mailboxes =shilin/trash
+mailboxes =shilin/spam
 # }}}
 
 # Bindings {{{
@@ -59,6 +66,7 @@ macro pager \Cu "<pipe-message>urlscan --dedupe<enter>"
 macro index,pager X "<pipe-message>ripmime -i - -d "
 macro generic "<F2>" ":source $HOME/.mail/dshil.muttrc<enter>"
 macro generic "<F3>" ":source $HOME/.mail/sdadev.muttrc<enter>"
+macro generic "<F4>" ":source $HOME/.mail/shilin.muttrc<enter>"
 # }}}
 
 # Sidebar {{{
