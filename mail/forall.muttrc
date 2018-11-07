@@ -81,7 +81,7 @@ set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 # }}}
 
 # Options {{{
-set editor    = "vim"
+set editor    = "vimx"
 set mbox_type = Maildir
 set sort      = threads
 set sort_aux  = reverse-last-date-received
