@@ -2,7 +2,7 @@
 
 set -xe
 
-# Required utilities:
+# Prepare toolchain:
 #  * mbsync:
 #      info: sync multiple IMAP accounts
 #      usage: mbsync -V all
@@ -28,8 +28,19 @@ dnf install -y gnupg
 dnf copr enable flatcap/neomutt
 dnf install -y dnf-plugins-core neomutt
 
+# Prepare pathes.
 mkdir -p $HOME/Mail \
     $HOME/Mail/sdadev \
     $HOME/Mail/shilinda \
     $HOME/Mail/dshil \
     $HOME/Mail/shilin
+
+# Prepare config generators.
+#
+# To automate generators add the following to your crontab:
+#
+# sudo crontab -e
+#
+# 0 8 1 * * msmtpctl --reload
+chmod +x msmtpctl.py
+ln -s -f $(pwd)/msmtpctl.py /usr/bin/msmtpctl

@@ -113,7 +113,7 @@ set tmpdir           = $HOME/.mutt/tmp
 set realname      = "Dmitriy Shilin"
 set use_from      = yes
 set envelope_from = yes
-set sendmail      = "msmtp --file=$HOME/.mail/msmtprc"
+set sendmail      = "msmtp"
 set sendmail_wait = 0
 # }}}
 
