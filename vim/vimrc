@@ -176,7 +176,7 @@ fun! SetupAutocmds()
         call SetupCPPAutocmd()
 
         autocmd BufWritePre * call StripTrailingWhiteSpaces()
-        autocmd BufWritePre *.sh,*.rb,*.c,*.cpp,*.h,*.wiki call SquashBlankLines()
+        autocmd BufWritePre *.py,*.sh,*.rb,*.c,*.cpp,*.h,*.wiki call SquashBlankLines()
         autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
     augroup END
 endfun
