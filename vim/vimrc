@@ -202,7 +202,7 @@ endfun
 fun! SetupCPPAutocmd()
     augroup cpp
         autocmd!
-        autocmd BufEnter *.cpp :setlocal cindent cino=j1,(0,ws,Ws
+        autocmd BufEnter *.cpp,*.h,*hpp :setlocal cindent cino=j1,(0,ws,Ws
     augroup END
 endfun
 " }}}
