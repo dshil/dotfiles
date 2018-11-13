@@ -156,9 +156,9 @@ fun! SetupMappingss()
     nnoremap <C-n> :NERDTreeToggle<CR>
 
     " Convert tabs -> spaces
-    nnoremap <leader>rt :%s/\t/  /g<CR>
+    nnoremap <leader>ss :%s/\t/  /g<CR>
     " Convert spaces -> tabs
-    nnoremap <leader>rs :%s/  /\t/g<CR>
+    nnoremap <leader>st :%s/  /\t/g<CR>
 endfun
 
 " }}}
@@ -202,6 +202,7 @@ endfun
 fun! SetupCPPAutocmd()
     augroup cpp
         autocmd!
+        autocmd FileType cpp setlocal ts=4 sts=4 sw=4 noexpandtab
         autocmd FileType cpp setlocal cindent cino=j1,(0,ws,Ws
         autocmd FileType cpp call SquashBlankLines()
     augroup END
