@@ -154,6 +154,8 @@ fun! SetupMappingss()
     nnoremap<leader>bc :bufdo bd<CR>
 
     nnoremap <C-n> :NERDTreeToggle<CR>
+
+    nnoremap <leader>rt :%s/\t/  /g<CR>
 endfun
 
 " }}}
