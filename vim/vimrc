@@ -181,7 +181,7 @@ fun! SetupAutocmds()
         call SetupCPPAutocmd()
 
         autocmd BufWritePre * call StripTrailingWhiteSpaces()
-        autocmd BufWritePre *.py,*.sh,*.rb,*.c,*.cpp,*.h,*.wiki call SquashBlankLines()
+        autocmd BufWritePre *.py,*.sh,*.rb,*.c,*.h,*.wiki call SquashBlankLines()
         autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
     augroup END
 endfun
@@ -202,7 +202,8 @@ endfun
 fun! SetupCPPAutocmd()
     augroup cpp
         autocmd!
-        autocmd BufEnter *.cpp,*.h,*hpp :setlocal cindent cino=j1,(0,ws,Ws
+        autocmd FileType cpp setlocal cindent cino=j1,(0,ws,Ws
+        autocmd FileType cpp call SquashBlankLines()
     augroup END
 endfun
 " }}}
