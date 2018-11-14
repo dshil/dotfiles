@@ -170,9 +170,9 @@ fun! SetupAutocmds()
         autocmd!
 
         autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-        autocmd FileType ruby,yml setlocal ts=2 sts=2 sw=2 expandtab nocursorline
-        autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
+        autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab nocursorline
         autocmd FileType asm setlocal ft=nasm
+        autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
         call SetupPythonAutocmd()
         call SetupCAutocmd()
@@ -182,7 +182,6 @@ fun! SetupAutocmds()
 
         autocmd BufWritePre * call StripTrailingWhiteSpaces()
         autocmd BufWritePre * call SquashBlankLines()
-        autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
     augroup END
 endfun
 
@@ -251,6 +250,7 @@ fun! SetupGoAutocmd()
         autocmd!
 
         autocmd FileType go setlocal colorcolumn=80
+        autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
 
         let g:go_disable_autoinstall = 0
         let g:go_highlight_types = 1
@@ -284,6 +284,7 @@ fun! SetupRubyAutocmd()
     augroup ruby
         autocmd!
         autocmd FileType ruby setlocal colorcolumn=80
+        autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab nocursorline
     augroup END
 endfun
 
