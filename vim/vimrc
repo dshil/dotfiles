@@ -154,11 +154,6 @@ fun! SetupMappingss()
     nnoremap<leader>bc :bufdo bd<CR>
 
     nnoremap <C-n> :NERDTreeToggle<CR>
-
-    " Convert tabs -> spaces
-    nnoremap <leader>ss :%s/\t/  /g<CR>
-    " Convert spaces -> tabs
-    nnoremap <leader>st :%s/  /\t/g<CR>
 endfun
 
 " }}}
