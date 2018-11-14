@@ -166,7 +166,7 @@ endfun
 " Autocmds settings {{{
 
 fun! SetupAutocmds()
-    augroup vimrc
+    augroup __main__
         autocmd!
 
         autocmd BufWritePre * call StripTrailingWhiteSpaces()
