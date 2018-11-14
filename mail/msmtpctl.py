@@ -149,8 +149,10 @@ def reload_config(accounts, default_account):
         tmpfile.write('account default : {}'.format(default_account))
 
         os.rename(tmpfile_path, config_path)
-        tmpfile.delete()
-    except Exception:
+        tmpfile.close()
+
+    except Exception as e:
+        print('failed to reload config: {}'.format(e), file=sys.stderr)
         pass
     finally:
         shutil.rmtree(tmpdir_path)
