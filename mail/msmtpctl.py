@@ -35,16 +35,16 @@ class account :
                '\ttls {tls}\n'                               \
                '\ttls_fingerprint {tls_fingerprint}\n'       \
                '\tpasswordeval {passwordeval}\n'.format(
-                    account=account.id,
-                    host=account.host,
-                    port=account.port,
-                    protocol=account.proto,
-                    from_=account.email,
-                    user=account.email,
-                    auth=account.auth,
-                    tls=account.tls,
-                    tls_fingerprint=account.tls_fingerprint,
-                    passwordeval=account.passwordeval,
+                    account=self.id,
+                    host=self.host,
+                    port=self.port,
+                    protocol=self.proto,
+                    from_=self.email,
+                    user=self.email,
+                    auth=self.auth,
+                    tls=self.tls,
+                    tls_fingerprint=self.tls_fingerprint,
+                    passwordeval=self.passwordeval,
                )
 
     def json(self):
