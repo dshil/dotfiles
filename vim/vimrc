@@ -198,6 +198,7 @@ fun! SetupCPPAutocmd()
     augroup cpp
         autocmd!
         autocmd FileType cpp setlocal cindent cino=j1,(0,ws,Ws
+        autocmd FileType c setlocal colorcolumn=80
     augroup END
 endfun
 " }}}
