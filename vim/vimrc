@@ -48,7 +48,6 @@ fun! SetupGenericSettings()
     set modelines=1
     set clipboard=unnamedplus
 
-    set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
     set colorcolumn=80
     set laststatus=2
     set backspace=2
@@ -287,6 +286,16 @@ endfun
 
 " }}}
 
+" Tab/Space switchers {{{
+fun! SetupSpaces()
+    set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+endfun
+
+fun! SetupTabs()
+    set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+endfun
+" }}}
+
 " Color scheme modes {{{
 
 fun! SetCodeModeColor()
@@ -366,6 +375,7 @@ endfun
 " Settings installation {{{
 
 call SetupGenericSettings()
+call SetupSpaces()
 call SetupMappingss()
 call SetupMisspellings()
 call SetupBackup()
