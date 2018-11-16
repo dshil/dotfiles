@@ -41,6 +41,6 @@ mkdir -p $HOME/Mail \
 #
 # sudo crontab -e
 #
-# 0 8 1 * * msmtpctl --reload
+# 0 8 * * * msmtpctl --reload
 chmod +x msmtpctl.py
 ln -s -f $(pwd)/msmtpctl.py /usr/bin/msmtpctl
