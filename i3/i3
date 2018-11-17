@@ -34,6 +34,10 @@ set $right semicolon
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
+# Maim screen saver key bindings. https://github.com/naelstrof/maim
+bindsym Mod1+Control+m exec maim ~/Pictures/$(date +%s).png
+bindsym Mod1+Shift+m exec maim -s ~/Pictures/$(date +%s).png
+
 # Alsa key bindings
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 10%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 10%- unmute
@@ -128,7 +132,6 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-
 
 # switch to workspace
 bindsym Mod1+1 workspace $ws1
