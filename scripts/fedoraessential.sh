@@ -25,7 +25,7 @@ function setup_i3 () {
 }
 
 function setup_utils () {
-    dnf install sxiv mupdf ack ctags
+    dnf install sxiv mupdf ack ctags weechat
 }
 
 setup_chrome
