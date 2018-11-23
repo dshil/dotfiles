@@ -191,7 +191,7 @@ fun! SetupPythonAutocmd()
         autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
         autocmd FileType python setlocal colorcolumn=80
 
-        autocmd BufWritePre *.py call ExecAndSave(":%! autopep8 % --aggressive")
+        autocmd BufWritePre *.py call ExecAndSave(":%! autopep8 %")
     augroup END
 endfun
 " }}}
