@@ -5,5 +5,4 @@ set trash     = +dshil/trash
 set spoolfile = +dshil/inbox
 # }}}
 
-# vim: syntax=neomuttrc
-# vim:foldmethod=marker:foldlevel=0
+# vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0

@@ -5,5 +5,4 @@ set spoolfile = +shilin/inbox
 unset record
 # }}}
 
-# vim: syntax=neomuttrc
-# vim:foldmethod=marker:foldlevel=0
+# vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0

@@ -70,5 +70,4 @@ color body brightwhite  color233 "^diff .*"
 color body brightyellow color233 "^@@.*"
 # }}}
 
-# vim: syntax=neomuttrc
-# vim:foldmethod=marker:foldlevel=0
+# vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0

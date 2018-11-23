@@ -2,4 +2,4 @@ source $HOME/.mail/color.muttrc
 source $HOME/.mail/dshil.muttrc
 source $HOME/.mail/forall.muttrc
 
-# vim: syntax=neomuttrc
+# vim:syntax=neomuttrc

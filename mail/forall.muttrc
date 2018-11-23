@@ -117,5 +117,4 @@ set sendmail      = "msmtp"
 set sendmail_wait = 0
 # }}}
 
-# vim: syntax=neomuttrc
-# vim:foldmethod=marker:foldlevel=0
+# vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0
