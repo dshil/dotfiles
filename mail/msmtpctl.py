@@ -9,7 +9,8 @@ import argparse
 import tempfile
 import subprocess
 
-class account :
+
+class account:
     def __init__(self, id, host, email):
         self.port = 587
         self.host = host
@@ -35,16 +36,16 @@ class account :
                '\ttls {tls}\n'                               \
                '\ttls_fingerprint {tls_fingerprint}\n'       \
                '\tpasswordeval {passwordeval}\n'.format(
-                    account=self.id,
-                    host=self.host,
-                    port=self.port,
-                    protocol=self.proto,
-                    from_=self.email,
-                    user=self.email,
-                    auth=self.auth,
-                    tls=self.tls,
-                    tls_fingerprint=self.tls_fingerprint,
-                    passwordeval=self.passwordeval,
+                   account=self.id,
+                   host=self.host,
+                   port=self.port,
+                   protocol=self.proto,
+                   from_=self.email,
+                   user=self.email,
+                   auth=self.auth,
+                   tls=self.tls,
+                   tls_fingerprint=self.tls_fingerprint,
+                   passwordeval=self.passwordeval,
                )
 
     def json(self):
@@ -52,19 +53,20 @@ class account :
         Returns an account in the json format.
         """
         output = {
-            'account':         self.id,
-            'from':            self.email,
-            'user':            self.email,
-            'host':            self.host,
-            'port':            self.port,
-            'proto':           self.proto,
-            'auth':            self.auth,
-            'tls':             self.tls,
+            'account': self.id,
+            'from': self.email,
+            'user': self.email,
+            'host': self.host,
+            'port': self.port,
+            'proto': self.proto,
+            'auth': self.auth,
+            'tls': self.tls,
             'tls_fingerprint': self.tls_fingerprint,
-            'passwordeval':    self.passwordeval,
+            'passwordeval': self.passwordeval,
         }
 
         return json.dumps(output, indent=2)
+
 
 def make_tls_fingerprint(host, port):
     """
@@ -86,6 +88,7 @@ def make_tls_fingerprint(host, port):
 
     return sha256[len('SHA256:'):]
 
+
 def make_passwordeval(account):
     """
     Generates a command for fetching the account password. Ensure that you
@@ -96,6 +99,7 @@ def make_passwordeval(account):
 
     return make_genkey_command(certpath, account)
 
+
 def make_genkey_command(certpath, account):
     """
     Uses gpg2 to decrypt the account password.
@@ -104,12 +108,13 @@ def make_genkey_command(certpath, account):
 
     tool = 'gpg2'
     args = (
-       '--no-tty',
-       '-q',
-       '-d {path}'.format(path=path),
+        '--no-tty',
+        '-q',
+        '-d {path}'.format(path=path),
     )
 
     return '{tool} {args}'.format(tool=tool, args=str.join(' ', args))
+
 
 def show_info(spec, accounts):
     """
@@ -127,6 +132,7 @@ def show_info(spec, accounts):
         for account in accounts:
             if account.id == id:
                 write_account_json(sys.stdout, account)
+
 
 def reload_config(accounts, default_account):
     """
@@ -157,13 +163,16 @@ def reload_config(accounts, default_account):
     finally:
         shutil.rmtree(tmpdir_path)
 
+
 def write_account_json(writer, account):
     write_account(writer, account.json(), newline=True)
+
 
 def write_account(writer=None, data=None, newline=False):
     writer.write(data)
     if newline:
         writer.write('\n')
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -192,6 +201,7 @@ def main():
 
     if args.reload:
         reload_config(accounts, 'dshil')
+
 
 if __name__ == '__main__':
     main()

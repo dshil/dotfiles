@@ -186,8 +186,12 @@ endfun
 fun! SetupPythonAutocmd()
     augroup python
         autocmd!
+        autocmd! BufWritePre *
+
         autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
         autocmd FileType python setlocal colorcolumn=80
+
+        autocmd BufWritePre *.py call ExecAndSave(":%! autopep8 % --aggressive")
     augroup END
 endfun
 " }}}
@@ -318,6 +322,10 @@ endfun
 
 " Executes an input command and saves the current state.
 fun! ExecAndSave(cmd)
+    if &binary || &filetype == 'diff'
+        return
+    endif
+
     " Save the last search.
     let _s=@/
 
@@ -337,15 +345,7 @@ fun! StripTrailingWhiteSpaces()
 endfun
 
 fun! SquashBlankLines()
-    if &ft =~ 'python'
-        return
-    endif
-
-    if @% == 'COMMIT_EDITMSG'
-        return
-    endif
-
-    call ExecAndSave(":g/^\\_$\\n\\_^$/d")
+    call ExecAndSave("silent! :g/^\\_$\\n\\_^$/d")
 endfun
 
 fun! SetupMisspellings()
