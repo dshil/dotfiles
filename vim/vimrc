@@ -337,6 +337,14 @@ fun! StripTrailingWhiteSpaces()
 endfun
 
 fun! SquashBlankLines()
+    if &ft =~ 'python'
+        return
+    endif
+
+    if @% == 'COMMIT_EDITMSG'
+        return
+    endif
+
     call ExecAndSave(":g/^\\_$\\n\\_^$/d")
 endfun
 
