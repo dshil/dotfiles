@@ -62,3 +62,4 @@ ln -s -f $(pwd)/msmtpctl.py /usr/bin/msmtpctl
 dnf install notmuch perl perl-String-ShellQuote perl-Mail-Box perl-MailTools
 chmod +x mutt-notmuch
 ln -s -f $(pwd)/mutt-notmuch /usr/bin/mutt-notmuch
+ln -s -f $(pwd)/notmuch-config $HOME/.notmuch-config
