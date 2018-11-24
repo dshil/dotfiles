@@ -60,8 +60,10 @@ bind attach <return> view-mailcap
 # Macros {{{
 macro index M "<save-message>?<toggle-mailboxes>"
 macro index R ":source $HOME/.mail/muttrc<enter>"
-macro index S "<shell-escape>mbsync --config=$HOME/.mail/mbsyncrc all<enter>"
-macro index s "<shell-escape>mbsync --config=$HOME/.mail/mbsyncrc inbox<enter>"
+macro index S "<shell-escape>mbsync --config=$HOME/.mail/mbsyncrc all; \
+                             notmuch new > /dev/null 2>&1<enter>"
+macro index s "<shell-escape>mbsync --config=$HOME/.mail/mbsyncrc inbox; \
+                             notmuch new > /dev/null 2>&1<enter>"
 macro pager \Cu "<pipe-message>urlscan --dedupe<enter>"
 macro index,pager X "<pipe-message>ripmime -i - -d "
 macro generic "<F2>" ":source $HOME/.mail/dshil.muttrc<enter>"
