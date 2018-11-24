@@ -44,3 +44,21 @@ mkdir -p $HOME/Mail \
 # 0 8 * * * msmtpctl --reload
 chmod +x msmtpctl.py
 ln -s -f $(pwd)/msmtpctl.py /usr/bin/msmtpctl
+
+# Setup notmuch
+#
+# mutt-notmuch is a helper Perl script for working with notmuch from mutt.
+# It is shipped via a lot of options but I usually use only two of them:
+#   * Search mails matched the pattern.
+#   * Reconstruct the whole thread for the current message.
+#
+# It is not required to put the script under /usr/bin folder. Feel free to
+# put anywhere you want, just ensure that mutt contains the valid path.
+#
+# For more info see the references:
+#   * Source code of the script: https://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/mutt-notmuch
+#   * Man page via key-bending for mutt: https://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/mutt-notmuch.1.html
+#
+dnf install notmuch perl perl-String-ShellQuote perl-Mail-Box perl-MailTools
+chmod +x mutt-notmuch
+ln -s -f $(pwd)/mutt-notmuch /usr/bin/mutt-notmuch

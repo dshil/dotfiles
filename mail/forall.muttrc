@@ -110,6 +110,8 @@ set mailcap_path     = $HOME/.mail/mailcap
 set header_cache     = $HOME/.mutt/cache/headers
 set message_cachedir = $HOME/.mutt/cache/bodies
 set tmpdir           = $HOME/.mutt/tmp
+set alias_file       = $HOME/cloud/mutt/alias
+
 # }}}
 
 # Sendmail {{{
@@ -118,6 +120,15 @@ set use_from      = yes
 set envelope_from = yes
 set sendmail      = "msmtp"
 set sendmail_wait = 0
+# }}}
+
+# Notmuch {{{
+macro index / \
+      "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
+      "search mail (using notmuch)"
+macro index . \
+      "<enter-command>unset wait_key<enter><pipe-message>mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" \
+      "search and reconstruct owning thread (using notmuch)"
 # }}}
 
 # vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0
