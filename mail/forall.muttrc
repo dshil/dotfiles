@@ -98,6 +98,9 @@ set mime_forward_rest
 set smart_wrap
 set status_on_top
 
+set ssl_force_tls = yes
+set ssl_starttls = yes
+
 auto_view text/html
 # }}}
 
