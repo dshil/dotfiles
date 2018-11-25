@@ -1,0 +1,17 @@
+# Options {{{
+set preserve_fields = none
+set add_email_prevent_duplicates = true
+set use_mouse = false
+set autosave = true
+# }}}
+
+# {{{ Fields
+field company = company, string
+field position = position, string
+
+view CONTACT = name, email, company, position
+view PHONE = phone, workphone
+view ADDRESS = city, state, zip, country
+# }}}
+
+# vim:syntax=sh:foldmethod=marker:foldlevel=0

@@ -55,6 +55,11 @@ ln -s -f $(pwd)/msmtpctl.py /usr/bin/msmtpctl
 # It is not required to put the script under /usr/bin folder. Feel free to
 # put anywhere you want, just ensure that mutt contains the valid path.
 #
+#
+# Notmuch setup for mutt is shipped as a separate module. If you want to use it
+# inside your mutt, simply add `source $HOME/.mail/notmuch.muttrc` into your
+# main muttrc configuration file.
+#
 # For more info see the references:
 #   * Source code of the script: https://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/mutt-notmuch
 #   * Man page via key-bending for mutt: https://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/mutt-notmuch.1.html
@@ -63,3 +68,25 @@ dnf install notmuch perl perl-String-ShellQuote perl-Mail-Box perl-MailTools
 chmod +x mutt-notmuch
 ln -s -f $(pwd)/mutt-notmuch /usr/bin/mutt-notmuch
 ln -s -f $(pwd)/notmuch-config $HOME/.notmuch-config
+
+# Setup abook, command line utility to store contacts.
+#
+# Abook setup for mutt is shipped as a separate module. If you want to use it
+# inside your mutt, simply add `source $HOME/.mail/abook.muttrc` into your
+# main muttrc configuration file.
+#
+# For a while abook will be living together with the aliases provided by the
+# mutt itself. To enable abook during the mail lookup use: <C-t>. To be able
+# to sync both databases, use the following script:
+#
+# abook --convert --informat mutt --infile ~/cloud/mutt/alias \
+#       --outformat abook --outfile ~/cloud/abook/addressbook
+#
+# To make your life easier you can invoke alias <-> abook converting directly
+# from the mutt. Just press <F5>.
+#
+# For more info see:
+#   * man abook
+#   * man abookrc
+ln -s -f $(pwd)/abookrc $HOME/.abook/abookrc
+ln -s -f $HOME/cloud/abook/addressbook $HOME/.abook/addressbook

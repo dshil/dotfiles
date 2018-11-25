@@ -69,6 +69,10 @@ macro index,pager X "<pipe-message>ripmime -i - -d "
 macro generic "<F2>" ":source $HOME/.mail/dshil.muttrc<enter>"
 macro generic "<F3>" ":source $HOME/.mail/sdadev.muttrc<enter>"
 macro generic "<F4>" ":source $HOME/.mail/shilin.muttrc<enter>"
+macro index "<F5>" "<shell-escape>abook --convert \
+                    --informat mutt --infile ~/cloud/mutt/alias \
+                    --outformat abook --outfile ~/cloud/abook/addressbook \
+                    <enter>"
 # }}}
 
 # Sidebar {{{
@@ -125,15 +129,6 @@ set use_from      = yes
 set envelope_from = yes
 set sendmail      = "msmtp"
 set sendmail_wait = 0
-# }}}
-
-# Notmuch {{{
-macro index / \
-      "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
-      "search mail (using notmuch)"
-macro index . \
-      "<enter-command>unset wait_key<enter><pipe-message>mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" \
-      "search and reconstruct owning thread (using notmuch)"
 # }}}
 
 # vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0
