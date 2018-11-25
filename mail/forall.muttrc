@@ -103,6 +103,9 @@ set status_on_top
 set ssl_force_tls = yes
 set ssl_starttls = yes
 
+set sort_alias = alias
+set reverse_alias = yes
+
 auto_view text/html
 # }}}
 
