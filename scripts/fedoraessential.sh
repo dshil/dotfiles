@@ -3,34 +3,30 @@
 set -xe
 
 function setup_chrome () {
-    dnf install fedora-workstation-repositories
+    dnf install -y fedora-workstation-repositories
     dnf config-manager --set-enabled google-chrome
-    dnf install google-chrome-stable
+    dnf install -y google-chrome-stable
 }
 
 function setup_terminal () {
-    dnf install rxvt-unicode-256color
-    dnf install terminus-fonts
+    dnf install -y rxvt-unicode-256color terminus-fonts
 }
 
 function setup_toolchain () {
-    dnf install git gitk make cmake autoconf gcc-c++
-    dnf install vim-x11
+    dnf install -y git gitk make cmake autoconf gcc-c++ vim-X11 python3-pip
 }
 
 function setup_i3 () {
-    dnf install lightdm
-    dnf install i3
-    dnf install i3lock
+    dnf install -y lightdm i3 i3lock
 }
 
 function setup_utils () {
-    dnf install sxiv mupdf ack ctags weechat
+    dnf install -y sxiv mupdf ack ctags weechat abook graphviz
 }
 
-function setup_python () {
-    dnf install pip3
-    pip3 install autopep8
+function setup_remmina() {
+    dnf copr enable -y hubbitus/remmina-next
+    dnf install -y remmina
 }
 
 setup_chrome
@@ -38,4 +34,4 @@ setup_terminal
 setup_toolchain
 setup_i3
 setup_utils
-setup_python
+setup_remmina
