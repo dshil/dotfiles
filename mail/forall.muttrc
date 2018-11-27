@@ -69,7 +69,8 @@ macro index,pager X "<pipe-message>ripmime -i - -d "
 macro generic "<F2>" ":source $HOME/.mail/dshil.muttrc<enter>"
 macro generic "<F3>" ":source $HOME/.mail/sdadev.muttrc<enter>"
 macro generic "<F4>" ":source $HOME/.mail/shilin.muttrc<enter>"
-macro index "<F5>" "<shell-escape>abook --convert \
+macro index "<F5>" "<shell-escape>rm ~/cloud/abook/addressbook; \
+                    abook --convert \
                     --informat mutt --infile ~/cloud/mutt/alias \
                     --outformat abook --outfile ~/cloud/abook/addressbook \
                     <enter>"
