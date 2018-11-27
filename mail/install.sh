@@ -42,8 +42,8 @@ mkdir -p $HOME/Mail \
 # sudo crontab -e
 #
 # 0 8 * * * msmtpctl --reload
-chmod +x msmtpctl.py
-ln -s -f $(pwd)/msmtpctl.py /usr/bin/msmtpctl
+chmod +x $(pwd)/mail/msmtpctl.py
+ln -s -f $(pwd)/mail/msmtpctl.py /usr/bin/msmtpctl
 
 # Setup notmuch
 #
@@ -65,9 +65,9 @@ ln -s -f $(pwd)/msmtpctl.py /usr/bin/msmtpctl
 #   * Man page via key-bending for mutt: https://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/mutt-notmuch.1.html
 #
 dnf install notmuch perl perl-String-ShellQuote perl-Mail-Box perl-MailTools
-chmod +x mutt-notmuch
-ln -s -f $(pwd)/mutt-notmuch /usr/bin/mutt-notmuch
-ln -s -f $(pwd)/notmuch-config $HOME/.notmuch-config
+chmod +x $(pwd)/mail/mutt-notmuch
+ln -s -f $(pwd)/mail/mutt-notmuch /usr/bin/mutt-notmuch
+ln -s -f $(pwd)/mail/notmuch-config $HOME/.notmuch-config
 
 # Setup abook, command line utility to store contacts.
 #
@@ -88,5 +88,5 @@ ln -s -f $(pwd)/notmuch-config $HOME/.notmuch-config
 # For more info see:
 #   * man abook
 #   * man abookrc
-ln -s -f $(pwd)/abookrc $HOME/.abook/abookrc
+ln -s -f $(pwd)/mail/abookrc $HOME/.abook/abookrc
 ln -s -f $HOME/cloud/abook/addressbook $HOME/.abook/addressbook
