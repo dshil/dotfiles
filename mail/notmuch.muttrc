@@ -1,8 +1,8 @@
 macro index / \
-      "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
+      "<enter-command>unset wait_key<enter><shell-escape>$HOME/bin/mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
       "search mail (using notmuch)"
 macro index . \
-      "<enter-command>unset wait_key<enter><pipe-message>mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" \
+      "<enter-command>unset wait_key<enter><pipe-message>$HOME/bin/mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" \
       "search and reconstruct owning thread (using notmuch)"
 
 # vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0

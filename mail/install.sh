@@ -29,7 +29,9 @@ dnf copr enable flatcap/neomutt
 dnf install -y dnf-plugins-core neomutt
 
 # Prepare pathes.
-mkdir -p $HOME/Mail \
+mkdir -p \
+    $HOME/bin \
+    $HOME/Mail \
     $HOME/Mail/sdadev \
     $HOME/Mail/shilinda \
     $HOME/Mail/dshil \
@@ -66,7 +68,7 @@ ln -s -f $(pwd)/mail/msmtpctl.py /usr/bin/msmtpctl
 #
 dnf install notmuch perl perl-String-ShellQuote perl-Mail-Box perl-MailTools
 chmod +x $(pwd)/mail/mutt-notmuch
-ln -s -f $(pwd)/mail/mutt-notmuch /usr/bin/mutt-notmuch
+ln -s -f $(pwd)/mail/mutt-notmuch $HOME/bin/mutt-notmuch
 ln -s -f $(pwd)/mail/notmuch-config $HOME/.notmuch-config
 
 # Setup abook, command line utility to store contacts.
