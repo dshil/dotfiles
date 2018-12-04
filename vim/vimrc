@@ -84,6 +84,9 @@ fun! SetupGenericSettings()
     set updatetime=1000
     set history=1000
     set undolevels=1000
+
+    set spelllang+=en_us
+    set spelllang+=ru
 endfun
 " }}}
 
@@ -200,6 +203,7 @@ endfun
 fun! SetupCPPAutocmd()
     augroup cpp
         autocmd!
+
         autocmd FileType cpp setlocal cindent cino=j1,(0,ws,Ws
         autocmd FileType c setlocal colorcolumn=80
     augroup END
@@ -351,7 +355,6 @@ endfun
 
 fun! SetupMisspellings()
     nnoremap <silent><leader>f :set spell!<CR>
-    set spelllang=en_us
 endfun
 
 fun! SetupBackup()
