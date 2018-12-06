@@ -13,7 +13,7 @@ function setup_terminal () {
 }
 
 function setup_toolchain () {
-    dnf install -y git gitk make cmake autoconf gcc-c++ vim-X11
+    dnf install -y git gitk make cmake autoconf gcc-c++ vim-X11 python3-pip ag
 }
 
 function setup_i3 () {

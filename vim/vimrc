@@ -39,6 +39,9 @@ call plug#end()
 " Plugin: 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/doc', 'index': 'main'},
             \ {'path': '$HOME/dev', 'syntax': 'markdown', 'ext': '.md'}]
+
+" Plugin: 'mileszs/ack.vim'
+let g:ackprg = 'ag --vimgrep --smart-case'
 " }}}
 
 " General settings {{{
