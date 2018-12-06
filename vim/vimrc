@@ -39,7 +39,6 @@ call plug#end()
 " Plugin: 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/doc', 'index': 'main'},
             \ {'path': '$HOME/dev', 'syntax': 'markdown', 'ext': '.md'}]
-
 " }}}
 
 " General settings {{{
@@ -189,12 +188,8 @@ endfun
 fun! SetupPythonAutocmd()
     augroup python
         autocmd!
-        autocmd! BufWritePre *
-
         autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
         autocmd FileType python setlocal colorcolumn=80
-
-        autocmd BufWritePre *.py call ExecAndSave(":%! autopep8 %")
     augroup END
 endfun
 " }}}
