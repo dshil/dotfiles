@@ -94,7 +94,7 @@ endfun
 
 " Mappings {{{
 
-fun! SetupMappingss()
+fun! SetupMappings()
     let g:mapleader = ","
     let g:ctrlp_map = '' " Disable CtrlP because of FZF usage
 
@@ -386,7 +386,7 @@ endfun
 
 call SetupGenericSettings()
 call SetupSpaces()
-call SetupMappingss()
+call SetupMappings()
 call SetupMisspellings()
 call SetupBackup()
 call SetCodeModeColor()
