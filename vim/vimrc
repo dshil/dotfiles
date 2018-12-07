@@ -158,6 +158,7 @@ fun! SetupMappings()
     nnoremap<leader>bc :bufdo bd<CR>
 
     nnoremap <C-n> :NERDTreeToggle<CR>
+    nnoremap <silent><leader>f :set spell!<CR>
 endfun
 
 " }}}
@@ -351,10 +352,6 @@ fun! SquashBlankLines()
     call ExecAndSave("silent! :g/^\\_$\\n\\_^$/d")
 endfun
 
-fun! SetupMisspellings()
-    nnoremap <silent><leader>f :set spell!<CR>
-endfun
-
 fun! SetupBackup()
     set backup
     set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -387,7 +384,6 @@ endfun
 call SetupGenericSettings()
 call SetupSpaces()
 call SetupMappings()
-call SetupMisspellings()
 call SetupBackup()
 call SetCodeModeColor()
 call SetupStatusLine()
