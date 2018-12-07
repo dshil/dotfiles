@@ -29,6 +29,10 @@ function setup_remmina() {
     dnf install -y remmina
 }
 
+function setup_samba() {
+    dnf install gvfs gvfs-smb sshfs
+}
+
 setup_chrome
 setup_terminal
 setup_toolchain
