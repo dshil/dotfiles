@@ -159,6 +159,7 @@ fun! SetupMappings()
 
     nnoremap <C-n> :NERDTreeToggle<CR>
     nnoremap <silent><leader>f :set spell!<CR>
+    nnoremap <leader>S :call SquashBlankLines()<CR>
 endfun
 
 " }}}
@@ -170,7 +171,6 @@ fun! SetupAutocmds()
         autocmd!
 
         autocmd BufWritePre * call StripTrailingWhiteSpaces()
-        autocmd BufWritePre * call SquashBlankLines()
 
         autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
         autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab nocursorline
