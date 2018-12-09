@@ -1,0 +1,7 @@
+alias vim='vimx'
+alias mupdf='mupdf -C 0xeee8d5'
+alias mutt='neomutt -F $HOME/.mail/muttrc'
+alias mbsync='mbsync --config $HOME/.mail/mbsyncrc'
+alias msmtp='msmtp --file $HOME/.mail/msmtprc'
+
+source $HOME/.aliases.forall

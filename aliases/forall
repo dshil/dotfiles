@@ -1,8 +1,3 @@
-alias mupdf='mupdf -C 0xeee8d5'
-alias vim='vimx'
-alias mutt='neomutt -F $HOME/.mail/muttrc'
-alias mbsync='mbsync --config $HOME/.mail/mbsyncrc'
-alias msmtp='msmtp --file $HOME/.mail/msmtprc'
 alias gl='git log'
 alias gal='git add -A .'
 alias gcm='git checkout master'

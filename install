@@ -4,21 +4,33 @@ set -xe
 
 dir=$(pwd)
 
-ln -s -f $dir/vim $HOME/.vim
+# Cleanup
+rm -rf $HOME/.mail $HOME/.vim
+
+# Setup platform independent soft links.
+ln -s $dir/vim $HOME/.vim
 ln -s -f $dir/vim/vimrc $HOME/.vimrc
+ln -s $dir/mail $HOME/.mail
+ln -s -f $dir/bashrc $HOME/.bashrc.local
+ln -s -f $dir/aliases/forall $HOME/.aliases.forall
 
-ln -s -f $dir/gitconfig $HOME/.gitconfig
+# Setup platform dependent links.
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    ln -s -f $dir/aliases/linux-gnu $HOME/.aliases
+    ln -s -f $dir/git/linux-gnu $HOME/.gitconfig
 
-ln -s -f $dir/aliases $HOME/.aliases
+    ln -s -f $dir/x/xinitrc $HOME/.xinitrc
+    ln -s -f $dir/x/Xresources $HOME/.Xresources
 
-ln -s -f $dir/x/xinitrc $HOME/.xinitrc
-ln -s -f $dir/x/Xresources $HOME/.Xresources
+    mkdir -p $HOME/.config/i3
+    ln -s -f $dir/i3/i3 $HOME/.config/i3/config
 
-ln -s -f $dir/i3/i3 $HOME/.config/i3/config
-
-ln -s -f $dir/bash_profile $HOME/.bash_profile
-
-ln -s -f $dir/mail $HOME/.mail
-
-localectl --no-convert  \
-    set-x11-keymap us,ru pc105 "" grp:switch,grp:caps_toggle,grp_led:caps
+    localectl --no-convert  \
+        set-x11-keymap us,ru pc105 "" grp:switch,grp:caps_toggle,grp_led:caps
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+    ln -s -f $dir/aliases/win $HOME/.aliases
+    ln -s -f $dir/git/win $HOME/.gitconfig
+else
+    echo "Not implemented: ${OSTYPE}"
+    exit 1
+fi
