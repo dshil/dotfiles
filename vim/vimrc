@@ -304,6 +304,7 @@ fun! SetCodeModeColor()
     set background=dark
     highlight colorcolumn ctermbg=236
     highlight statusline ctermfg=236 ctermbg=15
+    highlight MatchParen ctermbg=blue
 endfun
 
 fun! SetWriteModeColor()
@@ -311,6 +312,7 @@ fun! SetWriteModeColor()
     colorscheme seoul256
     set background=light
     highlight statusline ctermfg=236 ctermbg=15
+    highlight MatchParen ctermbg=blue
 endfun
 
 " }}}
