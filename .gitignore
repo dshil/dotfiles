@@ -1,4 +1,5 @@
 vim/plugged
+vim/spell
 vim/.*
 *.log
 *.log.*
