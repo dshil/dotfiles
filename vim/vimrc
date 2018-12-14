@@ -152,6 +152,7 @@ fun! SetupMappings()
     nnoremap <C-n> :NERDTreeToggle<CR>
     nnoremap <silent><leader>f :set spell!<CR>
     nnoremap <leader>S :call SquashBlankLines()<CR>
+    nnoremap <leader>F :NERDTreeFind<CR>
 endfun
 
 " }}}
