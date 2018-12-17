@@ -2,7 +2,11 @@
 
 set -xe
 
-releaseno=RELEASE_700
+releaseno=$1
+
+if [ -z "$releaseno" ]; then
+    releaseno=RELEASE_700
+fi
 
 pushd $HOME
 mkdir -p src/compilers
