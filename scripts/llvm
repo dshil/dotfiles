@@ -3,8 +3,10 @@
 # Downloads and installs the specified LLVM version.
 #
 # Requirements:
-#  * toolchain: svn, cmake, make, gcc, g++.
-#  * platform: Linux.
+#  * Tool chain: svn, cmake, make, gcc, g++.
+#  * Platform:
+#     * Linux
+#     * Windows (cygwin)
 #
 # Reference:
 #  * https://www.vultr.com/docs/how-to-install-llvm-and-clang-on-centos-6
