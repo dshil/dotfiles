@@ -11,6 +11,11 @@
 #  * https://sarcasm.github.io/notes/dev/compilation-database.html
 #  * https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 
+SUDO=sudo
+if [[ "$OSTYPE" == "cygwin" ]]; then
+    SUDO=
+fi
+
 function download()
 {
     local release=$1
@@ -39,7 +44,7 @@ function install()
         -DCMAKE_ASM_COMPILER=/usr/bin/gcc \
         $srcdir
     make -j$parallelism
-    sudo make -j$parallelism install
+    $(SUDO) make -j$parallelism install
     popd # $build_dir
 }
 
