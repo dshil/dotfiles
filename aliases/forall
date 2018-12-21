@@ -1,3 +1,4 @@
+alias pmake='make -j$(nproc) --load-average=$(nproc)'
 alias gl='git log'
 alias gal='git add -A .'
 alias gcm='git checkout master'
