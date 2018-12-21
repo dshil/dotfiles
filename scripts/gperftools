@@ -9,7 +9,8 @@ if [[ "$OSTYPE" == "cygwin" ]]; then
     SUDO=
 fi
 
-MAKEFLAGS=-j$(nproc) --load-average=$(nproc)
+NUMCPUS=$(nproc)
+MAKEFLAGS="-j$NUMCPUS --load-average $NUMCPUS"
 
 if [ -z "$INSTALL_DIR" ]; then
     INSTALL_DIR=$HOME/src
@@ -39,3 +40,7 @@ pushd $INSTALL_DIR
         $SUDO make $MAKEFLAGS install
     popd # libunwind-1.2
 popd # $INSTALL_DIR
+
+echo "/usr/local/lib" > usr_local_lib.conf
+$SUDO mv usr_local_lib.conf /etc/ld.so.conf.d/
+$SUDO ldconfig
