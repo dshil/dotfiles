@@ -8,11 +8,6 @@
 #     * Linux
 #     * Windows (cygwin)
 #
-# Reference:
-#  * https://www.vultr.com/docs/how-to-install-llvm-and-clang-on-centos-6
-#  * https://sarcasm.github.io/notes/dev/compilation-database.html
-#  * https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
-
 SUDO=sudo
 if [[ "$OSTYPE" == "cygwin" ]]; then
     SUDO=
@@ -46,7 +41,7 @@ function install()
         -DCMAKE_ASM_COMPILER=/usr/bin/gcc \
         $srcdir
     make -j$parallelism
-    $(SUDO) make -j$parallelism install
+    $SUDO make -j$parallelism install
     popd # $build_dir
 }
 
@@ -79,7 +74,7 @@ fi
 if [ -z "$srcdir" ]; then
     srcdir=$HOME/src/llvm_$release
 fi
-if [ -z "$3" ]; then
+if [ -z "$build_dir" ]; then
     build_dir=$HOME/build/llvm_$release
 fi
 if [ -z "$parallelism" ]; then
