@@ -11,10 +11,7 @@ fi
 
 NUMCPUS=$(nproc)
 MAKEFLAGS="-j$NUMCPUS --load-average $NUMCPUS"
-
-if [ -z "$INSTALL_DIR" ]; then
-    INSTALL_DIR=$HOME/src
-fi
+INSTALL_DIR=$HOME/src
 
 mkdir -p $INSTALL_DIR
 
