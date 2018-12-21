@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+# Downloads and install collection of gperf tools.
+#
+set -xe
+
+SUDO=sudo
+if [[ "$OSTYPE" == "cygwin" ]]; then
+    SUDO=
+fi
+
+MAKEFLAGS=-j$(nproc) --load-average=$(nproc)
+
+if [ -z "$INSTALL_DIR" ]; then
+    INSTALL_DIR=$HOME/src
+fi
+
+mkdir -p $INSTALL_DIR
+
+pushd $INSTALL_DIR
+    if [ ! -d "gperftools" ]; then
+        git clone git@github.com:gperftools/gperftools.git
+    fi
+    pushd gperftools
+        ./autogen.sh
+        ./configure
+        make $MAKEFLAGS
+        $SUDO make $MAKEFLAGS install
+    popd # gperftools
+
+    if [ ! -d "libunwind-1.2" ]; then
+        wget http://download.savannah.nongnu.org/releases/libunwind/libunwind-1.2.tar.gz
+        tar -xvf libunwind-1.2.tar.gz
+        rm libunwind-1.2.tar.gz
+    fi
+    pushd libunwind-1.2
+        ./configure
+        make $MAKEFLAGS
+        $SUDO make $MAKEFLAGS install
+    popd # libunwind-1.2
+popd # $INSTALL_DIR
