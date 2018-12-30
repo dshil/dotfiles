@@ -31,6 +31,7 @@ function install()
     local srcdir=$2
     local build_dir=$3
     local parallelism=$4
+    local make_flags="-j$parallelism --load-average $parallelism"
 
     mkdir -p $build_dir
     pushd $build_dir
@@ -40,8 +41,8 @@ function install()
             -DCMAKE_CXX_COMPILER=/usr/bin/g++ \
             -DCMAKE_ASM_COMPILER=/usr/bin/gcc \
             $srcdir
-        make -j$parallelism
-        $SUDO make -j$parallelism install
+        make $make_flags
+        $SUDO make $make_flags install
     popd # $build_dir
 }
 
@@ -78,7 +79,7 @@ if [ -z "$build_dir" ]; then
     build_dir=$HOME/build/llvm_$release
 fi
 if [ -z "$parallelism" ]; then
-    parallelism=8
+    parallelism=$(nproc)
 fi
 
 download  "$release" "$srcdir"
