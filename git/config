@@ -5,6 +5,8 @@
     autocrlf = false
     safecrlf = true
     editor = vimx
+    preloadindex = true
+    fscache = true
 [alias]
     co = checkout
     ci = commit
@@ -22,6 +24,7 @@
             git commit -eF temp_merge_msg; rm -f temp_merge_msg; \
         }; f"
     merge-revert = revert -m 1
+    repack-optimize = -a -d --depth=250 --window=250
 [merge]
     tool = kdiff3
 [color]
@@ -30,3 +33,7 @@
     enabled = true
 [sendemail]
     suppresscc = self
+[gc]
+    auto = 256
+
+# vim:set shiftwidth=4 softtabstop=4 expandtab syntax=gitconfig:

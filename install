@@ -13,11 +13,13 @@ ln -s -f $dir/vim/vimrc $HOME/.vimrc
 ln -s $dir/mail $HOME/.mail
 ln -s -f $dir/bashrc $HOME/.bashrc.local
 ln -s -f $dir/aliases/forall $HOME/.aliases.forall
+ln -s -f $dir/git/config $HOME/.gitconfig
+
+sh $dir/git/forall.sh
 
 # Setup platform dependent links.
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     ln -s -f $dir/aliases/linux-gnu $HOME/.aliases
-    ln -s -f $dir/git/linux-gnu $HOME/.gitconfig
 
     ln -s -f $dir/x/xinitrc $HOME/.xinitrc
     ln -s -f $dir/x/Xresources $HOME/.Xresources
@@ -29,7 +31,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
         set-x11-keymap us,ru pc105 "" grp:switch,grp:caps_toggle,grp_led:caps
 elif [[ "$OSTYPE" == "cygwin" ]]; then
     ln -s -f $dir/aliases/win $HOME/.aliases
-    ln -s -f $dir/git/win $HOME/.gitconfig
+    sh $dir/git/forwin.sh
 else
     echo "Not implemented: ${OSTYPE}"
     exit 1
