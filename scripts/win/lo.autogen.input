@@ -1,7 +1,7 @@
 --with-jdk-home=c:/Program Files/Java/jdk-11.0.1
 --with-junit=c:/sources/junit-4.10.jar
 --with-ant-home=c:/sources/apache-ant-1.9.5
---with-parallelism=24
+--with-parallelism=4
 --enable-pch
 --enable-64-bit
 --enable-dbgutil
