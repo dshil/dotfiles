@@ -24,7 +24,7 @@
             git commit -eF temp_merge_msg; rm -f temp_merge_msg; \
         }; f"
     merge-revert = revert -m 1
-    repack-optimize = -a -d --depth=250 --window=250
+    repack-optimize = repack -a -d --depth=250 --window=250
 [merge]
     tool = kdiff3
 [color]
