@@ -33,6 +33,8 @@
     enabled = true
 [sendemail]
     suppresscc = self
+[merge]
+    tool = vimdiff
 [gc]
     auto = 256
 
