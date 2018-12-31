@@ -13,4 +13,4 @@ if [ "$DST" == "" ]; then
     echo "error: backup destination path must be specified"; exit 1
 fi
 
-rsync --exclude={.ccache,build} -arv --delete $SRC $DST
+rsync --exclude={.ccache,build,vm} -arv --delete $SRC $DST
