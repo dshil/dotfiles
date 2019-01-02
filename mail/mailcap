@@ -1,7 +1,7 @@
 audio/*; /usr/bin/xdg-open %s
 image/*; /usr/bin/xdg-open %s
-application/msword; /usr/bin/xdg-open %s
-application/pdf; /usr/bin/xdg-open %s
-application/postscript ; /usr/bin/xdg-open %s
-text/html; w3m -I %{charset} -T text/html; copiousoutput;
 text/*; vimx %s
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+application/pdf; mupdf %s
+application/msword; antiword %s ; copiousoutput;
+application/postscript ; /usr/bin/xdg-open %s
