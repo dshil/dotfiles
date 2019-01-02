@@ -19,7 +19,7 @@ function setup_toolchain ()
     dnf install -y git gitk \
                    make cmake autoconf gcc-c++ \
                    vim-X11 python3-pip the_silver_searcher \
-                   antiword
+                   antiword okular
 }
 
 function setup_i3 ()
