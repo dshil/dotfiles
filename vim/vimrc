@@ -35,6 +35,10 @@ let g:vimwiki_list = [{'path': '~/doc', 'index': 'main'},
 
 " Plugin: 'mileszs/ack.vim'
 let g:ackprg = 'ag --vimgrep --smart-case'
+
+" Plugin: 'junegunn/fzf.vim'
+let g:fzf_command_prefix = 'FZF'
+
 " }}}
 
 " General settings {{{
@@ -133,8 +137,11 @@ fun! SetupMappings()
     nnoremap <silent> <leader>d "_d
     vnoremap <silent> <leader>d "_d
 
-    nnoremap <C-p> :FZF<CR>
-    nnoremap <C-b> :Buffers<CR>
+    nnoremap <C-p> :FZFFiles<CR>
+    nnoremap <C-b> :FZFBuffers<CR>
+    nnoremap <C-f> :FZFAg<CR>
+    nnoremap <C-i> :FZFCommits<CR>
+
     nnoremap <leader>go :Goyo<CR>
 
     nnoremap<leader>tb :TagbarToggle<CR>
