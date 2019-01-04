@@ -1,0 +1,9 @@
+[Unit]
+Description=Mailbox synchronisation timer
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=1m
+
+[Install]
+WantedBy=default.target

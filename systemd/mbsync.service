@@ -1,0 +1,9 @@
+[Unit]
+Description=Mailbox synchronisation service
+
+Requires=mbsync.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/mbsync --config %h/.mail/mbsyncrc all
+ExecStartPost=/usr/bin/notmuch new > /dev/null 2>&1
