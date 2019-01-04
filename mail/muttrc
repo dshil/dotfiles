@@ -1,8 +1,8 @@
+source $HOME/.mail/path.muttrc
 source $HOME/.mail/color.muttrc
 source $HOME/.mail/dshil.muttrc
-source $HOME/.mail/forall.muttrc
-source $HOME/.mail/abook.muttrc
 source $HOME/.mail/notmuch.muttrc
-source $HOME/cloud/mutt/alias
+source $HOME/.mail/contact.muttrc
+source $HOME/.mail/forall.muttrc
 
 # vim:syntax=neomuttrc

@@ -1,0 +1,14 @@
+set alias_file       = $HOME/Sync/mutt/alias
+source $alias_file
+
+set query_command= "abook --mutt-query '%s'"
+
+macro index,pager A "<pipe-message>abook --add-email-quiet<return>" \
+             "add the sender address to abook"
+macro index "<F5>" "<shell-escape>rm ~/Sync/abook/addressbook; \
+                    abook --convert \
+                    --informat mutt --infile ~/Sync/mutt/alias \
+                    --outformat abook --outfile ~/Sync/abook/addressbook \
+                    <enter>"
+
+# vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0

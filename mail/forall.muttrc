@@ -69,11 +69,6 @@ macro index,pager X "<pipe-message>ripmime -i - -d "
 macro generic "<F2>" ":source $HOME/.mail/dshil.muttrc<enter>"
 macro generic "<F3>" ":source $HOME/.mail/sdadev.muttrc<enter>"
 macro generic "<F4>" ":source $HOME/.mail/shilin.muttrc<enter>"
-macro index "<F5>" "<shell-escape>rm ~/cloud/abook/addressbook; \
-                    abook --convert \
-                    --informat mutt --infile ~/cloud/mutt/alias \
-                    --outformat abook --outfile ~/cloud/abook/addressbook \
-                    <enter>"
 # }}}
 
 # Sidebar {{{
@@ -112,16 +107,6 @@ set sort_alias = alias
 set reverse_alias = yes
 
 auto_view text/html
-# }}}
-
-# Pathes {{{
-set folder           = $HOME/Mail
-set mailcap_path     = $HOME/.mail/mailcap
-set header_cache     = $HOME/.mutt/cache/headers
-set message_cachedir = $HOME/.mutt/cache/bodies
-set tmpdir           = $HOME/.mutt/tmp
-set alias_file       = $HOME/cloud/mutt/alias
-
 # }}}
 
 # Sendmail {{{

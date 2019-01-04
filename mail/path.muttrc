@@ -1,0 +1,7 @@
+set folder           = $HOME/Mail
+set mailcap_path     = $HOME/.mail/mailcap
+set header_cache     = $HOME/.mutt/cache/headers
+set message_cachedir = $HOME/.mutt/cache/bodies
+set tmpdir           = $HOME/.mutt/tmp
+
+# vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0
