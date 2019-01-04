@@ -1,0 +1,9 @@
+[Unit]
+Description=Reload msmtp config timer
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=15m
+
+[Install]
+WantedBy=default.target

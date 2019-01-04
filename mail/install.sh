@@ -45,7 +45,7 @@ mkdir -p \
 #
 # 0 8 * * * msmtpctl --reload
 chmod +x $(pwd)/mail/msmtpctl.py
-ln -s -f $(pwd)/mail/msmtpctl.py /usr/bin/msmtpctl
+ln -s -f $(pwd)/mail/msmtpctl.py $HOME/bin/msmtpctl
 
 # Setup notmuch
 #
