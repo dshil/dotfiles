@@ -161,6 +161,9 @@ fun! SetupMappings()
     nnoremap <silent><leader>f :set spell!<CR>
     nnoremap <leader>S :call SquashBlankLines()<CR>
     nnoremap <leader>F :NERDTreeFind<CR>
+
+    nnoremap <Tab> :bnext<CR>
+    nnoremap <S-Tab> :bprevious<CR>
 endfun
 
 " }}}
