@@ -113,8 +113,6 @@ fun! SetupMappings()
     nnoremap <leader>h :split<CR>
     nnoremap <leader>q :close<CR>
 
-    inoremap jj <Esc>
-
     " Center the screen quickly
     nnoremap <space> zz
 
@@ -140,11 +138,8 @@ fun! SetupMappings()
     nnoremap <C-p> :FZFFiles<CR>
     nnoremap <C-b> :FZFBuffers<CR>
     nnoremap <C-f> :FZFAg<CR>
-    nnoremap <C-i> :FZFCommits<CR>
 
     nnoremap <leader>go :Goyo<CR>
-
-    nnoremap<leader>tb :TagbarToggle<CR>
 
     " Open/close folding
     nnoremap<leader><space> za<CR>
@@ -157,13 +152,16 @@ fun! SetupMappings()
     nnoremap<leader>cc :checktime<CR>
     nnoremap<leader>bc :bufdo bd<CR>
 
-    nnoremap <C-n> :NERDTreeToggle<CR>
+    nnoremap <Tab> :NERDTreeToggle<CR>
+    nnoremap <S-Tab> :NERDTreeFind<CR>
+
+    nnoremap<C-t> :TagbarToggle<CR>
+
     nnoremap <silent><leader>f :set spell!<CR>
     nnoremap <leader>S :call SquashBlankLines()<CR>
-    nnoremap <leader>F :NERDTreeFind<CR>
 
-    nnoremap <Tab> :bnext<CR>
-    nnoremap <S-Tab> :bprevious<CR>
+    nnoremap <C-]> :bnext<CR>
+    nnoremap <C-[> :bprevious<CR>
 endfun
 
 " }}}
