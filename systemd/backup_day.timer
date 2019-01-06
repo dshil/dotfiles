@@ -1,0 +1,9 @@
+[Unit]
+Description=Daily backup timer
+
+[Timer]
+OnBootSec=10m
+OnUnitActiveSec=1d
+
+[Install]
+WantedBy=default.target

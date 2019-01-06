@@ -1,0 +1,9 @@
+[Unit]
+Description=Weekly backup timer
+
+[Timer]
+OnBootSec=15m
+OnUnitActiveSec=1w
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Daily backup service
+
+After=home-dshil-backup.mount
+Requires=backup_day.timer
+
+[Service]
+Type=oneshot
+Environment="DST=%h/backup"
+Environment="SRC=%h"
+Environment="TYPE=day"
+ExecStart=%h/bin/dayweekbackup
