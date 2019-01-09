@@ -139,6 +139,11 @@ fun! SetupMappings()
     nnoremap <C-b> :FZFBuffers<CR>
     nnoremap <C-f> :FZFAg<CR>
 
+    nnoremap <C-n> :NERDTreeToggle<CR>
+    nnoremap <C-e> :NERDTreeFind<CR>
+
+    nnoremap<C-t> :TagbarToggle<CR>
+
     nnoremap <leader>go :Goyo<CR>
 
     " Open/close folding
@@ -152,16 +157,8 @@ fun! SetupMappings()
     nnoremap<leader>cc :checktime<CR>
     nnoremap<leader>bc :bufdo bd<CR>
 
-    nnoremap <Tab> :NERDTreeToggle<CR>
-    nnoremap <S-Tab> :NERDTreeFind<CR>
-
-    nnoremap<C-t> :TagbarToggle<CR>
-
     nnoremap <silent><leader>f :set spell!<CR>
     nnoremap <leader>S :call SquashBlankLines()<CR>
-
-    nnoremap <C-]> :bnext<CR>
-    nnoremap <C-[> :bprevious<CR>
 endfun
 
 " }}}
