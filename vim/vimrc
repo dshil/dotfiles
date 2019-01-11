@@ -102,63 +102,44 @@ fun! SetupMappings()
     noremap <Down> <Nop>
     noremap <Left> <Nop>
     noremap <Right> <Nop>
-
-    " Makes the switching between buffers easy.
     noremap <C-h> <C-w>h
     noremap <C-j> <C-w>j
     noremap <C-k> <C-w>k
     noremap <C-l> <C-w>l
-
-    nnoremap <leader>k :vsplit<CR>
-    nnoremap <leader>h :split<CR>
-    nnoremap <leader>q :close<CR>
-
-    " Center the screen quickly
-    nnoremap <space> zz
-
-    nnoremap <leader>m :nohlsearch<CR>
-
-    " These mappings will make it so that going to the next one in a search
-    " will center on the line it's found in.
-    nnoremap n nzzzv
-    nnoremap N Nzzzv
-
     noremap j gj
     noremap k gk
-
     nnoremap L $
     nnoremap H 0w
 
-    " Find merge conflict markers
-    nnoremap <leader>lc /\v^[<\|=>]{7}( .*\|$)<CR>
+    " These mappings will make it so that going to the next one in
+    " a search will center on the line it's found in.
+    nnoremap n nzzzv
+    nnoremap N Nzzzv
 
     nnoremap <silent> <leader>d "_d
     vnoremap <silent> <leader>d "_d
 
     nnoremap <C-p> :FZFFiles<CR>
-    nnoremap <C-b> :FZFBuffers<CR>
+    nnoremap <S-p> :FZFBuffers<CR>
     nnoremap <C-f> :FZFAg<CR>
-
     nnoremap <C-n> :NERDTreeToggle<CR>
-    nnoremap <C-e> :NERDTreeFind<CR>
+    nnoremap <C-a> :NERDTreeFind<CR>
+    nnoremap <C-b> :TagbarToggle<CR>
+    nnoremap <leader>a :Ack <cword><CR>
 
-    nnoremap<C-t> :TagbarToggle<CR>
+    nnoremap <leader>f :set spell!<CR>
+    nnoremap <leader>cc :checktime<CR>
+    nnoremap <leader>m :nohlsearch<CR>
+    nnoremap <leader>k :vsplit<CR>
+    nnoremap <leader>h :split<CR>
+    nnoremap <leader>q :close<CR>
+    nnoremap <silent><leader>bc :bufdo bd<CR>
 
-    nnoremap <leader>go :Goyo<CR>
-
-    " Open/close folding
-    nnoremap<leader><space> za<CR>
-
-    nnoremap<leader>a :Ack <cword><CR>
-
-    nnoremap<leader>cm :call SetCodeModeColor()<CR>
-    nnoremap<leader>wm :call SetWriteModeColor()<CR>
-
-    nnoremap<leader>cc :checktime<CR>
-    nnoremap<leader>bc :bufdo bd<CR>
-
-    nnoremap <silent><leader>f :set spell!<CR>
-    nnoremap <leader>S :call SquashBlankLines()<CR>
+    nnoremap <silent><leader>S :call SquashBlankLines()<CR>
+    nnoremap <silent><leader>cm :call SetCodeModeColor()<CR>
+    nnoremap <silent><leader>wm :call SetWriteModeColor()<CR>
+    " Find merge conflict markers
+    nnoremap <leader>lc /\v^[<\|=>]{7}( .*\|$)<CR>
 endfun
 
 " }}}
