@@ -16,34 +16,35 @@ fi
 function download()
 {
     local release=$1
-    local srcdir=$2
+    local download_path=$2
 
-    mkdir -p $srcdir
-    svn co http://llvm.org/svn/llvm-project/llvm/tags/$release/final $srcdir
-    pushd $srcdir/tools
+    svn co http://llvm.org/svn/llvm-project/llvm/tags/$release/final $download_path
+    pushd $download_path/tools
         svn co http://llvm.org/svn/llvm-project/cfe/tags/$release/final clang
-    popd # $srcdir
+        pushd clang/tools
+            svn co https://llvm.org/svn/llvm-project/clang-tools-extra/tags/$release/final extra
+        popd # clang/tools
+    popd # $download_path
 }
 
 function install()
 {
     local release=$1
-    local srcdir=$2
-    local build_dir=$3
+    local src_path=$2
+    local build_path=$3
     local parallelism=$4
     local make_flags="-j$parallelism --load-average $parallelism"
 
-    mkdir -p $build_dir
-    pushd $build_dir
+    pushd $build_path
         cmake -G "Unix Makefiles" \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_C_COMPILER=/usr/bin/gcc \
             -DCMAKE_CXX_COMPILER=/usr/bin/g++ \
             -DCMAKE_ASM_COMPILER=/usr/bin/gcc \
-            $srcdir
+            $src_path
         make $make_flags
         $SUDO make $make_flags install
-    popd # $build_dir
+    popd # $build_path
 }
 
 help="LLVM downloader and installer
@@ -53,14 +54,14 @@ Usage: llvm [OPTIONS]
 Options:
 
 -r, --release - LLVM release id in format: RELEASE_600 (LLVM 6.0.0)
--s, --source-path - path where to download LLVM sources
+-s, --download-path - path where to download LLVM sources
 -b, --build-path - path where store the compilation result
 -p, --parallelism - value for make -j option
 -h, --help - print this message"
 
 while [[ "$#" > 0 ]]; do case $1 in
   -r|--release) release="$2"; shift;;
-  -s|--source-path) srcdir=$2; shift;;
+  -d|--download-path) download_dir=$2; shift;;
   -b|--build-path) build_dir=$2; shift;;
   -p|--parallelism) parallelism=$2 shift;;
   -h|--help) echo "$help"; exit 0;;
@@ -72,15 +73,22 @@ set -xe
 if [ -z "$release" ]; then
     release=RELEASE_700
 fi
-if [ -z "$srcdir" ]; then
-    srcdir=$HOME/src/llvm_$release
+
+if [ -z "$download_dir" ]; then
+    download_dir=$HOME/src
 fi
+
 if [ -z "$build_dir" ]; then
-    build_dir=$HOME/build/llvm_$release
+    build_dir=$HOME/build
 fi
 if [ -z "$parallelism" ]; then
     parallelism=$(nproc)
 fi
 
-download  "$release" "$srcdir"
-install "$release" "$srcdir" "$build_dir" "$parallelism"
+build_path=$build_dir/llvm_$release
+download_path=$download_dir/llvm_$release
+
+mkdir -p $download_path $build_path
+
+download  "$release" "$download_path"
+install "$release" "$download_path" "$build_path" "$parallelism"
