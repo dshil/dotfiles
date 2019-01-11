@@ -14,6 +14,7 @@ export GOBIN=$GOPATH/bin
 export GO111MODULE=on
 export PATH=$PATH:$GOBIN:$GOROOT:$GOROOT/bin
 export PATH=$PATH:~/bin
+export PATH=$PATH:$(python3 -m site --user-base)/bin
 
 # Start services
 eval `ssh-agent -s 2>&1 > /dev/null`
