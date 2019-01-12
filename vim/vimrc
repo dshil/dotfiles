@@ -39,6 +39,9 @@ let g:ackprg = 'ag --vimgrep --smart-case'
 " Plugin: 'junegunn/fzf.vim'
 let g:fzf_command_prefix = 'FZF'
 
+" Plugin: 'scrooloose/nerdtree'
+let g:NERDTreeWinSize=40
+
 " }}}
 
 " General settings {{{
