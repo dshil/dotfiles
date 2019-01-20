@@ -37,13 +37,6 @@ mkdir -p \
     $HOME/Mail/dshil \
     $HOME/Mail/shilin
 
-# Prepare config generators.
-#
-# To automate generators add the following to your crontab:
-#
-# sudo crontab -e
-#
-# 0 8 * * * msmtpctl --reload
 chmod +x $(pwd)/mail/msmtpctl.py
 ln -s -f $(pwd)/mail/msmtpctl.py $HOME/bin/msmtpctl
 
