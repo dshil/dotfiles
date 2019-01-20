@@ -28,16 +28,22 @@ dnf install -y gnupg
 dnf copr enable flatcap/neomutt
 dnf install -y dnf-plugins-core neomutt
 
-mail_dir=$HOME/Sync/mail
-
 # Prepare pathes.
 mkdir -p \
-    $mail_dir/sdadev \
-    $mail_dir/shilinda \
-    $mail_dir/dshil \
-    $mail_dir/shilin
+    $HOME/bin \
+    $HOME/Mail \
+    $HOME/Mail/sdadev \
+    $HOME/Mail/shilinda \
+    $HOME/Mail/dshil \
+    $HOME/Mail/shilin
 
 # Prepare config generators.
+#
+# To automate generators add the following to your crontab:
+#
+# sudo crontab -e
+#
+# 0 8 * * * msmtpctl --reload
 chmod +x $(pwd)/mail/msmtpctl.py
 ln -s -f $(pwd)/mail/msmtpctl.py $HOME/bin/msmtpctl
 

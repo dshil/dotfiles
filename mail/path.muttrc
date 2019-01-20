@@ -1,4 +1,4 @@
-set folder           = $HOME/Sync/mail
+set folder           = $HOME/Mail
 set mailcap_path     = $HOME/.mail/mailcap
 set header_cache     = $HOME/.mutt/cache/headers
 set message_cachedir = $HOME/.mutt/cache/bodies

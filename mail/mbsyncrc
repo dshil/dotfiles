@@ -9,8 +9,8 @@ IMAPStore dshil-remote
     Account dshil
 
 MaildirStore dshil-local
-    Path ~/Sync/mail/dshil/
-    Inbox ~/Sync/mail/dshil/inbox
+    Path ~/Mail/dshil/
+    Inbox ~/Mail/dshil/inbox
 
 Channel dshil-inbox
     Master ":dshil-remote:INBOX"
@@ -71,8 +71,8 @@ IMAPStore sdadev-remote
     Account sdadev
 
 MaildirStore sdadev-local
-    Path ~/Sync/mail/sdadev/
-    Inbox ~/Sync/mail/sdadev/inbox
+    Path ~/Mail/sdadev/
+    Inbox ~/Mail/sdadev/inbox
 
 Channel sdadev-inbox
     Master ":sdadev-remote:INBOX"
@@ -165,8 +165,8 @@ IMAPStore shilinda-remote
     Account shilinda
 
 MaildirStore shilinda-local
-    Path ~/Sync/mail/shilinda/
-    Inbox ~/Sync/mail/shilinda/inbox
+    Path ~/Mail/shilinda/
+    Inbox ~/Mail/shilinda/inbox
 
 Channel shilinda-inbox
     Master ":shilinda-remote:INBOX"
@@ -187,8 +187,8 @@ IMAPStore shilin-remote
     Account shilin
 
 MaildirStore shilin-local
-    Path ~/Sync/mail/shilin/
-    Inbox ~/Sync/mail/shilin/inbox
+    Path ~/Mail/shilin/
+    Inbox ~/Mail/shilin/inbox
 
 Channel shilin-inbox
     Master ":shilin-remote:INBOX"
