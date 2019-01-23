@@ -8,6 +8,9 @@
 #     * Linux
 #     * Windows (cygwin)
 #
+# References:
+#  * http://clang.llvm.org/get_started.html
+#  * https://compiler-rt.llvm.org/
 SUDO=sudo
 if [[ "$OSTYPE" == "cygwin" ]]; then
     SUDO=
@@ -19,11 +22,18 @@ function download()
     local download_path=$2
 
     svn co http://llvm.org/svn/llvm-project/llvm/tags/$release/final $download_path
-    pushd $download_path/tools
-        svn co http://llvm.org/svn/llvm-project/cfe/tags/$release/final clang
-        pushd clang/tools
-            svn co https://llvm.org/svn/llvm-project/clang-tools-extra/tags/$release/final extra
-        popd # clang/tools
+
+    pushd $download_path
+        pushd tools
+            svn co http://llvm.org/svn/llvm-project/cfe/tags/$release/final clang
+            pushd clang/tools
+                svn co https://llvm.org/svn/llvm-project/clang-tools-extra/tags/$release/final extra
+            popd # clang/tools
+        popd # tools
+
+        pushd projects
+            svn co http://llvm.org/svn/llvm-project/compiler-rt/tags/$release/final compiler-rt
+        popd # projects
     popd # $download_path
 }
 
