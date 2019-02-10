@@ -33,6 +33,8 @@ function download()
 
         pushd projects
             svn co http://llvm.org/svn/llvm-project/compiler-rt/tags/$release/final compiler-rt
+            svn co http://llvm.org/svn/llvm-project/lldb/tags/$release/final lldb
+            svn co http://llvm.org/svn/llvm-project/lld/tags/$release/final lld
         popd # projects
     popd # $download_path
 }
@@ -51,6 +53,9 @@ function install()
             -DCMAKE_C_COMPILER=/usr/bin/gcc \
             -DCMAKE_CXX_COMPILER=/usr/bin/g++ \
             -DCMAKE_ASM_COMPILER=/usr/bin/gcc \
+            -DLLDB_TEST_C_COMPILER=clang \
+            -DLLDB_TEST_CXX_COMPILER=clang++ \
+            -DLLDB_DISABLE_PYTHON=1 \
             $src_path
         make $make_flags
         $SUDO make $make_flags install
