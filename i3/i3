@@ -44,8 +44,8 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 10%- unmute
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 
 # Brightness key bindings
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 
 # lock screen
 bindsym Mod1+Control+l exec i3lock

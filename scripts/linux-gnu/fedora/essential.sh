@@ -24,7 +24,7 @@ function setup_toolchain ()
 
 function setup_i3 ()
 {
-    dnf install -y lightdm i3 i3lock
+    dnf install -y lightdm i3 i3lock light
 }
 
 function setup_utils ()
