@@ -48,6 +48,10 @@ set undolevels=1000
 
 set spelllang+=en_us
 set spelllang+=ru
+
+set exrc
+set secure
+
 " }}}
 
 call SetupSpaces()
