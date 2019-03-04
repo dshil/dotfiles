@@ -23,6 +23,7 @@ Plug 'aklt/plantuml-syntax'
 Plug 'scrooloose/vim-slumlord'
 Plug 'junegunn/seoul256.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'junegunn/vim-slash'
 
 call plug#end()
 " }}}
