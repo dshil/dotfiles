@@ -1,0 +1,48 @@
+" Plugins {{{
+
+call plug#begin('~/.vim/plugged') " Directory for plugins
+
+" Languages:
+Plug 'fatih/vim-go', {'for': 'go'}
+
+" General:
+Plug 'junegunn/goyo.vim'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'vimwiki/vimwiki'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'lyuts/vim-rtags'
+Plug 'junegunn/gv.vim'
+Plug 'mileszs/ack.vim'
+Plug 'aklt/plantuml-syntax'
+Plug 'scrooloose/vim-slumlord'
+Plug 'junegunn/seoul256.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/vim-slash'
+
+call plug#end()
+" }}}
+
+" Plugins Settings {{{
+
+" Plugin: 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '$HOME/Sync/doc', 'index': 'main'},
+            \ {'path': '$HOME/dev', 'syntax': 'markdown', 'ext': '.md'}]
+
+" Plugin: 'mileszs/ack.vim'
+let g:ackprg = 'ag --vimgrep --smart-case'
+
+" Plugin: 'junegunn/fzf.vim'
+let g:fzf_command_prefix = 'FZF'
+
+" Plugin: 'scrooloose/nerdtree'
+let g:NERDTreeWinSize=40
+
+" }}}
+
+" vim:syntax=vim:foldmethod=marker:foldlevel=0

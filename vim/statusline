@@ -1,0 +1,12 @@
+set statusline=%0.60f                    " Path to the file
+set statusline+=\                        " Separator
+set statusline+=%{fugitive#statusline()} " Git branch
+set statusline+=\                        " Separator
+set statusline+=[%c                      " Current column
+set statusline+=/                        " Separator
+set statusline+=%l                       " Current line
+set statusline+=/                        " Separator
+set statusline+=%L]                      " Total lines
+highlight statusline ctermfg=236 ctermbg=15
+
+" vim:syntax=vim:foldmethod=marker:foldlevel=0

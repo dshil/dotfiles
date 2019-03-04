@@ -1,0 +1,130 @@
+source ~/.vim/helpers
+
+" Python settings {{{
+fun! SetupPythonAutocmd()
+    augroup __python__
+        autocmd!
+        autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+        autocmd FileType python setlocal colorcolumn=80
+    augroup END
+endfun
+" }}}
+
+" CPP settings {{{
+fun! SetupCPPAutocmd()
+    augroup __cpp__
+        autocmd!
+        autocmd FileType cpp setlocal cindent cino=j1,(0,ws,Ws
+        autocmd FileType c setlocal colorcolumn=80
+    augroup END
+endfun
+" }}}
+
+" C settings {{{
+fun! SetupCAutocmd()
+    augroup __c__
+        autocmd!
+        autocmd FileType c setlocal ts=4 sts=4 sw=4 noexpandtab
+        autocmd FileType c setlocal colorcolumn=80
+    augroup END
+endfun
+" }}}
+
+" Go settings {{{
+fun! SetupGoAutocmd()
+    let g:tagbar_type_go = {
+        \ 'ctagstype' : 'go',
+        \ 'kinds'     : [
+            \ 'p:package',
+            \ 'i:imports:1',
+            \ 'c:constants',
+            \ 'v:variables',
+            \ 't:types',
+            \ 'n:interfaces',
+            \ 'w:fields',
+            \ 'e:embedded',
+            \ 'm:methods',
+            \ 'r:constructor',
+            \ 'f:functions'
+        \ ],
+        \ 'sro' : '.',
+        \ 'kind2scope' : {
+            \ 't' : 'ctype',
+            \ 'n' : 'ntype'
+        \ },
+        \ 'scope2kind' : {
+            \ 'ctype' : 't',
+            \ 'ntype' : 'n'
+        \ },
+        \ 'ctagsbin'  : 'gotags',
+        \ 'ctagsargs' : '-sort -silent'
+    \ }
+
+    augroup __go__
+        autocmd!
+        autocmd! BufWritePre *
+
+        autocmd FileType go setlocal colorcolumn=80
+        autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
+
+        let g:go_disable_autoinstall = 0
+        let g:go_highlight_types = 1
+        let g:go_highlight_extra_types = 1
+        let g:go_highlight_functions = 1
+        let g:go_highlight_methods = 1
+        let g:go_highlight_structs = 1
+        let g:go_highlight_fields = 1
+        let g:go_highlight_operators = 1
+        let g:go_highlight_build_constraints = 1
+        let g:go_fmt_command = "goimports"
+
+        autocmd FileType go noremap <Leader>ds <Plug>(go-def-split)
+        autocmd FileType go noremap <Leader>dv <Plug>(go-def-vertical)
+        autocmd FileType go noremap <Leader>gv <Plug>(go-doc-vertical)
+        autocmd FileType go noremap <Leader>gb :GoDocBrowser<CR>
+        autocmd FileType go noremap <Leader>gd :GoDoc<CR>
+        autocmd FileType go noremap <leader>t :GoTest<CR>
+        autocmd FileType go noremap <Leader>e :GoRename<CR>
+        autocmd FileType go noremap <leader>c :GoCoverageBrowser<CR>
+        autocmd FileType go noremap <leader>r :GoReferrers<CR>
+        autocmd FileType go noremap <leader>l :GoLint<CR>
+        autocmd FileType go noremap <leader>i :GoIfErr<CR>
+    augroup END
+endfun
+" }}}
+
+" Ruby settings {{{
+
+fun! SetupRubyAutocmd()
+    augroup __ruby__
+        autocmd!
+        autocmd FileType ruby setlocal colorcolumn=80
+        autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab nocursorline
+    augroup END
+endfun
+
+" }}}
+
+" Autocmds settings {{{
+
+augroup __main__
+    autocmd!
+
+    autocmd BufWritePre * call StripTrailingWhiteSpaces()
+
+    autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+    autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab nocursorline
+    autocmd FileType asm setlocal ft=nasm
+    autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
+    call SetupPythonAutocmd()
+    call SetupCAutocmd()
+    call SetupGoAutocmd()
+    call SetupRubyAutocmd()
+    call SetupCPPAutocmd()
+
+augroup END
+
+" }}}
+
+" vim:syntax=vim:foldmethod=marker:foldlevel=0

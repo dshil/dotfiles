@@ -1,379 +1,56 @@
-" Plugins {{{
+source ~/.vim/plugins
+source ~/.vim/mappings
+source ~/.vim/backup
+source ~/.vim/helpers
+source ~/.vim/statusline
 
-call plug#begin('~/.vim/plugged') " Directory for plugins
-
-" Languages:
-Plug 'fatih/vim-go', {'for': 'go'}
-
-" General:
-Plug 'junegunn/goyo.vim'
-Plug 'majutsushi/tagbar'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'vimwiki/vimwiki'
-Plug 'MattesGroeger/vim-bookmarks'
-Plug 'lyuts/vim-rtags'
-Plug 'junegunn/gv.vim'
-Plug 'mileszs/ack.vim'
-Plug 'aklt/plantuml-syntax'
-Plug 'scrooloose/vim-slumlord'
-Plug 'junegunn/seoul256.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'junegunn/vim-slash'
-
-call plug#end()
-" }}}
-
-" Plugins Settings {{{
-
-" Plugin: 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '$HOME/Sync/doc', 'index': 'main'},
-            \ {'path': '$HOME/dev', 'syntax': 'markdown', 'ext': '.md'}]
-
-" Plugin: 'mileszs/ack.vim'
-let g:ackprg = 'ag --vimgrep --smart-case'
-
-" Plugin: 'junegunn/fzf.vim'
-let g:fzf_command_prefix = 'FZF'
-
-" Plugin: 'scrooloose/nerdtree'
-let g:NERDTreeWinSize=40
-
-" }}}
+if has("autocmd")
+    source ~/.vim/autocmd
+endif
 
 " General settings {{{
 
-fun! SetupGenericSettings()
-    set modelines=1
-    set clipboard=unnamedplus
+set modelines=1
+set clipboard=unnamedplus
 
-    set colorcolumn=80
-    set laststatus=2
-    set backspace=2
-    set hidden
-    set number
-    set ruler
-    set title
+set colorcolumn=80
+set laststatus=2
+set backspace=2
+set hidden
+set number
+set ruler
+set title
 
-    set noerrorbells  " Don't show an error during the work with buffers.
-    set novisualbell
+set noerrorbells  " Don't show an error during the work with buffers.
+set novisualbell
 
-    set incsearch     " move to match as you type the search query
-    set hlsearch      " enable search result highlighting
-    set ignorecase
-    set smartcase
+set incsearch     " move to match as you type the search query
+set hlsearch      " enable search result highlighting
+set ignorecase
+set smartcase
 
-    set wildmode=list:longest,full
-    set lazyredraw
+set wildmode=list:longest,full
+set lazyredraw
 
-    filetype plugin indent on
+filetype plugin indent on
 
-    if has("autocmd")
-        call SetupAutocmds()
-    endif
+if has('mouse')
+    set mouse=a
+endif
+set mousehide
 
-    if has('mouse')
-        set mouse=a
-    endif
-    set mousehide
+set splitbelow
+set splitright
 
-    set splitbelow
-    set splitright
+set updatetime=1000
+set history=1000
+set undolevels=1000
 
-    set updatetime=1000
-    set history=1000
-    set undolevels=1000
-
-    set spelllang+=en_us
-    set spelllang+=ru
-endfun
+set spelllang+=en_us
+set spelllang+=ru
 " }}}
 
-" Mappings {{{
-
-fun! SetupMappings()
-    let g:mapleader = ","
-    let g:ctrlp_map = '' " Disable CtrlP because of FZF usage
-
-    " Mapping for coping to a clipboard.
-    vnoremap <C-c> "+y
-
-    noremap <Up> <Nop>
-    noremap <Down> <Nop>
-    noremap <Left> <Nop>
-    noremap <Right> <Nop>
-    noremap <C-h> <C-w>h
-    noremap <C-j> <C-w>j
-    noremap <C-k> <C-w>k
-    noremap <C-l> <C-w>l
-    noremap j gj
-    noremap k gk
-    nnoremap L $
-    nnoremap H 0w
-
-    " These mappings will make it so that going to the next one in
-    " a search will center on the line it's found in.
-    nnoremap n nzzzv
-    nnoremap N Nzzzv
-
-    nnoremap <silent> <leader>d "_d
-    vnoremap <silent> <leader>d "_d
-
-    nnoremap <C-p> :FZFFiles<CR>
-    nnoremap <S-p> :FZFBuffers<CR>
-    nnoremap <C-f> :FZFAg<CR>
-    nnoremap <C-n> :NERDTreeToggle<CR>
-    nnoremap <C-a> :NERDTreeFind<CR>
-    nnoremap <C-b> :TagbarToggle<CR>
-    nnoremap <leader>a :Ack <cword><CR>
-
-    nnoremap <leader>f :set spell!<CR>
-    nnoremap <leader>cc :checktime<CR>
-    nnoremap <leader>m :nohlsearch<CR>
-    nnoremap <leader>k :vsplit<CR>
-    nnoremap <leader>h :split<CR>
-    nnoremap <leader>q :close<CR>
-    nnoremap <silent><leader>bc :bufdo bd<CR>
-
-    nnoremap <silent><leader>S :call SquashBlankLines()<CR>
-    nnoremap <silent><leader>cm :call SetCodeModeColor()<CR>
-    nnoremap <silent><leader>wm :call SetWriteModeColor()<CR>
-    " Find merge conflict markers
-    nnoremap <leader>lc /\v^[<\|=>]{7}( .*\|$)<CR>
-endfun
-
-" }}}
-
-" Autocmds settings {{{
-
-fun! SetupAutocmds()
-    augroup __main__
-        autocmd!
-
-        autocmd BufWritePre * call StripTrailingWhiteSpaces()
-
-        autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-        autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab nocursorline
-        autocmd FileType asm setlocal ft=nasm
-        autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-
-        call SetupPythonAutocmd()
-        call SetupCAutocmd()
-        call SetupGoAutocmd()
-        call SetupRubyAutocmd()
-        call SetupCPPAutocmd()
-
-    augroup END
-endfun
-
-" }}}
-
-" Python settings {{{
-fun! SetupPythonAutocmd()
-    augroup python
-        autocmd!
-        autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
-        autocmd FileType python setlocal colorcolumn=80
-    augroup END
-endfun
-" }}}
-
-" CPP settings {{{
-fun! SetupCPPAutocmd()
-    augroup cpp
-        autocmd!
-
-        autocmd FileType cpp setlocal cindent cino=j1,(0,ws,Ws
-        autocmd FileType c setlocal colorcolumn=80
-    augroup END
-endfun
-" }}}
-
-" C settings {{{
-fun! SetupCAutocmd()
-    augroup c
-        autocmd!
-        autocmd FileType c setlocal ts=4 sts=4 sw=4 noexpandtab
-        autocmd FileType c setlocal colorcolumn=80
-    augroup END
-endfun
-" }}}
-
-" Go settings {{{
-fun! SetupGoAutocmd()
-    let g:tagbar_type_go = {
-        \ 'ctagstype' : 'go',
-        \ 'kinds'     : [
-            \ 'p:package',
-            \ 'i:imports:1',
-            \ 'c:constants',
-            \ 'v:variables',
-            \ 't:types',
-            \ 'n:interfaces',
-            \ 'w:fields',
-            \ 'e:embedded',
-            \ 'm:methods',
-            \ 'r:constructor',
-            \ 'f:functions'
-        \ ],
-        \ 'sro' : '.',
-        \ 'kind2scope' : {
-            \ 't' : 'ctype',
-            \ 'n' : 'ntype'
-        \ },
-        \ 'scope2kind' : {
-            \ 'ctype' : 't',
-            \ 'ntype' : 'n'
-        \ },
-        \ 'ctagsbin'  : 'gotags',
-        \ 'ctagsargs' : '-sort -silent'
-    \ }
-
-    augroup go
-        autocmd!
-        autocmd! BufWritePre *
-
-        autocmd FileType go setlocal colorcolumn=80
-        autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
-
-        let g:go_disable_autoinstall = 0
-        let g:go_highlight_types = 1
-        let g:go_highlight_extra_types = 1
-        let g:go_highlight_functions = 1
-        let g:go_highlight_methods = 1
-        let g:go_highlight_structs = 1
-        let g:go_highlight_fields = 1
-        let g:go_highlight_operators = 1
-        let g:go_highlight_build_constraints = 1
-        let g:go_fmt_command = "goimports"
-
-        autocmd FileType go noremap <Leader>ds <Plug>(go-def-split)
-        autocmd FileType go noremap <Leader>dv <Plug>(go-def-vertical)
-        autocmd FileType go noremap <Leader>gv <Plug>(go-doc-vertical)
-        autocmd FileType go noremap <Leader>gb :GoDocBrowser<CR>
-        autocmd FileType go noremap <Leader>gd :GoDoc<CR>
-        autocmd FileType go noremap <leader>t :GoTest<CR>
-        autocmd FileType go noremap <Leader>e :GoRename<CR>
-        autocmd FileType go noremap <leader>c :GoCoverageBrowser<CR>
-        autocmd FileType go noremap <leader>r :GoReferrers<CR>
-        autocmd FileType go noremap <leader>l :GoLint<CR>
-        autocmd FileType go noremap <leader>i :GoIfErr<CR>
-    augroup END
-endfun
-" }}}
-
-" Ruby settings {{{
-
-fun! SetupRubyAutocmd()
-    augroup ruby
-        autocmd!
-        autocmd FileType ruby setlocal colorcolumn=80
-        autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab nocursorline
-    augroup END
-endfun
-
-" }}}
-
-" Tab/Space switchers {{{
-fun! SetupSpaces()
-    set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-endfun
-
-fun! SetupTabs()
-    set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
-endfun
-" }}}
-
-" Color scheme modes {{{
-
-fun! SetCodeModeColor()
-    let g:seoul256_background = 233
-    colorscheme seoul256
-    set background=dark
-    highlight colorcolumn ctermbg=236
-    highlight statusline ctermfg=236 ctermbg=15
-    highlight MatchParen ctermbg=blue
-endfun
-
-fun! SetWriteModeColor()
-    let g:seoul256_background = 240
-    colorscheme seoul256
-    set background=light
-    highlight statusline ctermfg=236 ctermbg=15
-    highlight MatchParen ctermbg=blue
-endfun
-
-" }}}
-
-" Helpers {{{
-
-" Executes an input command and saves the current state.
-fun! ExecAndSave(cmd)
-    if &binary || &filetype == 'diff'
-        return
-    endif
-
-    " Save the last search.
-    let _s=@/
-
-    " Save the cursor position.
-    let pos=getpos(".")
-
-    " Exec a command.
-    execute a:cmd
-
-    " Restore the search and the cursor position.
-    let @/=_s
-    call setpos(".", pos)
-endfun
-
-fun! StripTrailingWhiteSpaces()
-    call ExecAndSave("%s/\\s\\+$//e")
-endfun
-
-fun! SquashBlankLines()
-    call ExecAndSave("silent! :g/^\\_$\\n\\_^$/d")
-endfun
-
-fun! SetupBackup()
-    set backup
-    set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-    set backupskip=/tmp/*,/private/tmp/*
-    set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-    set writebackup
-endfun
-
-" }}}
-
-" Setup status line {{{
-
-fun! SetupStatusLine()
-    set statusline=%0.60f                    " Path to the file
-    set statusline+=\                        " Separator
-    set statusline+=%{fugitive#statusline()} " Git branch
-    set statusline+=\                        " Separator
-    set statusline+=[%c                      " Current column
-    set statusline+=/                        " Separator
-    set statusline+=%l                       " Current line
-    set statusline+=/                        " Separator
-    set statusline+=%L]                      " Total lines
-    highlight statusline ctermfg=236 ctermbg=15
-endfun
-
-" }}}
-
-" Settings installation {{{
-
-call SetupGenericSettings()
 call SetupSpaces()
-call SetupMappings()
-call SetupBackup()
 call SetCodeModeColor()
-call SetupStatusLine()
-" }}}
 
 " vim:foldmethod=marker:foldlevel=0
