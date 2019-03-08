@@ -44,14 +44,14 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 10%- unmute
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 
 # Brightness key bindings
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 # lock screen
 bindsym Mod1+Control+l exec i3lock
 
 # start a terminal
-bindsym Mod1+Return exec urxvt256c
+bindsym Mod1+Return exec --no-startup-id urxvt256c
 
 # kill focused window
 bindsym Mod1+Shift+q kill
@@ -197,13 +197,6 @@ bar {
         status_command i3status
 }
 
-#######################################################################
-# automatically start i3-config-wizard to offer the user to create a
-# keysym-based config which used their favorite modifier (alt or windows)
-#
-# i3-config-wizard will not launch if there already is a config file
-# in ~/.i3/config.
-#
-# Please remove the following exec line:
-#######################################################################
-exec i3-config-wizard
+exec --no-startup-id /usr/libexec/geoclue-2.0/demos/agent
+exec --no-startup-id redshift-gtk
+exec --no-startup-id light -S 100
