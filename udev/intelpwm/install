@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -xe
+
+CONFIG=/etc/intelpwm.conf
+if [ ! -f "$CONFIG" ]; then
+    sudo cp $(pwd)/udev/intelpwm/intelpwm.conf /etc
+fi
+
+RUN=$HOME/bin/intelpwm
+if [ ! -f "$RUN" ]; then
+    ln -s -f $(pwd)/udev/intelpwm/intelpwm $HOME/bin
+fi
+
+RULES=/etc/udev/rules.d/intelpwm.rules
+if [ ! -f "$RULES" ]; then
+    sudo cp $(pwd)/udev/intelpwm/intelpwm.rules /etc/udev/rules.d
+fi
+
+sudo udevadm control --reload-rules
