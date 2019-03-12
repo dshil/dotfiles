@@ -1,22 +1,22 @@
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
-
-# Setup specific aliases and functions
+[ -f /etc/bashrc ] && source /etc/bashrc
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-source ~/.aliases
+[ -f ~/.aliases ] && source ~/.aliases
 
-# Setup pathes
 export GOPATH=$HOME/dev/go
 export GOROOT=/usr/local/go
 export GOBIN=$GOPATH/bin
-export GO111MODULE=on
-export PATH=$PATH:$GOBIN:$GOROOT:$GOROOT/bin
+export GO111MODULE=off
+
+export QMAKE=/usr/bin/qmake-qt5
+export BXSHARE=/usr/local/share/bochs
+export KERN_DIR=/usr/src/kernels/`uname -r`
+
+export XDG_CONFIG_HOME=~/.config
+
+export PATH=$PATH:$GOBIN:$GOROOT/bin
 export PATH=$PATH:~/bin
 export PATH=$PATH:$(python3 -m site --user-base)/bin
 
-# Start services
 eval `ssh-agent -s 2>&1 > /dev/null`
 
 # vim:syntax=sh
