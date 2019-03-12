@@ -23,7 +23,6 @@ font pango:Terminus 14px
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn't scale on retina/hidpi displays.
-
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up l
@@ -197,6 +196,6 @@ bar {
         status_command i3status
 }
 
-exec --no-startup-id /usr/libexec/geoclue-2.0/demos/agent
-exec --no-startup-id redshift-gtk
-exec --no-startup-id light -S 100
+exec --no-startup-id light -S 50
+exec --no-startup-id xgamma -gamma 1
+exec --no-startup-id xsetroot -solid "#333333"
