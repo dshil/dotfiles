@@ -1,57 +1,31 @@
-! +--------------------------------------------------------------------------+
-! +                             XTERM                                         +
-! +--------------------------------------------------------------------------+
-xterm*faceName: Terminus
-xterm*faceSize: 11
-xterm*loginshell: false
-xterm*savelines: 4096*4
+! For more info see:
+!  * https://www.askapache.com/linux/rxvt-xresources
+!  * https://wiki.gentoo.org/wiki/Rxvt-unicode
+!  * https://wiki.manjaro.org/index.php?title=Improve_Font_Rendering
+!  * https://dshil.github.io/blog/linux-fight-for-better-health
 
-! double-click to select whole URLs
-xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+Xft.dpi:        110
+Xft.rgba:       rgb
+Xft.antialias:  true
+Xft.hinting:    true
+Xft.autohint:   false
+Xft.hintstyle:  hintslight
+Xft.lcdfilter:  lcddefault
 
-xterm*foreground: rgb:a8/a8/a8
-xterm*background: rgb:00/00/00
-xterm*color0: rgb:00/00/00
-xterm*color1: rgb:a8/00/00
-xterm*color2: rgb:00/a8/00
-xterm*color3: rgb:a8/54/00
-xterm*color4: rgb:00/00/a8
-xterm*color5: rgb:a8/00/a8
-xterm*color6: rgb:00/a8/a8
-xterm*color7: rgb:a8/a8/a8
-xterm*color8: rgb:54/54/54
-xterm*color9: rgb:fc/54/54
-xterm*color10: rgb:54/fc/54
-xterm*color11: rgb:fc/fc/54
-xterm*color12: rgb:54/54/fc
-xterm*color13: rgb:fc/54/fc
-xterm*color14: rgb:54/fc/fc
-xterm*color15: rgb:fc/fc/fc
-
-! right hand side scrollbar...
-xterm*rightScrollBar: true
-xterm*ScrollBar: true
-
-! stop output to terminal from jumping down to bottom of scroll again
-xterm*scrollTtyOutput: false
-
-! +--------------------------------------------------------------------------+
-! +                             RXVT                                         +
-! +--------------------------------------------------------------------------+
-Rxvt.font:           xft:Terminus:size=12
+Rxvt.font: xft:Terminus:size=11
 Rxvt*boldFont:
 Rxvt*italicFont:
 Rxvt*boldItalicFont:
 
-Rxvt.geometry:         90x46
+Rxvt*perl-ext:
+Rxvt*perl-ext-common:
+Rxvt*internalBorder:
+
 Rxvt.scrollstyle:      plain
 Rxvt.saveLines:        4096*4
-! Scrolling of full-screen apps ends up in the rxvt scroll buffer:
 Rxvt.secondaryScroll:  true
-
 Rxvt.loginShell:       false
 Rxvt.utmpInhibit:      true
-
 Rxvt.meta:             ignore
 Rxvt.insecure:         true
 Rxvt.mapAlert:         false
@@ -59,21 +33,25 @@ Rxvt.visualBell:       false
 Rxvt.urgentOnBell:     false
 Rxvt.pastableTabs:     false
 
-Rxvt*foreground: rgb:a8/a8/a8
-Rxvt*background: rgb:00/00/00
-Rxvt*color0: rgb:00/00/00
-Rxvt*color1: rgb:a8/00/00
-Rxvt*color2: rgb:00/a8/00
-Rxvt*color3: rgb:a8/54/00
-Rxvt*color4: rgb:00/00/a8
-Rxvt*color5: rgb:a8/00/a8
-Rxvt*color6: rgb:00/a8/a8
-Rxvt*color7: rgb:a8/a8/a8
-Rxvt*color8: rgb:54/54/54
-Rxvt*color9: rgb:fc/54/54
-Rxvt*color10: rgb:54/fc/54
-Rxvt*color11: rgb:fc/fc/54
-Rxvt*color12: rgb:54/54/fc
-Rxvt*color13: rgb:fc/54/fc
-Rxvt*color14: rgb:54/fc/fc
-Rxvt*color15: rgb:fc/fc/fc
+Rxvt*scrollColor: #777777
+Rxvt*background: #282828
+Rxvt*foreground: #d0d0d0
+Rxvt*color0: #4e4e4e
+Rxvt*color1: #d68787
+Rxvt*color2: #5f865f
+Rxvt*color3: #d8af5f
+Rxvt*color4: #85add4
+Rxvt*color5: #d7afaf
+Rxvt*color6: #87afaf
+Rxvt*color7: #d0d0d0
+Rxvt*color8: #626262
+Rxvt*color9: #d75f87
+Rxvt*color10: #87af87
+Rxvt*color11: #ffd787
+Rxvt*color12: #add4fb
+Rxvt*color13: #ffafaf
+Rxvt*color14: #87d7d7
+Rxvt*color15: #e4e4e4
+Rxvt*cursorColor: #d0d0d0
+Rxvt*cursorColor2: #3a3a3a
+Rxvt*colorBD: #e4e4e4
