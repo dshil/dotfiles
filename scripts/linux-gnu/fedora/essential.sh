@@ -43,6 +43,13 @@ function setup_samba()
     dnf install gvfs gvfs-smb sshfs
 }
 
+function setup_fonts()
+{
+    dnf install curl cabextract xorg-x11-font-utils fontconfig
+    rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+    fc-cache -fv
+}
+
 setup_chrome
 setup_terminal
 setup_toolchain
