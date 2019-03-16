@@ -3,7 +3,7 @@
 set -xe
 
 sysdir=/usr/lib/systemd/system
-freq=0x1E801E8
+freq=0x3d103d1
 
 systemctl --system stop    pwmfrequency@$freq
 systemctl --system disable pwmfrequency@$freq
