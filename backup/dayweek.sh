@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# General routine for the rsyncing your data weekly and daily.
+# General routine for rsyncing your data.
 set -xe
 
 if [ "$SRC" == "" ]; then
@@ -16,8 +16,14 @@ if [ "$TYPE" == "" ]; then
 fi
 
 OSID=$(uname -r)
-DST=$DST/$OSID/$TYPE
+DST=$DST/$OSID/$(whoami)/$TYPE
+DATE=$(date "+%Y-%m-%d-%H%M%S")
 
 mkdir -p $DST
 
-rsync --exclude={.ccache,build,vm,backup} -arv --delete $SRC $DST
+rsync -axrv --delete --link-dest=$DST/latest \
+    $SRC $DST/processing-$DATE \
+    && pushd $DST \
+    && mv processing-$DATE $DATE \
+    && ln -s -f $DATE latest \
+    && popd # $DST
