@@ -1,0 +1,3 @@
+#!/bin/bash
+
+intel_reg_write 0xC8254 0x3d103d1

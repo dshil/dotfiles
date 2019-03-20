@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ln -s -f $(pwd)/acpi/lidevent $HOME/bin/lidevent
+ln -s -f $(pwd)/acpi/lidopen $HOME/bin/lidopen
+
+sudo ln -s -f $(pwd)/acpi/lidconf /etc/acpi/events/lidconf
+sudo ln -s -f $(pwd)/acpi/lid.sh /etc/acpi/actions/lid.sh

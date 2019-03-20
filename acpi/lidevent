@@ -1,0 +1,7 @@
+#!/bin/bash
+
+grep -q open /proc/acpi/button/lid/LID0/state
+
+if [ $? = 0 ]; then
+    /home/dshil/bin/lidopen
+fi
