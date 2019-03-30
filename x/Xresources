@@ -34,8 +34,8 @@ Rxvt.urgentOnBell:     false
 Rxvt.pastableTabs:     false
 
 Rxvt*scrollColor: #777777
-Rxvt*background: #282828
-Rxvt*foreground: #d0d0d0
+Rxvt*background: #212121
+Rxvt*foreground: #d9d9d9
 Rxvt*color0: #4e4e4e
 Rxvt*color1: #d68787
 Rxvt*color2: #5f865f

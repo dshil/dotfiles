@@ -39,7 +39,7 @@ endfun
 " Color scheme modes {{{
 
 fun! SetCodeModeColor()
-    let g:seoul256_background = 235
+    let g:seoul256_background = 234
     let g:seoul256_srgb = 1
     colorscheme seoul256
     set background=dark
