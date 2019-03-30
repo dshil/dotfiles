@@ -1,0 +1,3 @@
+/dev/sdb1 /home/dshil/vm ext4 defaults
+/dev/sdb2 /home/dshil/backup ext4 defaults
+https://webdav.fastmail.com /home/dshil/fastmail.storage davfs user,noauto 0 1
