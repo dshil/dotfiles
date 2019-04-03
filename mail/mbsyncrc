@@ -3,7 +3,7 @@ IMAPAccount dshil
     User dshil@fastmail.com
     PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.cert/mail/dshil.gpg"
     SSLType IMAPS
-    SSLVersions TLSv1.2
+    SSLVersions TLSv1.1
 
 IMAPStore dshil-remote
     Account dshil
@@ -65,7 +65,7 @@ IMAPAccount sdadev
     User sdadeveloper@gmail.com
     PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.cert/mail/sdadev.gpg"
     SSLType IMAPS
-    SSLVersions TLSv1.2
+    SSLVersions TLSv1.1
 
 IMAPStore sdadev-remote
     Account sdadev
@@ -159,7 +159,7 @@ IMAPAccount shilinda
     User shilinda@yandex.ru
     PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.cert/mail/shilinda.gpg"
     SSLType IMAPS
-    SSLVersions TLSv1.2
+    SSLVersions TLSv1.1
 
 IMAPStore shilinda-remote
     Account shilinda
@@ -181,7 +181,7 @@ IMAPAccount shilin
     User shilin@beamr.com
     PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.cert/mail/shilin.gpg"
     SSLType IMAPS
-    SSLVersions TLSv1.2
+    SSLVersions TLSv1.1
 
 IMAPStore shilin-remote
     Account shilin
