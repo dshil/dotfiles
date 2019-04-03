@@ -4,29 +4,26 @@ set -xe
 
 dir=$(pwd)
 
-# Cleanup
-rm -rf $HOME/.mail $HOME/.vim
+mkdir -p $HOME/.mail $HOME/.vim
 
-# Setup platform independent soft links.
 ln -s $dir/vim $HOME/.vim
 ln -s -f $dir/vim/vimrc $HOME/.vimrc
 ln -s $dir/mail $HOME/.mail
 ln -s -f $dir/bashrc $HOME/.bashrc.local
 ln -s -f $dir/aliases/forall $HOME/.aliases.forall
 ln -s -f $dir/git/config $HOME/.gitconfig
-ln -s -f $dir/screen/fonts.conf $XDG_CONFIG_HOME/fontconfig/fonts.conf
 
 sh $dir/git/forall.sh
 
 # Setup platform dependent links.
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    ln -s -f $dir/aliases/linux-gnu $HOME/.aliases
+    mkdir -p $XDG_CONFIG_HOME/fontconfig $HOME/.config/i3
 
+    ln -s -f $dir/aliases/linux-gnu $HOME/.aliases
     ln -s -f $dir/x/xinitrc $HOME/.xinitrc
     ln -s -f $dir/x/Xresources $HOME/.Xresources
-
-    mkdir -p $HOME/.config/i3
     ln -s -f $dir/i3/i3 $HOME/.config/i3/config
+    ln -s -f $dir/screen/fonts.conf $XDG_CONFIG_HOME/fontconfig/fonts.conf
 
     localectl --no-convert  \
         set-x11-keymap us,ru pc105 "" grp:switch,grp:caps_toggle,grp_led:caps
