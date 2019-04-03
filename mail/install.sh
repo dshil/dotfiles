@@ -14,8 +14,7 @@ set -xe
 #      info: read HTML in mutt with a good mood
 #  * urlsacn:
 #      info: extract and browse the URLs from the email
-dnf install -y isync msmtp ripmime w3m urlscan
-
+#
 # Make your life save and secure with gnupg.
 #
 # Password encryption:
@@ -23,10 +22,6 @@ dnf install -y isync msmtp ripmime w3m urlscan
 #  * Encrypt it: gpg2 -c mypassword.gpg
 #  * Verify it: gpg2 -q --for-your-eyes-only --no-tty -d mypassword.gpg
 #  * Remove the initial file: rm mypassword
-dnf install -y gnupg
-
-dnf copr enable flatcap/neomutt
-dnf install -y dnf-plugins-core neomutt
 
 # Prepare pathes.
 mkdir -p \
@@ -37,7 +32,7 @@ mkdir -p \
     $HOME/Mail/dshil \
     $HOME/Mail/shilin
 
-chmod +x $(pwd)/mail/msmtpctl.py
+sudo chmod +x $(pwd)/mail/msmtpctl.py
 ln -s -f $(pwd)/mail/msmtpctl.py $HOME/bin/msmtpctl
 
 # Setup notmuch
@@ -50,7 +45,6 @@ ln -s -f $(pwd)/mail/msmtpctl.py $HOME/bin/msmtpctl
 # It is not required to put the script under /usr/bin folder. Feel free to
 # put anywhere you want, just ensure that mutt contains the valid path.
 #
-#
 # Notmuch setup for mutt is shipped as a separate module. If you want to use it
 # inside your mutt, simply add `source $HOME/.mail/notmuch.muttrc` into your
 # main muttrc configuration file.
@@ -59,8 +53,7 @@ ln -s -f $(pwd)/mail/msmtpctl.py $HOME/bin/msmtpctl
 #   * Source code of the script: https://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/mutt-notmuch
 #   * Man page via key-bending for mutt: https://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/mutt-notmuch.1.html
 #
-dnf install notmuch perl perl-String-ShellQuote perl-Mail-Box perl-MailTools
-chmod +x $(pwd)/mail/mutt-notmuch
+sudo chmod +x $(pwd)/mail/mutt-notmuch
 ln -s -f $(pwd)/mail/mutt-notmuch $HOME/bin/mutt-notmuch
 ln -s -f $(pwd)/mail/notmuch-config $HOME/.notmuch-config
 
