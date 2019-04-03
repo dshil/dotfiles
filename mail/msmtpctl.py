@@ -81,7 +81,7 @@ def make_tls_fingerprint(host, port):
         '--port={port}'.format(port=port),
     ], stdout=subprocess.PIPE)
 
-    grep = subprocess.run(['grep', 'SHA256'],
+    grep = subprocess.run(['grep', 'SHA256:'],
                           input=msmtp.stdout,
                           stdout=subprocess.PIPE)
     sha256 = grep.stdout.decode('UTF-8').replace(' ', '').replace('\n', '')
