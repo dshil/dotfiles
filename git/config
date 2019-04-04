@@ -4,7 +4,7 @@
 [core]
     autocrlf = false
     safecrlf = true
-    editor = vimx
+    editor = vim
     preloadindex = true
     fscache = true
 [alias]

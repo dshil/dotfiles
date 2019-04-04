@@ -1,5 +1,3 @@
-[ -f /etc/bashrc ] && source /etc/bashrc
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.aliases ] && source ~/.aliases
 
 export GOPATH=$HOME/dev/go
