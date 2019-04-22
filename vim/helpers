@@ -40,7 +40,11 @@ endfun
 
 fun! SetCodeModeColor()
     let g:seoul256_background = 233
-    let g:seoul256_srgb = 1
+
+    if has('linux')
+        let g:seoul256_srgb = 1
+    endif
+
     colorscheme seoul256
     set background=dark
     highlight colorcolumn ctermbg=237
@@ -50,7 +54,11 @@ endfun
 
 fun! SetWriteModeColor()
     let g:seoul256_background = 255
-    let g:seoul256_srgb = 1
+
+    if has('linux')
+        let g:seoul256_srgb = 1
+    endif
+
     colorscheme seoul256
     set background=light
     highlight statusline ctermfg=236 ctermbg=15
