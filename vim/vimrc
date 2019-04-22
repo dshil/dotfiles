@@ -3,6 +3,7 @@ source ~/.vim/mappings
 source ~/.vim/backup
 source ~/.vim/helpers
 source ~/.vim/statusline
+source ~/.vim/colors
 
 if has("autocmd")
     source ~/.vim/autocmd
@@ -55,6 +56,5 @@ set secure
 " }}}
 
 call SetupSpaces()
-call SetCodeModeColor()
 
 " vim:foldmethod=marker:foldlevel=0
