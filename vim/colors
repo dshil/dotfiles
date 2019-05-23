@@ -1,5 +1,5 @@
 fun! SetCodeModeColor()
-    let g:seoul256_background = 233
+    let g:seoul256_background = 234
 
     if has('linux')
         let g:seoul256_srgb = 1
@@ -25,6 +25,6 @@ fun! SetWriteModeColor()
     highlight MatchParen ctermbg=blue
 endfun
 
-call SetWriteModeColor()
+call SetCodeModeColor()
 
 " vim:syntax=vim:foldmethod=marker:foldlevel=0
