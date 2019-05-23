@@ -15,7 +15,8 @@ timers=(mbsync.timer msmtpctl.timer)
 sockets=(rdm.socket)
 
 known_units=("${services[@]}" "${timers[@]}" "${sockets[@]}")
-active_units=("${timers[@]}" "${sockets[@]}")
+units_to_enable=("${timers[@]}" "${sockets[@]}")
+units_to_start=("${sockets[@]}" "${timers[@]}" rdm.service)
 
 for unit in "${known_units[@]}"
 do
@@ -29,8 +30,12 @@ done
 
 systemctl --user daemon-reload
 
-for unit in "${active_units[@]}"
+for unit in "${units_to_enable[@]}"
 do
     systemctl --user enable $unit
+done
+
+for unit in "${units_to_start[@]}"
+do
     systemctl --user start $unit
 done
