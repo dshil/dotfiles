@@ -2,11 +2,10 @@
 
 set -xe
 
-sudo dnf config-manager --set-enabled google-chrome
 sudo dnf copr enable flatcap/neomutt
 
-sudo dnf install -y fedora-workstation-repositories \
-    google-chrome-stable \
+sudo dnf install -y \
+    fedora-workstation-repositories \
     rxvt-unicode-256color terminus-fonts \
     git gitk svn make cmake autoconf gcc-c++ \
     vim-X11 python3-pip the_silver_searcher htop \
@@ -15,6 +14,7 @@ sudo dnf install -y fedora-workstation-repositories \
     sxiv mupdf ack ctags weechat abook graphviz \
     gvfs gvfs-smb sshfs curl cabextract xorg-x11-font-utils fontconfig \
     isync msmtp ripmime w3m urlscan gnupg dnf-plugins-core neomutt \
-    notmuch perl perl-String-ShellQuote perl-Mail-Box perl-MailTools
+    notmuch perl perl-String-ShellQuote perl-Mail-Box perl-MailTools \
+    keepassx nm-applet
 
 fc-cache -fv
