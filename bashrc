@@ -14,7 +14,6 @@ export XDG_CONFIG_HOME=~/.config
 export PATH=$PATH:$GOBIN:$GOROOT/bin
 export PATH=$PATH:~/bin
 export PATH=$PATH:$(python3 -m site --user-base)/bin
-export PATH=$PATH:~/.iterm2
 
 eval `ssh-agent -s 2>&1 > /dev/null`
 
