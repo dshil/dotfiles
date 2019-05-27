@@ -4,34 +4,34 @@ set -xe
 
 dir=$(pwd)
 
-mkdir -p $HOME/.mail $HOME/.vim
+ln -sfn $dir/vim $HOME/.vim
+ln -sf $dir/vim/vimrc $HOME/.vimrc
 
-ln -s $dir/vim $HOME/.vim
-ln -s -f $dir/vim/vimrc $HOME/.vimrc
-ln -s $dir/mail $HOME/.mail
-ln -s -f $dir/bashrc $HOME/.bashrc.local
-ln -s -f $dir/aliases/forall $HOME/.aliases.forall
-ln -s -f $dir/git/config $HOME/.gitconfig
+ln -sfn $dir/mail $HOME/.mail
 
-sh $dir/git/forall.sh
+ln -sf $dir/bashrc $HOME/.bashrc.local
+ln -sf $dir/aliases/forall $HOME/.aliases.forall
+ln -sf $dir/git/config $HOME/.gitconfig
 
 # Setup platform dependent links.
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     mkdir -p $XDG_CONFIG_HOME/fontconfig $HOME/.config/i3
 
-    ln -s -f $dir/aliases/linux-gnu $HOME/.aliases
-    ln -s -f $dir/x/xinitrc $HOME/.xinitrc
-    ln -s -f $dir/x/Xresources $HOME/.Xresources
-    ln -s -f $dir/i3/i3 $HOME/.config/i3/config
-    ln -s -f $dir/screen/fonts.conf $XDG_CONFIG_HOME/fontconfig/fonts.conf
+    ln -sf $dir/aliases/linux-gnu $HOME/.aliases
+    ln -sf $dir/x/xinitrc $HOME/.xinitrc
+    ln -sf $dir/x/Xresources $HOME/.Xresources
+    ln -sf $dir/i3/i3 $HOME/.config/i3/config
+    ln -sf $dir/screen/fonts.conf $XDG_CONFIG_HOME/fontconfig/fonts.conf
 
     localectl --no-convert  \
         set-x11-keymap us,ru pc105 "" grp:switch,grp:caps_toggle,grp_led:caps
 elif [[ "$OSTYPE" == "cygwin" ]]; then
-    ln -s -f $dir/aliases/win $HOME/.aliases
+    ln -sf $dir/aliases/win $HOME/.aliases
+
+    sh $dir/git/forall.sh
     sh $dir/git/forwin.sh
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    ln -s -f $dir/aliases/darwin $HOME/.aliases
+    ln -sf $dir/aliases/darwin $HOME/.aliases
 else
     echo "Not implemented: ${OSTYPE}"
     exit 1
