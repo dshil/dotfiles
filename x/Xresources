@@ -4,15 +4,7 @@
 !  * https://wiki.manjaro.org/index.php?title=Improve_Font_Rendering
 !  * https://dshil.github.io/blog/linux-fight-for-better-health
 
-Xft.dpi:        110
-Xft.rgba:       rgb
-Xft.antialias:  true
-Xft.hinting:    true
-Xft.autohint:   false
-Xft.hintstyle:  hintslight
-Xft.lcdfilter:  lcddefault
-
-Rxvt.font: xft:Terminus:size=11
+Rxvt.font: xft:Terminus:size=14
 Rxvt*boldFont:
 Rxvt*italicFont:
 Rxvt*boldItalicFont:
