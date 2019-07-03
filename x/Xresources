@@ -4,7 +4,7 @@
 !  * https://wiki.manjaro.org/index.php?title=Improve_Font_Rendering
 !  * https://dshil.github.io/blog/linux-fight-for-better-health
 
-Rxvt.font: xft:Terminus:size=14
+Rxvt.font: xft:Terminus:size=12
 Rxvt*boldFont:
 Rxvt*italicFont:
 Rxvt*boldItalicFont:
