@@ -15,6 +15,6 @@ sudo dnf install -y \
     gvfs gvfs-smb sshfs curl cabextract xorg-x11-font-utils fontconfig \
     isync msmtp ripmime w3m urlscan gnupg dnf-plugins-core neomutt \
     notmuch perl perl-String-ShellQuote perl-Mail-Box perl-MailTools \
-    keepassx nm-applet
+    keepassx network-manager-applet
 
 fc-cache -fv
