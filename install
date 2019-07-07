@@ -12,6 +12,7 @@ ln -sfn $dir/mail $HOME/.mail
 ln -sf $dir/bashrc $HOME/.bashrc.local
 ln -sf $dir/aliases/forall $HOME/.aliases.forall
 ln -sf $dir/git/config $HOME/.gitconfig
+ln -sf $dir/tmux.conf $HOME/.tmux.conf
 
 # Setup platform dependent links.
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
