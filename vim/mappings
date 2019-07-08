@@ -51,4 +51,10 @@ nnoremap <leader>lc /\v^[<\|=>]{7}( .*\|$)<CR>
 
 nnoremap <silent><S-f> :pyf $HOME/bin/clang-format.py<CR>
 
+" Enable language layout change in insert mode
+set keymap=russian-jcuken
+" Disable default langmap in normal and search modes
+set iminsert=0
+set imsearch=0
+
 " vim:syntax=vim:foldmethod=marker:foldlevel=0
