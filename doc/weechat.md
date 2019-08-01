@@ -1,43 +1,45 @@
-# Quick Start
+* Connect to freenode and setup SSL:
+
+```
+/server add freenode chat.freenode.net
+/set irc.server.freenode.addresses chat.freenode.net/6697
+/set irc.server.freenode.ssl on
+
+/set irc.server.freenode.nicks "dshil"
+/set irc.server.freenode.username "dshil"
+/set irc.server.freenode.realname "Dmitriy Shilin"
+
+/set irc.server.freenode.sasl_username dshil
+/set irc.server.freenode.sasl_password xxxxx
+
+/save
+/connect freenode
+```
 
 * Register nickname:
 
-    ```
-    /msg NickServ REGISTER password youremail@example.com
-    ```
+```
+/msg NickServ REGISTER password youremail@example.com
+```
 
 * Identify yourself:
 
-    ```
-    /msg NickServ IDENTIFY password
-    ```
+```
+/msg NickServ IDENTIFY password
+```
 
-* Use SASL to automate identification:
-
-    ```
-    /set irc.server.freenode.sasl_username $whoami
-    /set irc.server.freenode.sasl_password xxxxx
-    ```
-
-* Connect to freenode and setup SSL:
-
-    ```
-    /server add freenode chat.freenode.net
-    /set irc.server.freenode.addresses chat.freenode.net/6697
-    /set irc.server.freenode.ssl on
-
-    /set irc.server.freenode.nicks "dshil"
-    /set irc.server.freenode.username "dshil"
-    /set irc.server.freenode.realname "Dmitriy Shilin"
-
-    /save
-    /reconnect
-    ```
 * Setup default channels:
 
-    ```
-    /server irc.server.freenode.autojoin "#libreoffice-ru,#libreoffice-dev"
-    ```
+```
+/server irc.server.freenode.autojoin "#rocproject"
+```
+
+* Setup plugins:
+
+```
+/script install vimode.py
+/script install autosort.py
+```
 
 * Resources:
     * https://www.linode.com/docs/applications/messaging/using-weechat-for-irc/
