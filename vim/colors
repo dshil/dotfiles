@@ -1,5 +1,7 @@
+set t_Co=256
+
 fun! SetCodeModeColor()
-    let g:seoul256_background = 234
+    let g:seoul256_background = 235
 
     if has('linux')
         let g:seoul256_srgb = 1
