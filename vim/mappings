@@ -1,9 +1,11 @@
 source ~/.vim/helpers
 
 let g:mapleader = ","
-let g:ctrlp_map = '' " Disable CtrlP because of FZF usage
-" Mapping for coping to a clipboard.
+
+" copy/paste from clipboard
 vnoremap <C-c> "+y
+nnoremap <C-x> "+p
+nnoremap <C-X> "*p
 
 noremap <Up> <Nop>
 noremap <Down> <Nop>
