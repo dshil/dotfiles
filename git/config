@@ -26,7 +26,11 @@
     merge-revert = revert -m 1
     repack-optimize = repack -a -d --depth=250 --window=250
 [merge]
-    tool = kdiff3
+    tool = vimdiff
+    conflicstyle = diff3
+[mergetool]
+    prompt = false
+    keepBackup = false
 [color]
     ui = true
 [rerere]
