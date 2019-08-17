@@ -67,8 +67,8 @@ ln -s -f $(pwd)/mail/notmuch-config $HOME/.notmuch-config
 # mutt itself. To enable abook during the mail lookup use: <C-t>. To be able
 # to sync both databases, use the following script:
 #
-# abook --convert --informat mutt --infile ~/Sync/mutt/alias \
-#       --outformat abook --outfile ~/Sync/abook/addressbook
+# abook --convert --informat mutt --infile ~/cloud/Sync/mutt/alias \
+#       --outformat abook --outfile ~/cloud/Sync/abook/addressbook
 #
 # To make your life easier you can invoke alias <-> abook converting directly
 # from the mutt. Just press <F5>.
@@ -77,4 +77,4 @@ ln -s -f $(pwd)/mail/notmuch-config $HOME/.notmuch-config
 #   * man abook
 #   * man abookrc
 ln -s -f $(pwd)/mail/abookrc $HOME/.abook/abookrc
-ln -s -f $HOME/Sync/abook/addressbook $HOME/.abook/addressbook
+ln -s -f $HOME/cloud/Sync/abook/addressbook $HOME/.abook/addressbook

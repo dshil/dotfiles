@@ -1,7 +1,7 @@
 IMAPAccount dshil
     Host imap.fastmail.com
     User dshil@fastmail.com
-    PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/Sync/cert/mail/dshil.gpg"
+    PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/cloud/Sync/cert/mail/dshil.gpg"
     SSLType IMAPS
     SSLVersions TLSv1.1
 

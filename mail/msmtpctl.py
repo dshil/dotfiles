@@ -95,7 +95,7 @@ def make_passwordeval(account):
     don't store your password as a plain text.
     """
     certpath = os.getenv('CERTPATH',
-                         os.path.join(os.environ['HOME'], 'Sync/cert/mail'))
+                         os.path.join(os.environ['HOME'], 'cloud/Sync/cert/mail'))
 
     return make_genkey_command(certpath, account)
 
