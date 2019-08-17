@@ -40,7 +40,6 @@ let g:ackprg = 'ag --vimgrep --smart-case'
 let g:fzf_command_prefix = 'FZF'
 let g:ctrlp_map = '' " Disable CtrlP because of FZF usage
 
-
 " Plugin: 'scrooloose/nerdtree'
 let g:NERDTreeWinSize=35
 
