@@ -11,6 +11,8 @@ endif
 
 " General settings {{{
 
+set nocompatible
+
 set modelines=1
 set clipboard=unnamedplus
 

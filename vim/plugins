@@ -45,4 +45,8 @@ let g:NERDTreeWinSize=35
 
 " }}}
 
+" Packages {{{
+packadd! matchit
+" }}}
+
 " vim:syntax=vim:foldmethod=marker:foldlevel=0
