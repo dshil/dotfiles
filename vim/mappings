@@ -7,10 +7,12 @@ vnoremap <C-c> "+y
 nnoremap <C-x> "+p
 nnoremap <C-X> "*p
 
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+nnoremap <Up> :cprev<CR>
+nnoremap <Down> :cnext<CR>
+nnoremap <Left> :cfirst<CR>
+nnoremap <Right> :clast<CR>
+nnoremap <leader>o :copen<CR>
+
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
