@@ -30,7 +30,7 @@ call plug#end()
 " Plugins Settings {{{
 
 " Plugin: 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '$HOME/Sync/doc', 'index': 'main'},
+let g:vimwiki_list = [{'path': '$HOME/cloud/Sync/doc', 'index': 'main'},
             \ {'path': '$HOME/dev', 'syntax': 'markdown', 'ext': '.md'}]
 
 " Plugin: 'mileszs/ack.vim'
