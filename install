@@ -9,6 +9,7 @@ ln -sf $dir/vim/vimrc $HOME/.vimrc
 
 ln -sfn $dir/mail $HOME/.mail
 
+ln -sf $dir/zshrc $HOME/.zshrc
 ln -sf $dir/bashrc $HOME/.bashrc.local
 ln -sf $dir/aliases/forall $HOME/.aliases.forall
 ln -sf $dir/git/config $HOME/.gitconfig
