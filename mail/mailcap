@@ -1,6 +1,6 @@
 audio/*; /usr/bin/xdg-open %s
 image/*; /usr/bin/xdg-open %s
-text/*; vimx %s
+text/*; vim %s
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 application/pdf; mupdf %s
 application/msword; antiword %s ; copiousoutput;

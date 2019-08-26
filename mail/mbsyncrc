@@ -63,7 +63,7 @@ Channel dshil-trash
 IMAPAccount sdadev
     Host imap.gmail.com
     User sdadeveloper@gmail.com
-    PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/Sync/cert/mail/sdadev.gpg"
+    PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/cloud/Sync/cert/mail/sdadev.gpg"
     SSLType IMAPS
     SSLVersions TLSv1.1
 
@@ -157,7 +157,7 @@ Channel sdadev-learning
 IMAPAccount shilinda
     Host imap.yandex.com
     User shilinda@yandex.ru
-    PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/Sync/cert/mail/shilinda.gpg"
+    PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/cloud/Sync/cert/mail/shilinda.gpg"
     SSLType IMAPS
     SSLVersions TLSv1.1
 
@@ -179,7 +179,7 @@ Channel shilinda-inbox
 IMAPAccount shilin
     Host imap.gmail.com
     User shilin@beamr.com
-    PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/Sync/cert/mail/shilin.gpg"
+    PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/cloud/Sync/cert/mail/shilin.gpg"
     SSLType IMAPS
     SSLVersions TLSv1.1
 

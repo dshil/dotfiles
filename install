@@ -16,16 +16,13 @@ ln -sf $dir/tmux.conf $HOME/.tmux.conf
 
 # Setup platform dependent links.
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    mkdir -p $XDG_CONFIG_HOME/fontconfig $HOME/.config/i3
+    mkdir -p ~/.config/fontconfig $HOME/.config/i3
 
     ln -sf $dir/aliases/linux-gnu $HOME/.aliases
     ln -sf $dir/x/xinitrc $HOME/.xinitrc
     ln -sf $dir/x/Xresources $HOME/.Xresources
     ln -sf $dir/i3/i3 $HOME/.config/i3/config
-    ln -sf $dir/screen/fonts.conf $XDG_CONFIG_HOME/fontconfig/fonts.conf
-
-    localectl --no-convert  \
-        set-x11-keymap us,ru pc105 "" grp:switch,grp:caps_toggle,grp_led:caps
+    ln -sf $dir/screen/fonts.conf ~/.config/fontconfig/fonts.conf
 elif [[ "$OSTYPE" == "cygwin" ]]; then
     ln -sf $dir/aliases/win $HOME/.aliases
 
