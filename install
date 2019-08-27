@@ -30,7 +30,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "cygwin" ]]; then
     ln -sf $dir/aliases/win ~/.aliases
 
-    sh $dir/git/forall.sh
     sh $dir/git/forwin.sh
 else
     echo "Not implemented: ${OSTYPE}"
