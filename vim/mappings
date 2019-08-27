@@ -33,27 +33,27 @@ vnoremap <silent> <leader>d "_d
 nnoremap <C-p> :FZFFiles<CR>
 nnoremap <S-p> :FZFBuffers<CR>
 nnoremap <C-f> :FZFAg<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-a> :NERDTreeFind<CR>
-nnoremap <C-b> :TagbarToggle<CR>
-nnoremap <leader>a :Ack <cword><CR>
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <C-a> :NERDTreeFind<CR>
+nnoremap <silent> <C-b> :TagbarToggle<CR>
+nnoremap <silent> <leader>a :Ack <cword><CR>
 
-nnoremap <leader>f :set spell!<CR>
-nnoremap <leader>cc :checktime<CR>
-nnoremap <leader>m :nohlsearch<CR>
-nnoremap <leader>k :vsplit<CR>
-nnoremap <leader>h :split<CR>
-nnoremap <leader>q :close<CR>
-nnoremap <silent><leader>bc :bufdo bd<CR>
+nnoremap <silent> <leader>f :set spell!<CR>
+nnoremap <silent> <leader>cc :checktime<CR>
+nnoremap <silent> <leader>m :nohlsearch<CR>
+nnoremap <silent> <leader>k :vsplit<CR>
+nnoremap <silent> <leader>h :split<CR>
+nnoremap <silent> <leader>q :close<CR>
+nnoremap <silent> <leader>bc :bufdo bd<CR>
 
-nnoremap <silent><leader>S :call SquashBlankLines()<CR>
-nnoremap <silent><leader>cm :call SetCodeModeColor()<CR>
-nnoremap <silent><leader>wm :call SetWriteModeColor()<CR>
+nnoremap <silent> <leader>S :call SquashBlankLines()<CR>
+nnoremap <silent> <leader>cm :call SetCodeModeColor()<CR>
+nnoremap <silent> <leader>wm :call SetWriteModeColor()<CR>
 
 " Find merge conflict markers
-nnoremap <leader>lc /\v^[<\|=>]{7}( .*\|$)<CR>
+nnoremap <silent> <leader>lc /\v^[<\|=>]{7}( .*\|$)<CR>
 
-nnoremap <silent><S-f> :pyf $HOME/bin/clang-format.py<CR>
+nnoremap <silent> <S-f> :pyf $HOME/bin/clang-format.py<CR>
 
 " Enable language layout change in insert mode
 set keymap=russian-jcuken
