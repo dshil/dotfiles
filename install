@@ -29,8 +29,6 @@ elif [[ "$OSTYPE" == "cygwin" ]]; then
 
     sh $dir/git/forall.sh
     sh $dir/git/forwin.sh
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    ln -sf $dir/aliases/darwin $HOME/.aliases
 else
     echo "Not implemented: ${OSTYPE}"
     exit 1
