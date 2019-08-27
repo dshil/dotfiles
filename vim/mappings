@@ -53,8 +53,6 @@ nnoremap <silent> <leader>wm :call SetWriteModeColor()<CR>
 " Find merge conflict markers
 nnoremap <silent> <leader>lc /\v^[<\|=>]{7}( .*\|$)<CR>
 
-nnoremap <silent> <S-f> :pyf $HOME/bin/clang-format.py<CR>
-
 " Enable language layout change in insert mode
 set keymap=russian-jcuken
 " Disable default langmap in normal and search modes
