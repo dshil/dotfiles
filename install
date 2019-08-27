@@ -6,26 +6,29 @@ dir=$(pwd)
 
 sh $dir/vim/install.sh
 
-ln -sfn $dir/mail $HOME/.mail
+ln -sfn $dir/mail ~/.mail
 
-ln -sf $dir/zshrc $HOME/.zshrc
-ln -sf $dir/bashrc $HOME/.bashrc.local
-ln -sf $dir/aliases/forall $HOME/.aliases.forall
+ln -sf $dir/zshrc ~/.zshrc
+ln -sf $dir/bashrc ~/.bashrc.local
+ln -sf $dir/aliases/forall ~/.aliases.forall
 
-ln -sf $dir/git/config $HOME/.gitconfig
-ln -sf $dir/tmux.conf $HOME/.tmux.conf
+ln -sf $dir/git/config ~/.gitconfig
+ln -sf $dir/tmux.conf ~/.tmux.conf
 
 # Setup platform dependent links.
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    mkdir -p ~/.config/fontconfig $HOME/.config/i3
+    mkdir -p ~/.config/fontconfig ~/.config/i3
 
-    ln -sf $dir/aliases/linux-gnu $HOME/.aliases
-    ln -sf $dir/x/xinitrc $HOME/.xinitrc
-    ln -sf $dir/x/Xresources $HOME/.Xresources
-    ln -sf $dir/i3/i3 $HOME/.config/i3/config
+    ln -sf $dir/aliases/linux-gnu ~/.aliases
+
+    ln -sf $dir/x/xinitrc ~/.xinitrc
+    ln -sf $dir/x/Xresources ~/.Xresources
+
+    ln -sf $dir/i3/i3 ~/.config/i3/config
+
     ln -sf $dir/screen/fonts.conf ~/.config/fontconfig/fonts.conf
 elif [[ "$OSTYPE" == "cygwin" ]]; then
-    ln -sf $dir/aliases/win $HOME/.aliases
+    ln -sf $dir/aliases/win ~/.aliases
 
     sh $dir/git/forall.sh
     sh $dir/git/forwin.sh
