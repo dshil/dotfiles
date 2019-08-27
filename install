@@ -4,14 +4,14 @@ set -xe
 
 dir=$(pwd)
 
-ln -sfn $dir/vim $HOME/.vim
-ln -sf $dir/vim/vimrc $HOME/.vimrc
+sh $dir/vim/install.sh
 
 ln -sfn $dir/mail $HOME/.mail
 
 ln -sf $dir/zshrc $HOME/.zshrc
 ln -sf $dir/bashrc $HOME/.bashrc.local
 ln -sf $dir/aliases/forall $HOME/.aliases.forall
+
 ln -sf $dir/git/config $HOME/.gitconfig
 ln -sf $dir/tmux.conf $HOME/.tmux.conf
 
