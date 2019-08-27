@@ -53,10 +53,4 @@ nnoremap <silent> <leader>wm :call SetWriteModeColor()<CR>
 " Find merge conflict markers
 nnoremap <silent> <leader>lc /\v^[<\|=>]{7}( .*\|$)<CR>
 
-" Enable language layout change in insert mode
-set keymap=russian-jcuken
-" Disable default langmap in normal and search modes
-set iminsert=0
-set imsearch=0
-
 " vim:syntax=vim:foldmethod=marker:foldlevel=0
