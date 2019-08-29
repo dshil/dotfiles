@@ -78,3 +78,7 @@ ln -s -f $(pwd)/mail/notmuch-config $HOME/.notmuch-config
 #   * man abookrc
 ln -s -f $(pwd)/mail/abookrc $HOME/.abook/abookrc
 ln -s -f $HOME/cloud/Sync/abook/addressbook $HOME/.abook/addressbook
+
+# Ensure that gpg passwords will be stashed.
+mkdir -p ~/.gnupg
+ln -s -f $(pwd)/mail/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
