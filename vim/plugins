@@ -4,25 +4,37 @@ call plug#begin('~/.vim/plugged') " Directory for plugins
 
 " Languages:
 Plug 'fatih/vim-go', {'for': 'go'}
-
-" General:
-Plug 'junegunn/goyo.vim'
-Plug 'majutsushi/tagbar'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'vimwiki/vimwiki'
-Plug 'MattesGroeger/vim-bookmarks'
 Plug 'lyuts/vim-rtags'
-Plug 'junegunn/gv.vim'
-Plug 'mileszs/ack.vim'
 Plug 'aklt/plantuml-syntax'
 Plug 'scrooloose/vim-slumlord'
-Plug 'junegunn/seoul256.vim'
+
+" Search:
+Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Tabs:
+Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
+
+" Writing:
+Plug 'vimwiki/vimwiki'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
+" Git:
+Plug 'junegunn/gv.vim'
+Plug 'tpope/vim-fugitive'
+
+" General:
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/vim-easy-align'
+Plug 'MattesGroeger/vim-bookmarks'
+
+" Colors:
+Plug 'junegunn/seoul256.vim'
+Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 " }}}
@@ -45,6 +57,31 @@ let g:ctrlp_map = '' " Disable CtrlP because of FZF usage
 
 " Plugin: 'scrooloose/nerdtree'
 let g:NERDTreeWinSize=35
+
+let g:PaperColor_Theme_Options = {
+  \   'language' : {
+  \     'cpp': {
+  \       'highlight_standard_library': 1
+  \     }
+  \   },
+  \   'theme': {
+  \     'default.dark': {
+  \       'override' : {
+  \         'color03' : ['#5ca85c', ''],
+  \         'color05' : ['#5faf5f', ''],
+  \         'color07' : ['#dadada', ''],
+  \         'color09' : ['#ca7631', ''],
+  \         'color10' : ['#af87d7', ''],
+  \         'color11' : ['#01a9a9', ''],
+  \         'color13' : ['#af87d7', ''],
+  \       },
+  \       'transparent_background': 0
+  \     },
+  \     'default.light': {
+  \       'transparent_background': 0
+  \     }
+  \   }
+  \ }
 
 " }}}
 

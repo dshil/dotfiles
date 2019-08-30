@@ -1,28 +1,18 @@
 set t_Co=256
 
+colorscheme PaperColor
+
 fun! SetCodeModeColor()
-    let g:seoul256_background = 234
-
-    if has('linux')
-        let g:seoul256_srgb = 1
-    endif
-
-    colorscheme seoul256
     set background=dark
+
     highlight colorcolumn ctermbg=237
     highlight statusline ctermfg=236 ctermbg=15
     highlight MatchParen ctermbg=blue
 endfun
 
 fun! SetWriteModeColor()
-    let g:seoul256_background = 255
-
-    if has('linux')
-        let g:seoul256_srgb = 1
-    endif
-
-    colorscheme seoul256
     set background=light
+
     highlight statusline ctermfg=236 ctermbg=15
     highlight MatchParen ctermbg=blue
 endfun
