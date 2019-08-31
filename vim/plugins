@@ -44,7 +44,8 @@ call plug#end()
 " Plugin: 'vimwiki/vimwiki'
 let g:vimwiki_list =
             \ [
-            \  {'path': '$HOME/cloud/diary/daily', 'index': 'main'},
+            \  {'path': '$HOME/cloud/diary/daily', 'syntax': 'markdown', 'ext': '.md', 'index': 'main'},
+            \  {'path': '$HOME/cloud/diary/trav', 'syntax': 'markdown', 'ext': '.md'},
             \  {'path': '$HOME/cloud/diary/dev', 'syntax': 'markdown', 'ext': '.md'}
             \ ]
 
