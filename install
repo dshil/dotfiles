@@ -5,6 +5,7 @@ set -xe
 dir=$(pwd)
 
 sh $dir/vim/install.sh
+sh $dir/git/install.sh
 
 ln -sfn $dir/mail ~/.mail
 
@@ -12,7 +13,6 @@ ln -sf $dir/zshrc ~/.zshrc
 ln -sf $dir/bashrc ~/.bashrc.local
 ln -sf $dir/aliases/forall ~/.aliases.forall
 
-ln -sf $dir/git/config ~/.gitconfig
 ln -sf $dir/tmux.conf ~/.tmux.conf
 
 # Setup platform dependent links.
