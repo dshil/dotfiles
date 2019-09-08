@@ -15,15 +15,6 @@
     br = branch
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     forkbase = rebase -i --fork-point origin/master
-    merge-msg = "!f() \
-        { \
-            fork_branch=$1; \
-            master_branch=$(git symbolic-ref --short HEAD); \
-            printf 'Merge branch %s into %s\n\n-- SUMMARY --\n\n' $fork_branch $master_branch > temp_merge_msg; \
-            git log --oneline --left-right $master_branch...$fork_branch >> temp_merge_msg; \
-            git merge --no-ff --no-commit $fork_branch; \
-            git commit -eF temp_merge_msg; rm -f temp_merge_msg; \
-        }; f"
     merge-revert = revert -m 1
     repack-optimize = repack -a -d --depth=250 --window=250
 [merge]
