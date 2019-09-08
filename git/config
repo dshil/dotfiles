@@ -42,7 +42,7 @@
     tool = vimdiff
 [gc]
     auto = 256
+[init]
+    templatedir = ~/.git_template
 
 # vim:set shiftwidth=4 softtabstop=4 expandtab syntax=gitconfig:
-[init]
-	templatedir = /home/dshil/.git_template
