@@ -35,3 +35,5 @@ else
     echo "Not implemented: ${OSTYPE}"
     exit 1
 fi
+
+# vim:syntax=sh

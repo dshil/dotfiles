@@ -8,6 +8,7 @@
     preloadindex = true
     fscache = true
 [alias]
+    ctags = '!.git/hooks/ctags'
     co = checkout
     ci = commit
     st = status
