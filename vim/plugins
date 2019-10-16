@@ -29,6 +29,7 @@ Plug 'tpope/vim-fugitive'
 
 " General:
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
 Plug 'junegunn/vim-easy-align'
 Plug 'MattesGroeger/vim-bookmarks'
 
@@ -51,6 +52,7 @@ let g:vimwiki_list =
             \ ]
 
 " Plugin: 'mileszs/ack.vim'
+let g:ack_use_dispatch = 1
 let g:ackprg = 'ag --vimgrep --smart-case'
 
 " Plugin: 'junegunn/fzf.vim'
