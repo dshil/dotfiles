@@ -7,6 +7,7 @@ Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'lyuts/vim-rtags'
 Plug 'aklt/plantuml-syntax'
 Plug 'scrooloose/vim-slumlord'
+Plug 'rhysd/vim-clang-format'
 
 " Search:
 Plug 'mileszs/ack.vim'
