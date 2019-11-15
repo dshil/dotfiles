@@ -10,6 +10,7 @@ alternative_order text/plain text/enriched text/html
 mailboxes =dshil
 mailboxes =dshil/inbox
 mailboxes =dshil/sent
+mailboxes =dshil/job
 mailboxes =dshil/drafts
 mailboxes =dshil/archive
 mailboxes =dshil/trash

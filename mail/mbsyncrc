@@ -20,6 +20,14 @@ Channel dshil-inbox
     Sync All
     Expunge Both
 
+Channel dshil-job
+    Master ":dshil-remote:job"
+    Slave  ":dshil-local:job"
+    Create Slave
+    SyncState *
+    Sync All
+    Expunge Both
+
 Channel dshil-sent
     Master ":dshil-remote:Sent"
     Slave  ":dshil-local:sent"
@@ -240,9 +248,9 @@ Channel shilin-starred
 
 Group all
     Channels sdadev-inbox sdadev-sent sdadev-spam sdadev-trash sdadev-drafts sdadev-starred sdadev-job sdadev-dev sdadev-traveling sdadev-learning
-    Channels dshil-inbox dshil-trash dshil-sent dshil-drafts dshil-archive dshil-spam
+    Channels dshil-inbox dshil-job dshil-trash dshil-sent dshil-drafts dshil-archive dshil-spam
     Channels shilinda-inbox
     Channels shilin-inbox shilin-sent shilin-spam shilin-trash shilin-drafts shilin-starred
 
 Group inbox
-    Channels sdadev-inbox dshil-inbox shilinda-inbox shilin-inbox
+    Channels sdadev-inbox dshil-inbox dshil-job shilinda-inbox shilin-inbox
