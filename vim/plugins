@@ -91,6 +91,7 @@ let g:PaperColor_Theme_Options = {
 
 " Packages {{{
 packadd! matchit
+runtime ftplugin/man.vim
 " }}}
 
 " vim:syntax=vim:foldmethod=marker:foldlevel=0
