@@ -28,13 +28,6 @@ mailboxes =sdadev/trash
 mailboxes =sdadev/spam
 mailboxes =shilinda
 mailboxes =shilinda/inbox
-mailboxes =shilin
-mailboxes =shilin/inbox
-mailboxes =shilin/sent
-mailboxes =shilin/drafts
-mailboxes =shilin/starred
-mailboxes =shilin/trash
-mailboxes =shilin/spam
 # }}}
 
 # Bindings {{{

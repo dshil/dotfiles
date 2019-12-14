@@ -5,10 +5,5 @@ set query_command= "abook --mutt-query '%s'"
 
 macro index,pager A "<pipe-message>abook --add-email-quiet<return>" \
              "add the sender address to abook"
-macro index "<F5>" "<shell-escape>rm ~/cloud/Sync/abook/addressbook; \
-                    abook --convert \
-                    --informat mutt --infile ~/cloud/Sync/mutt/alias \
-                    --outformat abook --outfile ~/cloud/Sync/abook/addressbook \
-                    <enter>"
 
 # vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0

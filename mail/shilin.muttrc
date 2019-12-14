@@ -1,6 +1,0 @@
-set from      = "shilin@beamr.com"
-set trash     = +shilin/trash
-set spoolfile = +shilin/inbox
-unset record
-
-# vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0

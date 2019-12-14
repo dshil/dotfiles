@@ -190,7 +190,6 @@ def main():
         return
 
     accounts = [
-        account('shilin', 'smtp.gmail.com', 'shilin@beamr.com'),
         account('dshil', 'smtp.fastmail.com', 'dshil@fastmail.com'),
         account('shilinda', 'smtp.yandex.com', 'shilinda@yandex.com'),
         account('sdadev', 'smtp.gmail.com', 'sdadeveloper@gmail.com'),
