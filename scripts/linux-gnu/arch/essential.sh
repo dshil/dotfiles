@@ -8,4 +8,4 @@ sudo pacman -Sy \
        okular acpid light ack ctags weechat abook gvfs gvfs-smb sshfs curl \
        fontconfig isync msmtp ripmime w3m urlscan gnupg neomutt notmuch perl \
        perl-string-shellquote perl-mail-box perl-mailtools perl-mail-box \
-       keepassxc gvim net-tools
+       keepassxc gvim net-tools man man-pages ripgrep
