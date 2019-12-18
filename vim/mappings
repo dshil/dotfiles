@@ -32,7 +32,7 @@ vnoremap <silent> <leader>d "_d
 
 nnoremap <C-p> :FZFFiles<CR>
 nnoremap <S-p> :FZFBuffers<CR>
-nnoremap <C-f> :FZFAg<CR>
+nnoremap <C-f> :FZFRg<CR>
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <C-a> :NERDTreeFind<CR>
 nnoremap <silent> <C-b> :TagbarToggle<CR>
