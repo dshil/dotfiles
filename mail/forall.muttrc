@@ -6,30 +6,6 @@ set pager_stop
 alternative_order text/plain text/enriched text/html
 # }}}
 
-# Mailboxes {{{
-mailboxes =dshil
-mailboxes =dshil/inbox
-mailboxes =dshil/sent
-mailboxes =dshil/job
-mailboxes =dshil/drafts
-mailboxes =dshil/archive
-mailboxes =dshil/trash
-mailboxes =dshil/spam
-mailboxes =sdadev
-mailboxes =sdadev/inbox
-mailboxes =sdadev/sent
-mailboxes =sdadev/drafts
-mailboxes =sdadev/dev
-mailboxes =sdadev/job
-mailboxes =sdadev/starred
-mailboxes =sdadev/traveling
-mailboxes =sdadev/learning
-mailboxes =sdadev/trash
-mailboxes =sdadev/spam
-mailboxes =shilinda
-mailboxes =shilinda/inbox
-# }}}
-
 # Bindings {{{
 bind index g noop
 bind index gg noop
@@ -54,15 +30,15 @@ bind attach <return> view-mailcap
 # Macros {{{
 macro index M "<save-message>?<toggle-mailboxes>"
 macro index R ":source $HOME/.mail/muttrc<enter>"
-macro index S "<shell-escape>mbsync --config=$HOME/.mail/mbsyncrc all; \
+
+macro index S "<shell-escape>mbsync --config=$HOME/cloud/Sync/mutt/mbsyncrc all; \
                              notmuch new > /dev/null 2>&1<enter>"
-macro index s "<shell-escape>mbsync --config=$HOME/.mail/mbsyncrc inbox; \
+macro index s "<shell-escape>mbsync --config=$HOME/cloud/Sync/mutt/mbsyncrc inbox; \
                              notmuch new > /dev/null 2>&1<enter>"
+
 macro pager \Cu "<pipe-message>urlscan --dedupe<enter>"
-macro index,pager X "<pipe-message>ripmime -i - -d "
-macro generic "<F2>" ":source $HOME/.mail/dshil.muttrc<enter>"
-macro generic "<F3>" ":source $HOME/.mail/sdadev.muttrc<enter>"
-macro generic "<F4>" ":source $HOME/.mail/shilin.muttrc<enter>"
+macro generic "<F2>" ":source $HOME/cloud/Sync/mutt/dshil.muttrc<enter>"
+macro generic "<F3>" ":source $HOME/cloud/Sync/mutt/sdadev.muttrc<enter>"
 # }}}
 
 # Sidebar {{{

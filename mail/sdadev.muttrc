@@ -1,6 +1,0 @@
-set from      = "sdadeveloper@gmail.com"
-set trash     = +sdadev/trash
-set spoolfile = +sdadev/inbox
-unset record
-
-# vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0

@@ -1,6 +1,9 @@
+source $HOME/cloud/Sync/mutt/mailbox.muttrc
+source $HOME/cloud/Sync/mutt/dshil.muttrc
+source $HOME/cloud/Sync/mutt/sdadev.muttrc
+
 source $HOME/.mail/path.muttrc
 source $HOME/.mail/color.muttrc
-source $HOME/.mail/dshil.muttrc
 source $HOME/.mail/notmuch.muttrc
 source $HOME/.mail/contact.muttrc
 source $HOME/.mail/forall.muttrc

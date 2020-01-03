@@ -116,25 +116,55 @@ def make_genkey_command(certpath, account):
     return '{tool} {args}'.format(tool=tool, args=str.join(' ', args))
 
 
-def show_info(spec, accounts):
+def parse_email_config(config_path):
     """
-    Writes json-formatted accounts to stdout.
+    Parse the email configuration file.
+
+    Configuration file has the following JSON format:
+
+        ```
+        {
+            "accounts": [
+                {
+                    "id": "foo",
+                    "smtp": "smtp.gmail.com",
+                    "email": "foo@gmail.com"
+                },
+                {
+                    "id": "bar",
+                    "smtp": "smtp.gmail.com",
+                    "email": "bar@gmail.com"
+                },
+                {
+                    "id": "baz",
+                    "smtp": "smtp.gmail.com",
+                    "email": "baz@gmail.com"
+                }
+            ],
+            "default": "foo"
+        }
+        ```
     """
-    if len(spec) == 0:
-        return
+    accounts = []
+    default_account = ''
 
-    if spec == '*':
-        for account in accounts:
-            write_account_json(sys.stdout, account)
-        return
+    with open(config_path) as json_file:
+        data = json.load(json_file)
+        default_account = data['default']
 
-    for id in spec.split(','):
-        for account in accounts:
-            if account.id == id:
-                write_account_json(sys.stdout, account)
+        for a in data['accounts']:
+            accounts.append(account(a['id'], a['smtp'], a['email']))
+
+    if len(accounts) == 0:
+        raise 'failed to parse email configuration file: accounts not found'
+
+    if default_account == '':
+        raise 'failed to parse email configuration file: default account is not specified'
+
+    return (accounts, default_account)
 
 
-def reload_config(accounts, default_account):
+def generate_mstp_config(accounts, default_account):
     """
     Reloads the existing msmtp config stored at ~/.msmptrc.
     """
@@ -176,30 +206,27 @@ def write_account(writer=None, data=None, newline=False):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--info',
-                        help='view info about comma-separated list of accounts'
-                        ', use `*` to view info about all accounts')
+    parser.add_argument('--path',
+                        help='path to the configuration file with emails mapping')
     parser.add_argument('--reload',
                         action='store_true',
                         help='generate new msmtprc and replace the existing')
 
     args = parser.parse_args()
 
-    if not args.reload and args.info is None:
+    if not args.reload and args.path is None:
         parser.print_help()
         return
 
-    accounts = [
-        account('dshil', 'smtp.fastmail.com', 'dshil@fastmail.com'),
-        account('shilinda', 'smtp.yandex.com', 'shilinda@yandex.com'),
-        account('sdadev', 'smtp.gmail.com', 'sdadeveloper@gmail.com'),
-    ]
+    config_path = args.path
+    if args.path is None:
+        config_path = os.path.join(os.environ['HOME'], 'cloud/Sync/mutt/msmtp.json')
 
-    if args.info is not None:
-        show_info(args.info, accounts)
+    if args.reload is None:
+        return
 
-    if args.reload:
-        reload_config(accounts, 'dshil')
+    accounts, default_account = parse_email_config(config_path)
+    generate_mstp_config(accounts, default_account)
 
 
 if __name__ == '__main__':

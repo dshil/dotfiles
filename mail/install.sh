@@ -8,8 +8,6 @@ set -xe
 #      usage: mbsync -V all
 #  * msmtp:
 #      info: send email
-#  * ripmime:
-#      info: save attachments from emails
 #  * w3m:
 #      info: read HTML in mutt with a good mood
 #  * urlsacn:
@@ -33,7 +31,7 @@ mkdir -p \
     $HOME/Mail/shilin
 
 sudo chmod +x $(pwd)/mail/msmtpctl.py
-ln -s -f $(pwd)/mail/msmtpctl.py $HOME/bin/msmtpctl
+ln -sf $(pwd)/mail/msmtpctl.py $HOME/bin/msmtpctl
 
 # Setup notmuch
 #
@@ -54,13 +52,13 @@ ln -s -f $(pwd)/mail/msmtpctl.py $HOME/bin/msmtpctl
 #   * Man page via key-bending for mutt: https://upsilon.cc/~zack/blog/posts/2011/01/how_to_use_Notmuch_with_Mutt/mutt-notmuch.1.html
 #
 sudo chmod +x $(pwd)/mail/mutt-notmuch
-ln -s -f $(pwd)/mail/mutt-notmuch $HOME/bin/mutt-notmuch
-ln -s -f $(pwd)/mail/notmuch-config $HOME/.notmuch-config
+ln -sf $(pwd)/mail/mutt-notmuch $HOME/bin/mutt-notmuch
+ln -sf $HOME/cloud/Sync/mutt/notmuch-config $HOME/.notmuch-config
 
 # Setup abook, command line utility to store contacts.
 #
 # Abook setup for mutt is shipped as a separate module. If you want to use it
-# inside your mutt, simply add `source $HOME/.mail/abook.muttrc` into your
+# inside your mutt, simply add `source $HOME/.mail/contact.muttrc` into your
 # main muttrc configuration file.
 #
 # For a while abook will be living together with the aliases provided by the
@@ -70,15 +68,12 @@ ln -s -f $(pwd)/mail/notmuch-config $HOME/.notmuch-config
 # abook --convert --informat mutt --infile ~/cloud/Sync/mutt/alias \
 #       --outformat abook --outfile ~/cloud/Sync/abook/addressbook
 #
-# To make your life easier you can invoke alias <-> abook converting directly
-# from the mutt. Just press <F5>.
-#
 # For more info see:
 #   * man abook
 #   * man abookrc
-ln -s -f $(pwd)/mail/abookrc $HOME/.abook/abookrc
-ln -s -f $HOME/cloud/Sync/abook/addressbook $HOME/.abook/addressbook
+ln -sf $(pwd)/mail/abookrc $HOME/.abook/abookrc
+ln -sf $HOME/cloud/Sync/abook/addressbook $HOME/.abook/addressbook
 
 # Ensure that gpg passwords will be stashed.
 mkdir -p ~/.gnupg
-ln -s -f $(pwd)/mail/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
+ln -sf $(pwd)/mail/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf

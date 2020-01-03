@@ -1,8 +1,0 @@
-# Options {{{
-set from      = "dshil@fastmail.com"
-set record    = "+dshil/sent"
-set trash     = +dshil/trash
-set spoolfile = +dshil/inbox
-# }}}
-
-# vim:syntax=neomuttrc:foldmethod=marker:foldlevel=0
