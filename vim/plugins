@@ -61,6 +61,7 @@ let g:ctrlp_map = '' " Disable CtrlP because of FZF usage
 
 " Plugin: 'scrooloose/nerdtree'
 let g:NERDTreeWinSize=35
+let NERDTreeShowHidden=1
 
 let g:PaperColor_Theme_Options = {
   \   'language' : {
