@@ -15,7 +15,9 @@ export PATH=$PATH:$GOBIN:$GOROOT/bin
 export PATH=$PATH:~/bin
 export PATH=$PATH:$(python3 -m site --user-base)/bin
 
-export IDF_PATH=/home/dshil/dev/enapter/dryer_firmware_1_5/sdk/esp-idf
+export LC_ALL="en_US.UTF-8"
+
+export IDF_PATH=$HOME/dev/enapter/dryer_firmware_1_5/sdk/esp-idf
 export PATH=$PATH:$HOME/dev/enapter/dryer_firmware_1_5/sdk/xtensa-esp32-elf/bin
 
 eval `ssh-agent -s 2>&1 > /dev/null`
