@@ -30,6 +30,12 @@ mkdir -p \
     $HOME/Mail/dshil \
     $HOME/Mail/shilin
 
+# Create fake accounts. See https://github.com/neomutt/neomutt/issues/1958
+touch \
+    $HOME/Mail/dshil-acc
+    $HOME/Mail/sdadev-acc
+    $HOME/Mail/shilinda-acc
+
 sudo chmod +x $(pwd)/mail/msmtpctl.py
 ln -sf $(pwd)/mail/msmtpctl.py $HOME/bin/msmtpctl
 
