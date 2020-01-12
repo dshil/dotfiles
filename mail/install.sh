@@ -27,8 +27,7 @@ mkdir -p \
     $HOME/Mail \
     $HOME/Mail/sdadev \
     $HOME/Mail/shilinda \
-    $HOME/Mail/dshil \
-    $HOME/Mail/shilin
+    $HOME/Mail/dshil
 
 # Create fake accounts. See https://github.com/neomutt/neomutt/issues/1958
 touch \
