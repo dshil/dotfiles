@@ -2,5 +2,5 @@
 
 set -xe
 
-sudo pacman -Syu
 sudo pacman-key --refresh-keys
+sudo pacman -Syu
