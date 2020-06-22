@@ -15,10 +15,13 @@ export PATH=$PATH:$GOBIN:$GOROOT/bin
 export PATH=$PATH:~/bin
 export PATH=$PATH:$(python3 -m site --user-base)/bin
 
+export PATH=$PATH:$HOME/dev/enapter/esp32-firmware/tools
+
 export LC_ALL="en_US.UTF-8"
 
-export IDF_PATH=$HOME/dev/enapter/dryer_firmware_1_5/sdk/esp-idf
-export PATH=$PATH:$HOME/dev/enapter/dryer_firmware_1_5/sdk/xtensa-esp32-elf/bin
+export IDF_PATH=$HOME/src/esp-idf-v4.0.1
+export PATH=$PATH:$IDF_PATH/tools
+export PATH=$PATH:$HOME/.espressif/tools/xtensa-esp32-elf/esp-2019r2-8.2.0/xtensa-esp32-elf/bin
 
 eval `ssh-agent -s 2>&1 > /dev/null`
 
