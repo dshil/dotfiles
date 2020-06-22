@@ -26,6 +26,7 @@ Plug 'junegunn/limelight.vim'
 " Git:
 Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'rhysd/git-messenger.vim'
 
 " General:
 Plug 'tpope/vim-commentary'
