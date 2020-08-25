@@ -17,6 +17,6 @@ fun! SetWriteModeColor()
     highlight MatchParen ctermbg=blue
 endfun
 
-call SetCodeModeColor()
+call SetWriteModeColor()
 
 " vim:syntax=vim:foldmethod=marker:foldlevel=0
