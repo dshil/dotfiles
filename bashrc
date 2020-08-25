@@ -19,9 +19,9 @@ export PATH=$PATH:$HOME/dev/enapter/esp32-firmware/tools
 
 export LC_ALL="en_US.UTF-8"
 
-export IDF_PATH=$HOME/src/esp-idf-v4.0.1
+export IDF_PATH=$HOME/dev/esp-idf-upstream
 export PATH=$PATH:$IDF_PATH/tools
-export PATH=$PATH:$HOME/.espressif/tools/xtensa-esp32-elf/esp-2019r2-8.2.0/xtensa-esp32-elf/bin
+export PATH=$PATH:$HOME/.espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin
 
 eval `ssh-agent -s 2>&1 > /dev/null`
 
