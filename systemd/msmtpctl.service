@@ -1,8 +1,0 @@
-[Unit]
-Description=Reload msmtp config service
-
-Requires=msmtpctl.timer
-
-[Service]
-Type=oneshot
-ExecStart=%h/bin/msmtpctl --reload

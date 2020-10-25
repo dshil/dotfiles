@@ -7,16 +7,13 @@ mkdir -p $usrdir
 
 services=(
     rdm.service
-    mbsync.service
-    msmtpctl.service
 )
 
-timers=(mbsync.timer msmtpctl.timer)
 sockets=(rdm.socket)
 
-known_units=("${services[@]}" "${timers[@]}" "${sockets[@]}")
-units_to_enable=("${timers[@]}" "${sockets[@]}")
-units_to_start=("${sockets[@]}" "${timers[@]}" rdm.service)
+known_units=("${services[@]}" "${sockets[@]}")
+units_to_enable=("${sockets[@]}")
+units_to_start=("${sockets[@]}" rdm.service)
 
 for unit in "${known_units[@]}"
 do

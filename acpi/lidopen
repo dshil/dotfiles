@@ -1,4 +1,0 @@
-#!/bin/bash
-
-freq=0x1e801e8
-intel_reg_write 0xC8254 $freq

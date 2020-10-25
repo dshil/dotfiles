@@ -17,19 +17,9 @@ ln -sf $dir/tmux.conf ~/.tmux.conf
 
 # Setup platform dependent links.
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    mkdir -p ~/.config/fontconfig ~/.config/i3
-
     ln -sf $dir/aliases/linux-gnu ~/.aliases
-
-    ln -sf $dir/x/xinitrc ~/.xinitrc
-    ln -sf $dir/x/Xresources ~/.Xresources
-
-    ln -sf $dir/i3/i3 ~/.config/i3/config
-
-    ln -sf $dir/screen/fonts.conf ~/.config/fontconfig/fonts.conf
 elif [[ "$OSTYPE" == "cygwin" ]]; then
     ln -sf $dir/aliases/win ~/.aliases
-
     sh $dir/git/forwin.sh
 else
     echo "Not implemented: ${OSTYPE}"
