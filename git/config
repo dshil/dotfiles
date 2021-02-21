@@ -35,5 +35,7 @@
     auto = 256
 [init]
     templatedir = ~/.git_template
+[pull]
+	rebase = false
 
 # vim:set shiftwidth=4 softtabstop=4 expandtab syntax=gitconfig:
