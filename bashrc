@@ -3,7 +3,6 @@
 export GOPATH=$HOME/dev/go
 export GOROOT=/usr/local/go
 export GOBIN=$GOPATH/bin
-export GO111MODULE=off
 
 export QMAKE=/usr/bin/qmake-qt5
 export BXSHARE=/usr/local/share/bochs
